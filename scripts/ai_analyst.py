@@ -127,7 +127,7 @@ Perform a full ICT analysis for {symbol} and return the JSON object as instructe
     client = AI.AI(api_key=api_key)
 
     response = client.messages.create(
-        model="AI-opus-4-6",
+        model="AI-sonnet-4-6",
         max_tokens=2048,
         thinking={"type": "adaptive"},
         system=[
