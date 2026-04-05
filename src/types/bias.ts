@@ -46,6 +46,7 @@ export interface InstrumentBias {
   key_poi_label: string;
   confidence: number;
   narrative: string;
+  narrative_ru?: string;
 }
 
 export interface DailyBias {
