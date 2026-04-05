@@ -9,9 +9,23 @@ import os
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
+import numpy as np
+
+
+class SafeEncoder(json.JSONEncoder):
+    """Handles numpy scalar types that Python 3.14 won't auto-convert."""
+    def default(self, obj):
+        if isinstance(obj, (np.bool_,)):
+            return bool(obj)
+        if isinstance(obj, (np.integer,)):
+            return int(obj)
+        if isinstance(obj, (np.floating,)):
+            return float(obj)
+        return super().default(obj)
 
 from fetch_data import fetch_all
 from ict_analysis import analyse, ICTAnalysis, OrderBlock, FVG, LiquidityLevel
+from ai_narrative import generate_ai_narrative
 
 
 OUTPUT_DIR = Path(__file__).parent.parent / "data" / "bias"
@@ -139,6 +153,9 @@ def main():
 
         try:
             analysis = analyse(symbol, daily_df, weekly_df)
+            # Replace rule-based narrative with Claude AI narrative
+            print(f"    Generating AI narrative for {symbol}...")
+            analysis.narrative = generate_ai_narrative(analysis, today)
             results.append(analysis)
             bias_icon = "▲" if analysis.daily_bias == "Bullish" else "▼" if analysis.daily_bias == "Bearish" else "◆"
             print(f"  {symbol}: {bias_icon} {analysis.daily_bias} | Confidence: {analysis.confidence}/10")
@@ -164,12 +181,12 @@ def main():
     }
 
     with open(out_path, "w") as f:
-        json.dump(output, f, indent=2)
+        json.dump(output, f, indent=2, cls=SafeEncoder)
 
     # Also write latest.json for the website to read easily
     latest_path = OUTPUT_DIR / "latest.json"
     with open(latest_path, "w") as f:
-        json.dump(output, f, indent=2)
+        json.dump(output, f, indent=2, cls=SafeEncoder)
 
     print(f"Done. {len(results)} instruments analysed.")
     if errors:
