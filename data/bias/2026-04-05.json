@@ -1,11 +1,11 @@
 {
   "date": "2026-04-05",
-  "generated_at": "2026-04-05T21:10:29.488604+00:00",
+  "generated_at": "2026-04-05T21:28:17.562294+00:00",
   "market_overview": "Daily market overview \u2014 Bullish: USDCAD, USDCHF, USDJPY, DXY, XAUUSD, USOIL; Bearish: EURUSD, GBPUSD, NZDUSD, SPX500; Neutral/Ranging: AUDUSD, XAGUSD. The US Dollar Index (DXY) is bullish, which supports USD strength \u2014 risk-off tone.",
   "instruments": [
     {
       "symbol": "EURUSD",
-      "current_price": 1.152605,
+      "current_price": 1.152472,
       "weekly_bias": "Neutral",
       "daily_bias": "Bearish",
       "structure_label": "LH+LL (Bearish) \u2013 LH:4 LL:4",
@@ -142,7 +142,7 @@
     },
     {
       "symbol": "GBPUSD",
-      "current_price": 1.319446,
+      "current_price": 1.319524,
       "weekly_bias": "Bullish",
       "daily_bias": "Bearish",
       "structure_label": "LH+LL (Bearish) \u2013 LH:4 LL:4",
@@ -279,7 +279,7 @@
     },
     {
       "symbol": "AUDUSD",
-      "current_price": 0.688743,
+      "current_price": 0.688473,
       "weekly_bias": "Bullish",
       "daily_bias": "Neutral",
       "structure_label": "Mixed structure \u2013 HH:2 HL:3 LH:3 LL:2",
@@ -416,7 +416,7 @@
     },
     {
       "symbol": "NZDUSD",
-      "current_price": 0.569411,
+      "current_price": 0.569606,
       "weekly_bias": "Neutral",
       "daily_bias": "Bearish",
       "structure_label": "LH+LL (Bearish) \u2013 LH:5 LL:3",
@@ -553,7 +553,7 @@
     },
     {
       "symbol": "USDCAD",
-      "current_price": 1.3925,
+      "current_price": 1.3933,
       "weekly_bias": "Neutral",
       "daily_bias": "Bullish",
       "structure_label": "HH+HL (Bullish) \u2013 HH:3 HL:3",
@@ -564,8 +564,8 @@
       "premium_discount": "Premium",
       "previous_day_high": 1.39484,
       "previous_day_low": 1.3913,
-      "previous_week_high": 1.39643,
-      "previous_week_low": 1.38689,
+      "previous_week_high": 1.3897,
+      "previous_week_low": 1.36699,
       "nearest_ob": {
         "timestamp": "2026-01-15T00:00:00",
         "high": 1.39189,
@@ -690,17 +690,17 @@
     },
     {
       "symbol": "USDCHF",
-      "current_price": 0.79942,
+      "current_price": 0.79947,
       "weekly_bias": "Bearish",
       "daily_bias": "Bullish",
-      "structure_label": "HH+HL (Bullish) \u2013 HH:3 HL:3",
-      "last_bos": "Price between swing high 0.80410 and swing low 0.78377",
+      "structure_label": "HH+HL (Bullish) \u2013 HH:3 HL:4",
+      "last_bos": "Price between swing high 0.80410 and swing low 0.79094",
       "swing_high": 0.8041,
-      "swing_low": 0.78377,
-      "equilibrium": 0.793935,
+      "swing_low": 0.79094,
+      "equilibrium": 0.79752,
       "premium_discount": "Premium",
-      "previous_day_high": 0.8008,
-      "previous_day_low": 0.793,
+      "previous_day_high": 0.80022,
+      "previous_day_low": 0.7976,
       "previous_week_high": 0.7983,
       "previous_week_low": 0.78377,
       "nearest_ob": {
@@ -770,11 +770,6 @@
           "equal": true
         },
         {
-          "price": 0.7923,
-          "kind": "SSL",
-          "equal": true
-        },
-        {
           "price": 0.78788,
           "kind": "SSL",
           "equal": false
@@ -787,7 +782,7 @@
         {
           "price": 0.7929,
           "kind": "SSL",
-          "equal": true
+          "equal": false
         },
         {
           "price": 0.786,
@@ -813,16 +808,21 @@
           "price": 0.78377,
           "kind": "SSL",
           "equal": false
+        },
+        {
+          "price": 0.79094,
+          "kind": "SSL",
+          "equal": false
         }
       ],
       "draw_on_liquidity": "BSL (EQH) at 0.80396",
       "key_poi_label": "Bullish OB D1: 0.79297\u20130.79698",
       "confidence": 5,
-      "narrative": "On the weekly timeframe, USDCHF is showing a bearish bias with hh+hl (bullish) \u2013 hh:3 hl:3. Price is currently above equilibrium (0.79394), placing it in a premium zone. Previous day high is 0.80080 and previous day low is 0.79300. Market structure: Price between swing high 0.80410 and swing low 0.78377. There is an unmitigated bullish order block between 0.79297 and 0.79698 - a key POI for potential reaction. The draw on liquidity is: BSL (EQH) at 0.80396. Overall, the daily bias for USDCHF is bullish (moderate, 5/10). Look for buys from discount POIs during London or NY killzone."
+      "narrative": "On the weekly timeframe, USDCHF is showing a bearish bias with hh+hl (bullish) \u2013 hh:3 hl:4. Price is currently above equilibrium (0.79752), placing it in a premium zone. Previous day high is 0.80022 and previous day low is 0.79760. Market structure: Price between swing high 0.80410 and swing low 0.79094. There is an unmitigated bullish order block between 0.79297 and 0.79698 - a key POI for potential reaction. The draw on liquidity is: BSL (EQH) at 0.80396. Overall, the daily bias for USDCHF is bullish (moderate, 5/10). Look for buys from discount POIs during London or NY killzone."
     },
     {
       "symbol": "USDJPY",
-      "current_price": 159.585007,
+      "current_price": 159.492996,
       "weekly_bias": "Neutral",
       "daily_bias": "Bullish",
       "structure_label": "HH+HL (Bullish) \u2013 HH:3 HL:3",
@@ -836,9 +836,9 @@
       "previous_week_high": 160.294006,
       "previous_week_low": 158.225006,
       "nearest_ob": {
-        "timestamp": "2026-03-18T00:00:00",
-        "high": 159.565994,
-        "low": 158.567001,
+        "timestamp": "2026-03-12T00:00:00",
+        "high": 159.283997,
+        "low": 158.572998,
         "kind": "bullish",
         "mitigated": false
       },
@@ -953,9 +953,9 @@
         }
       ],
       "draw_on_liquidity": "BSL (EQH) at 159.63100",
-      "key_poi_label": "Bullish OB D1: 158.56700\u2013159.56599",
+      "key_poi_label": "Bullish OB D1: 158.57300\u2013159.28400",
       "confidence": 5,
-      "narrative": "On the weekly timeframe, USDJPY is showing a neutral bias with hh+hl (bullish) \u2013 hh:3 hl:3. Price is currently above equilibrium (159.25500), placing it in a premium zone. Previous day high is 159.69501 and previous day low is 159.42700. Market structure: Price between swing high 160.23100 and swing low 158.27901. There is an unmitigated bullish order block between 158.56700 and 159.56599 - a key POI for potential reaction. The draw on liquidity is: BSL (EQH) at 159.63100. Overall, the daily bias for USDJPY is bullish (moderate, 5/10). Look for buys from discount POIs during London or NY killzone."
+      "narrative": "On the weekly timeframe, USDJPY is showing a neutral bias with hh+hl (bullish) \u2013 hh:3 hl:3. Price is currently above equilibrium (159.25500), placing it in a premium zone. Previous day high is 159.69501 and previous day low is 159.42700. Market structure: Price between swing high 160.23100 and swing low 158.27901. There is an unmitigated bullish order block between 158.57300 and 159.28400 - a key POI for potential reaction. The draw on liquidity is: BSL (EQH) at 159.63100. Overall, the daily bias for USDJPY is bullish (moderate, 5/10). Look for buys from discount POIs during London or NY killzone."
     },
     {
       "symbol": "DXY",
