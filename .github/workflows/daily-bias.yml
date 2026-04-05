@@ -36,6 +36,8 @@ jobs:
 
       # 4. Run the ICT analysis
       - name: Generate daily bias
+        env:
+          AI_API_KEY: ${{ secrets.AI_API_KEY }}
         run: |
           cd scripts
           python generate_bias.py
