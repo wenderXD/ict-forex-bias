@@ -146,15 +146,38 @@ Perform a full ICT analysis for {symbol} and return the JSON object as instructe
         if block.type == "text":
             raw_text += block.text
 
-    # Parse JSON — Claude may wrap it in ```json ... ``` fences
-    raw_text = raw_text.strip()
-    if raw_text.startswith("```"):
-        raw_text = raw_text.split("```")[1]
-        if raw_text.startswith("json"):
-            raw_text = raw_text[4:]
-    raw_text = raw_text.strip().rstrip("`").strip()
+    # Parse JSON — try multiple extraction strategies
+    print(f"    [claude] Raw response preview: {raw_text[:300]!r}")
 
-    result = json.loads(raw_text)
+    raw_text = raw_text.strip()
+
+    # Strategy 1: extract from ```json ... ``` fences
+    if "```" in raw_text:
+        parts = raw_text.split("```")
+        for part in parts:
+            if part.startswith("json"):
+                part = part[4:]
+            part = part.strip()
+            if part.startswith("{"):
+                raw_text = part
+                break
+
+    # Strategy 2: extract the first { ... } block
+    if not raw_text.startswith("{"):
+        start = raw_text.find("{")
+        end   = raw_text.rfind("}") + 1
+        if start != -1 and end > start:
+            raw_text = raw_text[start:end]
+
+    raw_text = raw_text.strip()
+    print(f"    [claude] Attempting JSON parse ({len(raw_text)} chars)...")
+
+    try:
+        result = json.loads(raw_text)
+    except json.JSONDecodeError as e:
+        print(f"    [claude] JSON parse failed: {e}")
+        print(f"    [claude] Full raw text:\n{raw_text}")
+        raise
 
     # Always inject current_price and symbol (not in Claude's output schema)
     result["symbol"] = symbol

@@ -147,8 +147,12 @@ def main():
             try:
                 print(f"  {symbol}: asking Claude...")
                 instrument_dict = analyse_with_claude(symbol, daily_df, weekly_df, today)
+                print(f"  {symbol}: Claude analysis OK")
             except Exception as e:
-                print(f"  {symbol}: Claude error ({e}) — falling back to rule-based")
+                import traceback
+                print(f"  {symbol}: Claude FAILED — {e}")
+                traceback.print_exc()
+                print(f"  {symbol}: falling back to rule-based")
 
         # --- Fallback: rule-based analysis ---
         if instrument_dict is None:
