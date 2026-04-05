@@ -26,13 +26,16 @@ function getDateIndex(): string[] {
   }
 }
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   const dates = getDateIndex();
   return dates.map((date) => ({ date }));
 }
 
-export default function ArchiveDatePage({ params }: { params: { date: string } }) {
-  const bias = getBias(params.date);
+export default async function ArchiveDatePage({ params }: { params: Promise<{ date: string }> }) {
+  const { date } = await params;
+  const bias = getBias(date);
   if (!bias) notFound();
 
   return (
