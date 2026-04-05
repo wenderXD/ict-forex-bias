@@ -147,8 +147,12 @@ def main():
             try:
                 print(f"  {symbol}: asking AI...")
                 instrument_dict = analyse_with_AI(symbol, daily_df, weekly_df, today)
+                print(f"  {symbol}: AI analysis OK")
             except Exception as e:
-                print(f"  {symbol}: AI error ({e}) — falling back to rule-based")
+                import traceback
+                print(f"  {symbol}: AI FAILED — {e}")
+                traceback.print_exc()
+                print(f"  {symbol}: falling back to rule-based")
 
         # --- Fallback: rule-based analysis ---
         if instrument_dict is None:
