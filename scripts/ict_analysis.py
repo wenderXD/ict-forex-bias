@@ -455,8 +455,9 @@ def build_narrative(
     )
 
     # Price location
+    above_below = "above" if current_price > eq else "below"
     parts.append(
-        f"Price is currently {"above" if current_price > eq else "below"} equilibrium "
+        f"Price is currently {above_below} equilibrium "
         f"({eq:.5f}), placing it in a {pd_zone.lower()} zone. "
         f"Previous day high is {pdh:.5f} and previous day low is {pdl:.5f}."
     )
@@ -468,12 +469,12 @@ def build_narrative(
     if ob:
         parts.append(
             f"There is an unmitigated {ob.kind} order block between "
-            f"{ob.low:.5f} and {ob.high:.5f} — a key POI for potential reaction."
+            f"{ob.low:.5f} and {ob.high:.5f} - a key POI for potential reaction."
         )
     elif fvg:
         parts.append(
             f"A {fvg.kind} fair value gap exists between {fvg.bottom:.5f} and {fvg.top:.5f} "
-            f"(CE: {fvg.ce:.5f}) — price may seek to fill this imbalance."
+            f"(CE: {fvg.ce:.5f}) - price may seek to fill this imbalance."
         )
 
     # Draw
