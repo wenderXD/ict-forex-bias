@@ -39,6 +39,11 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.DAILYBIASKEY }}
         run: |
+          if [ -z "$ANTHROPIC_API_KEY" ]; then
+            echo "ERROR: ANTHROPIC_API_KEY is empty — check DAILYBIASKEY secret"
+          else
+            echo "API key loaded OK (length: ${#ANTHROPIC_API_KEY})"
+          fi
           cd scripts
           python generate_bias.py
 
