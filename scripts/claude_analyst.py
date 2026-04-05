@@ -33,7 +33,12 @@ ICT concepts to apply:
 - Draw on liquidity: the nearest significant unmitigated pool price is likely targeting
 - Power of 3: Accumulation → Manipulation → Distribution context
 
-Return ONLY this JSON structure (fill every field, no nulls unless truly absent):
+Return your analysis wrapped in <result> and </result> tags like this:
+<result>
+{ ... your JSON here ... }
+</result>
+
+The JSON structure to fill (no nulls unless truly absent):
 
 {
   "weekly_bias": "Bullish" | "Bearish" | "Neutral",
@@ -146,37 +151,21 @@ Perform a full ICT analysis for {symbol} and return the JSON object as instructe
         if block.type == "text":
             raw_text += block.text
 
-    # Parse JSON — try multiple extraction strategies
-    print(f"    [claude] Raw response preview: {raw_text[:300]!r}")
+    # Extract JSON from <result>...</result> tags
+    print(f"    [claude] Response length: {len(raw_text)} chars")
 
-    raw_text = raw_text.strip()
+    if "<result>" not in raw_text or "</result>" not in raw_text:
+        print(f"    [claude] No <result> tags found. Full response:\n{raw_text}")
+        raise ValueError("Claude response missing <result> tags")
 
-    # Strategy 1: extract from ```json ... ``` fences
-    if "```" in raw_text:
-        parts = raw_text.split("```")
-        for part in parts:
-            if part.startswith("json"):
-                part = part[4:]
-            part = part.strip()
-            if part.startswith("{"):
-                raw_text = part
-                break
-
-    # Strategy 2: extract the first { ... } block
-    if not raw_text.startswith("{"):
-        start = raw_text.find("{")
-        end   = raw_text.rfind("}") + 1
-        if start != -1 and end > start:
-            raw_text = raw_text[start:end]
-
-    raw_text = raw_text.strip()
-    print(f"    [claude] Attempting JSON parse ({len(raw_text)} chars)...")
+    json_str = raw_text.split("<result>")[1].split("</result>")[0].strip()
+    print(f"    [claude] Extracted JSON ({len(json_str)} chars)")
 
     try:
-        result = json.loads(raw_text)
+        result = json.loads(json_str)
     except json.JSONDecodeError as e:
         print(f"    [claude] JSON parse failed: {e}")
-        print(f"    [claude] Full raw text:\n{raw_text}")
+        print(f"    [claude] JSON string:\n{json_str}")
         raise
 
     # Always inject current_price and symbol (not in Claude's output schema)
