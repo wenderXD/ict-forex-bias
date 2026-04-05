@@ -490,7 +490,7 @@ def build_narrative(
 
     parts.append(
         f"Overall, the daily bias for {symbol} is {bias_word} ({strength}, {confidence}/10). "
-        f"{"Look for buys from discount POIs during London or NY killzone." if daily_bias == "Bullish" else "Look for sells from premium POIs during London or NY killzone." if daily_bias == "Bearish" else "No clear directional bias — wait for a structural shift or liquidity sweep."}"
+        f"{'Look for buys from discount POIs during London or NY killzone.' if daily_bias == 'Bullish' else 'Look for sells from premium POIs during London or NY killzone.' if daily_bias == 'Bearish' else 'No clear directional bias - wait for a structural shift or liquidity sweep.'}"
     )
 
     return " ".join(parts)
