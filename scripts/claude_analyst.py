@@ -133,8 +133,7 @@ Perform a full ICT analysis for {symbol} and return the JSON object as instructe
 
     response = client.messages.create(
         model="claude-sonnet-4-6",
-        max_tokens=2048,
-        thinking={"type": "adaptive"},
+        max_tokens=4096,
         system=[
             {
                 "type": "text",
@@ -145,9 +144,10 @@ Perform a full ICT analysis for {symbol} and return the JSON object as instructe
         messages=[{"role": "user", "content": user_prompt}],
     )
 
-    # Extract the text block (skip thinking blocks)
+    # Extract text blocks
     raw_text = ""
     for block in response.content:
+        print(f"    [claude] Block type: {block.type}")
         if block.type == "text":
             raw_text += block.text
 
