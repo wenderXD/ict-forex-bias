@@ -1,0 +1,1641 @@
+{
+  "date": "2026-04-05",
+  "generated_at": "2026-04-05T20:00:44.007780+00:00",
+  "market_overview": "Daily market overview \u2014 Bullish: USDCAD, USDCHF, USDJPY, DXY, XAUUSD, USOIL; Bearish: EURUSD, GBPUSD, NZDUSD, SPX500; Neutral/Ranging: AUDUSD, XAGUSD. The US Dollar Index (DXY) is bullish, which supports USD strength \u2014 risk-off tone.",
+  "instruments": [
+    {
+      "symbol": "EURUSD",
+      "current_price": 1.151808,
+      "weekly_bias": "Neutral",
+      "daily_bias": "Bearish",
+      "structure_label": "LH+LL (Bearish) \u2013 LH:4 LL:4",
+      "last_bos": "Price between swing high 1.16266 and swing low 1.14439",
+      "swing_high": 1.162656,
+      "swing_low": 1.144387,
+      "equilibrium": 1.153521,
+      "premium_discount": "Discount",
+      "previous_day_high": 1.154868,
+      "previous_day_low": 1.152087,
+      "previous_week_high": 1.163792,
+      "previous_week_low": 1.148501,
+      "nearest_ob": {
+        "timestamp": "2025-11-19T00:00:00",
+        "high": 1.159757,
+        "low": 1.153536,
+        "kind": "bearish",
+        "mitigated": false
+      },
+      "nearest_fvg": {
+        "timestamp": "2026-04-01T23:00:00",
+        "top": 1.155588,
+        "bottom": 1.154868,
+        "ce": 1.155228,
+        "kind": "bearish",
+        "filled": false
+      },
+      "liquidity_levels": [
+        {
+          "price": 1.166861,
+          "kind": "BSL",
+          "equal": true
+        },
+        {
+          "price": 1.165365,
+          "kind": "BSL",
+          "equal": true
+        },
+        {
+          "price": 1.168224,
+          "kind": "BSL",
+          "equal": true
+        },
+        {
+          "price": 1.18047,
+          "kind": "BSL",
+          "equal": true
+        },
+        {
+          "price": 1.180916,
+          "kind": "BSL",
+          "equal": true
+        },
+        {
+          "price": 1.202357,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 1.192848,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 1.166385,
+          "kind": "BSL",
+          "equal": true
+        },
+        {
+          "price": 1.163792,
+          "kind": "BSL",
+          "equal": true
+        },
+        {
+          "price": 1.162656,
+          "kind": "BSL",
+          "equal": true
+        },
+        {
+          "price": 1.161697,
+          "kind": "SSL",
+          "equal": true
+        },
+        {
+          "price": 1.170412,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 1.161926,
+          "kind": "SSL",
+          "equal": true
+        },
+        {
+          "price": 1.158547,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 1.176747,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 1.174302,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 1.153203,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 1.150814,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 1.141566,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 1.144387,
+          "kind": "SSL",
+          "equal": false
+        }
+      ],
+      "draw_on_liquidity": "SSL at 1.15081",
+      "key_poi_label": "Bearish OB D1: 1.15354\u20131.15976",
+      "confidence": 5,
+      "narrative": "On the weekly timeframe, EURUSD is showing a neutral bias with lh+ll (bearish) \u2013 lh:4 ll:4. Price is currently below equilibrium (1.15352), placing it in a discount zone. Previous day high is 1.15487 and previous day low is 1.15209. Market structure: Price between swing high 1.16266 and swing low 1.14439. There is an unmitigated bearish order block between 1.15354 and 1.15976 \u2014 a key POI for potential reaction. The draw on liquidity is: SSL at 1.15081. Overall, the daily bias for EURUSD is bearish (moderate, 5/10). Look for sells from premium POIs during London or NY killzone."
+    },
+    {
+      "symbol": "GBPUSD",
+      "current_price": 1.320552,
+      "weekly_bias": "Bullish",
+      "daily_bias": "Bearish",
+      "structure_label": "LH+LL (Bearish) \u2013 LH:4 LL:4",
+      "last_bos": "Price between swing high 1.34764 and swing low 1.31612",
+      "swing_high": 1.347636,
+      "swing_low": 1.316119,
+      "equilibrium": 1.331877,
+      "premium_discount": "Discount",
+      "previous_day_high": 1.324503,
+      "previous_day_low": 1.319784,
+      "previous_week_high": 1.347636,
+      "previous_week_low": 1.325996,
+      "nearest_ob": {
+        "timestamp": "2026-03-13T00:00:00",
+        "high": 1.33697,
+        "low": 1.323364,
+        "kind": "bearish",
+        "mitigated": false
+      },
+      "nearest_fvg": {
+        "timestamp": "2026-03-26T00:00:00",
+        "top": 1.33613,
+        "bottom": 1.3348,
+        "ce": 1.335465,
+        "kind": "bearish",
+        "filled": false
+      },
+      "liquidity_levels": [
+        {
+          "price": 1.338419,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 1.345406,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 1.353546,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 1.356815,
+          "kind": "BSL",
+          "equal": true
+        },
+        {
+          "price": 1.348872,
+          "kind": "BSL",
+          "equal": true
+        },
+        {
+          "price": 1.384677,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 1.371291,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 1.357405,
+          "kind": "BSL",
+          "equal": true
+        },
+        {
+          "price": 1.348145,
+          "kind": "BSL",
+          "equal": true
+        },
+        {
+          "price": 1.347636,
+          "kind": "BSL",
+          "equal": true
+        },
+        {
+          "price": 1.329027,
+          "kind": "SSL",
+          "equal": true
+        },
+        {
+          "price": 1.331363,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 1.340339,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 1.336559,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 1.350986,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 1.343526,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 1.325486,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 1.328498,
+          "kind": "SSL",
+          "equal": true
+        },
+        {
+          "price": 1.323241,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 1.316119,
+          "kind": "SSL",
+          "equal": false
+        }
+      ],
+      "draw_on_liquidity": "SSL at 1.31612",
+      "key_poi_label": "Bearish OB D1: 1.32336\u20131.33697",
+      "confidence": 5,
+      "narrative": "On the weekly timeframe, GBPUSD is showing a bullish bias with lh+ll (bearish) \u2013 lh:4 ll:4. Price is currently below equilibrium (1.33188), placing it in a discount zone. Previous day high is 1.32450 and previous day low is 1.31978. Market structure: Price between swing high 1.34764 and swing low 1.31612. There is an unmitigated bearish order block between 1.32336 and 1.33697 \u2014 a key POI for potential reaction. The draw on liquidity is: SSL at 1.31612. Overall, the daily bias for GBPUSD is bearish (moderate, 5/10). Look for sells from premium POIs during London or NY killzone."
+    },
+    {
+      "symbol": "AUDUSD",
+      "current_price": 0.689175,
+      "weekly_bias": "Bullish",
+      "daily_bias": "Neutral",
+      "structure_label": "Mixed structure \u2013 HH:2 HL:3 LH:3 LL:2",
+      "last_bos": "Price between swing high 0.69623 and swing low 0.68342",
+      "swing_high": 0.69623,
+      "swing_low": 0.68342,
+      "equilibrium": 0.689825,
+      "premium_discount": "Discount",
+      "previous_day_high": 0.69191,
+      "previous_day_low": 0.68916,
+      "previous_week_high": 0.7059,
+      "previous_week_low": 0.68651,
+      "nearest_ob": {
+        "timestamp": "2026-03-30T23:00:00",
+        "high": 0.68883,
+        "low": 0.68352,
+        "kind": "bullish",
+        "mitigated": false
+      },
+      "nearest_fvg": {
+        "timestamp": "2026-01-22T00:00:00",
+        "top": 0.68348,
+        "bottom": 0.67775,
+        "ce": 0.680615,
+        "kind": "bullish",
+        "filled": false
+      },
+      "liquidity_levels": [
+        {
+          "price": 0.65803,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 0.667913,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 0.672812,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 0.6768,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 0.7094,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 0.71473,
+          "kind": "BSL",
+          "equal": true
+        },
+        {
+          "price": 0.713725,
+          "kind": "BSL",
+          "equal": true
+        },
+        {
+          "price": 0.718458,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 0.71229,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 0.69623,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 0.66615,
+          "kind": "SSL",
+          "equal": true
+        },
+        {
+          "price": 0.66648,
+          "kind": "SSL",
+          "equal": true
+        },
+        {
+          "price": 0.66684,
+          "kind": "SSL",
+          "equal": true
+        },
+        {
+          "price": 0.691018,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 0.68979,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 0.701671,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 0.69455,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 0.695691,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 0.69979,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 0.68342,
+          "kind": "SSL",
+          "equal": false
+        }
+      ],
+      "draw_on_liquidity": "SSL at 0.68342",
+      "key_poi_label": "Bullish OB D1: 0.68352\u20130.68883",
+      "confidence": 3,
+      "narrative": "On the weekly timeframe, AUDUSD is showing a bullish bias with mixed structure \u2013 hh:2 hl:3 lh:3 ll:2. Price is currently below equilibrium (0.68983), placing it in a discount zone. Previous day high is 0.69191 and previous day low is 0.68916. Market structure: Price between swing high 0.69623 and swing low 0.68342. There is an unmitigated bullish order block between 0.68352 and 0.68883 \u2014 a key POI for potential reaction. The draw on liquidity is: SSL at 0.68342. Overall, the daily bias for AUDUSD is neutral (low-confidence, 3/10). No clear directional bias \u2014 wait for a structural shift or liquidity sweep."
+    },
+    {
+      "symbol": "NZDUSD",
+      "current_price": 0.570028,
+      "weekly_bias": "Neutral",
+      "daily_bias": "Bearish",
+      "structure_label": "LH+LL (Bearish) \u2013 LH:5 LL:3",
+      "last_bos": "Bearish BOS \u2013 close broke swing low 0.57009",
+      "swing_high": 0.589209,
+      "swing_low": 0.57009,
+      "equilibrium": 0.579649,
+      "premium_discount": "Discount",
+      "previous_day_high": 0.5723,
+      "previous_day_low": 0.56945,
+      "previous_week_high": 0.58862,
+      "previous_week_low": 0.573,
+      "nearest_ob": {
+        "timestamp": "2026-01-12T00:00:00",
+        "high": 0.576961,
+        "low": 0.57279,
+        "kind": "bearish",
+        "mitigated": false
+      },
+      "nearest_fvg": {
+        "timestamp": "2026-04-01T23:00:00",
+        "top": 0.573171,
+        "bottom": 0.5723,
+        "ce": 0.572736,
+        "kind": "bearish",
+        "filled": false
+      },
+      "liquidity_levels": [
+        {
+          "price": 0.58322,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 0.585329,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 0.581051,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 0.578122,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 0.609329,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 0.607652,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 0.605081,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 0.601319,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 0.596189,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 0.589209,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 0.57372,
+          "kind": "SSL",
+          "equal": true
+        },
+        {
+          "price": 0.574162,
+          "kind": "SSL",
+          "equal": true
+        },
+        {
+          "price": 0.571249,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 0.572721,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 0.59294,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 0.593969,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 0.583829,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 0.585189,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 0.576389,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 0.57009,
+          "kind": "SSL",
+          "equal": false
+        }
+      ],
+      "draw_on_liquidity": "No clear liquidity draw identified",
+      "key_poi_label": "Bearish OB D1: 0.57279\u20130.57696",
+      "confidence": 5,
+      "narrative": "On the weekly timeframe, NZDUSD is showing a neutral bias with lh+ll (bearish) \u2013 lh:5 ll:3. Price is currently below equilibrium (0.57965), placing it in a discount zone. Previous day high is 0.57230 and previous day low is 0.56945. Market structure: Bearish BOS \u2013 close broke swing low 0.57009. There is an unmitigated bearish order block between 0.57279 and 0.57696 \u2014 a key POI for potential reaction. The draw on liquidity is: No clear liquidity draw identified. Overall, the daily bias for NZDUSD is bearish (moderate, 5/10). Look for sells from premium POIs during London or NY killzone."
+    },
+    {
+      "symbol": "USDCAD",
+      "current_price": 1.3926,
+      "weekly_bias": "Neutral",
+      "daily_bias": "Bullish",
+      "structure_label": "HH+HL (Bullish) \u2013 HH:3 HL:3",
+      "last_bos": "Price between swing high 1.39643 and swing low 1.36699",
+      "swing_high": 1.39643,
+      "swing_low": 1.36699,
+      "equilibrium": 1.38171,
+      "premium_discount": "Premium",
+      "previous_day_high": 1.39484,
+      "previous_day_low": 1.3913,
+      "previous_week_high": 1.3897,
+      "previous_week_low": 1.36699,
+      "nearest_ob": {
+        "timestamp": "2026-01-15T00:00:00",
+        "high": 1.39189,
+        "low": 1.3883,
+        "kind": "bullish",
+        "mitigated": false
+      },
+      "nearest_fvg": {
+        "timestamp": "2026-04-01T23:00:00",
+        "top": 1.3913,
+        "bottom": 1.3911,
+        "ce": 1.3912,
+        "kind": "bullish",
+        "filled": false
+      },
+      "liquidity_levels": [
+        {
+          "price": 1.40789,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 1.41395,
+          "kind": "BSL",
+          "equal": true
+        },
+        {
+          "price": 1.41295,
+          "kind": "BSL",
+          "equal": true
+        },
+        {
+          "price": 1.38,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 1.39237,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 1.37236,
+          "kind": "BSL",
+          "equal": true
+        },
+        {
+          "price": 1.37247,
+          "kind": "BSL",
+          "equal": true
+        },
+        {
+          "price": 1.37525,
+          "kind": "BSL",
+          "equal": true
+        },
+        {
+          "price": 1.3736,
+          "kind": "BSL",
+          "equal": true
+        },
+        {
+          "price": 1.39643,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 1.38887,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 1.39851,
+          "kind": "SSL",
+          "equal": true
+        },
+        {
+          "price": 1.3984,
+          "kind": "SSL",
+          "equal": true
+        },
+        {
+          "price": 1.37302,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 1.3642,
+          "kind": "SSL",
+          "equal": true
+        },
+        {
+          "price": 1.3484,
+          "kind": "SSL",
+          "equal": true
+        },
+        {
+          "price": 1.35042,
+          "kind": "SSL",
+          "equal": true
+        },
+        {
+          "price": 1.36287,
+          "kind": "SSL",
+          "equal": true
+        },
+        {
+          "price": 1.3526,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 1.36699,
+          "kind": "SSL",
+          "equal": false
+        }
+      ],
+      "draw_on_liquidity": "BSL at 1.39643",
+      "key_poi_label": "Bullish OB D1: 1.38830\u20131.39189",
+      "confidence": 5,
+      "narrative": "On the weekly timeframe, USDCAD is showing a neutral bias with hh+hl (bullish) \u2013 hh:3 hl:3. Price is currently above equilibrium (1.38171), placing it in a premium zone. Previous day high is 1.39484 and previous day low is 1.39130. Market structure: Price between swing high 1.39643 and swing low 1.36699. There is an unmitigated bullish order block between 1.38830 and 1.39189 \u2014 a key POI for potential reaction. The draw on liquidity is: BSL at 1.39643. Overall, the daily bias for USDCAD is bullish (moderate, 5/10). Look for buys from discount POIs during London or NY killzone."
+    },
+    {
+      "symbol": "USDCHF",
+      "current_price": 0.79942,
+      "weekly_bias": "Bearish",
+      "daily_bias": "Bullish",
+      "structure_label": "HH+HL (Bullish) \u2013 HH:3 HL:3",
+      "last_bos": "Price between swing high 0.80410 and swing low 0.78377",
+      "swing_high": 0.8041,
+      "swing_low": 0.78377,
+      "equilibrium": 0.793935,
+      "premium_discount": "Premium",
+      "previous_day_high": 0.8008,
+      "previous_day_low": 0.793,
+      "previous_week_high": 0.7983,
+      "previous_week_low": 0.78377,
+      "nearest_ob": {
+        "timestamp": "2025-12-16T00:00:00",
+        "high": 0.79698,
+        "low": 0.79297,
+        "kind": "bullish",
+        "mitigated": false
+      },
+      "nearest_fvg": {
+        "timestamp": "2026-03-12T00:00:00",
+        "top": 0.7845,
+        "bottom": 0.78053,
+        "ce": 0.782515,
+        "kind": "bullish",
+        "filled": false
+      },
+      "liquidity_levels": [
+        {
+          "price": 0.81235,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 0.8102,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 0.80839,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 0.79869,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 0.80396,
+          "kind": "BSL",
+          "equal": true
+        },
+        {
+          "price": 0.78159,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 0.77711,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 0.7878,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 0.79572,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 0.8041,
+          "kind": "BSL",
+          "equal": true
+        },
+        {
+          "price": 0.7923,
+          "kind": "SSL",
+          "equal": true
+        },
+        {
+          "price": 0.78788,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 0.7993,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 0.7929,
+          "kind": "SSL",
+          "equal": true
+        },
+        {
+          "price": 0.786,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 0.7629,
+          "kind": "SSL",
+          "equal": true
+        },
+        {
+          "price": 0.7671,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 0.7746,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 0.78377,
+          "kind": "SSL",
+          "equal": false
+        }
+      ],
+      "draw_on_liquidity": "BSL (EQH) at 0.80396",
+      "key_poi_label": "Bullish OB D1: 0.79297\u20130.79698",
+      "confidence": 5,
+      "narrative": "On the weekly timeframe, USDCHF is showing a bearish bias with hh+hl (bullish) \u2013 hh:3 hl:3. Price is currently above equilibrium (0.79394), placing it in a premium zone. Previous day high is 0.80080 and previous day low is 0.79300. Market structure: Price between swing high 0.80410 and swing low 0.78377. There is an unmitigated bullish order block between 0.79297 and 0.79698 \u2014 a key POI for potential reaction. The draw on liquidity is: BSL (EQH) at 0.80396. Overall, the daily bias for USDCHF is bullish (moderate, 5/10). Look for buys from discount POIs during London or NY killzone."
+    },
+    {
+      "symbol": "USDJPY",
+      "current_price": 159.632004,
+      "weekly_bias": "Neutral",
+      "daily_bias": "Bullish",
+      "structure_label": "HH+HL (Bullish) \u2013 HH:3 HL:3",
+      "last_bos": "Price between swing high 160.23100 and swing low 157.73700",
+      "swing_high": 160.231003,
+      "swing_low": 157.737,
+      "equilibrium": 158.984001,
+      "premium_discount": "Premium",
+      "previous_day_high": 159.742004,
+      "previous_day_low": 158.600998,
+      "previous_week_high": 160.294006,
+      "previous_week_low": 158.225006,
+      "nearest_ob": {
+        "timestamp": "2026-03-18T00:00:00",
+        "high": 159.565994,
+        "low": 158.567001,
+        "kind": "bullish",
+        "mitigated": false
+      },
+      "nearest_fvg": {
+        "timestamp": "2026-04-01T23:00:00",
+        "top": 159.417999,
+        "bottom": 158.990005,
+        "ce": 159.204002,
+        "kind": "bullish",
+        "filled": false
+      },
+      "liquidity_levels": [
+        {
+          "price": 157.886993,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 156.917999,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 157.649002,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 157.292007,
+          "kind": "BSL",
+          "equal": true
+        },
+        {
+          "price": 159.438004,
+          "kind": "BSL",
+          "equal": true
+        },
+        {
+          "price": 159.207001,
+          "kind": "BSL",
+          "equal": true
+        },
+        {
+          "price": 157.328003,
+          "kind": "BSL",
+          "equal": true
+        },
+        {
+          "price": 159.630997,
+          "kind": "BSL",
+          "equal": true
+        },
+        {
+          "price": 159.815994,
+          "kind": "BSL",
+          "equal": true
+        },
+        {
+          "price": 160.231003,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 151.548996,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 152.852997,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 153.649994,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 154.352005,
+          "kind": "SSL",
+          "equal": true
+        },
+        {
+          "price": 154.470001,
+          "kind": "SSL",
+          "equal": true
+        },
+        {
+          "price": 156.158997,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 157.425003,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 152.330002,
+          "kind": "SSL",
+          "equal": true
+        },
+        {
+          "price": 152.278,
+          "kind": "SSL",
+          "equal": true
+        },
+        {
+          "price": 157.737,
+          "kind": "SSL",
+          "equal": false
+        }
+      ],
+      "draw_on_liquidity": "BSL (EQH) at 159.81599",
+      "key_poi_label": "Bullish OB D1: 158.56700\u2013159.56599",
+      "confidence": 5,
+      "narrative": "On the weekly timeframe, USDJPY is showing a neutral bias with hh+hl (bullish) \u2013 hh:3 hl:3. Price is currently above equilibrium (158.98400), placing it in a premium zone. Previous day high is 159.74200 and previous day low is 158.60100. Market structure: Price between swing high 160.23100 and swing low 157.73700. There is an unmitigated bullish order block between 158.56700 and 159.56599 \u2014 a key POI for potential reaction. The draw on liquidity is: BSL (EQH) at 159.81599. Overall, the daily bias for USDJPY is bullish (moderate, 5/10). Look for buys from discount POIs during London or NY killzone."
+    },
+    {
+      "symbol": "DXY",
+      "current_price": 100.029999,
+      "weekly_bias": "Neutral",
+      "daily_bias": "Bullish",
+      "structure_label": "HH+HL (Bullish) \u2013 HH:4 HL:3",
+      "last_bos": "Price between swing high 100.54000 and swing low 98.88000",
+      "swing_high": 100.540001,
+      "swing_low": 98.879997,
+      "equilibrium": 99.709999,
+      "premium_discount": "Premium",
+      "previous_day_high": 99.879997,
+      "previous_day_low": 99.300003,
+      "previous_week_high": 100.209999,
+      "previous_week_low": 98.879997,
+      "nearest_ob": {
+        "timestamp": "2026-03-06T05:00:00",
+        "high": 99.440002,
+        "low": 98.839996,
+        "kind": "bullish",
+        "mitigated": false
+      },
+      "nearest_fvg": {
+        "timestamp": "2026-03-02T05:00:00",
+        "top": 98.440002,
+        "bottom": 97.849998,
+        "ce": 98.145,
+        "kind": "bullish",
+        "filled": false
+      },
+      "liquidity_levels": [
+        {
+          "price": 100.360001,
+          "kind": "BSL",
+          "equal": true
+        },
+        {
+          "price": 100.400002,
+          "kind": "BSL",
+          "equal": true
+        },
+        {
+          "price": 99.309998,
+          "kind": "BSL",
+          "equal": true
+        },
+        {
+          "price": 98.75,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 99.260002,
+          "kind": "BSL",
+          "equal": true
+        },
+        {
+          "price": 99.489998,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 97.989998,
+          "kind": "BSL",
+          "equal": true
+        },
+        {
+          "price": 98.080002,
+          "kind": "BSL",
+          "equal": true
+        },
+        {
+          "price": 99.68,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 100.540001,
+          "kind": "BSL",
+          "equal": true
+        },
+        {
+          "price": 98.57,
+          "kind": "SSL",
+          "equal": true
+        },
+        {
+          "price": 98.989998,
+          "kind": "SSL",
+          "equal": true
+        },
+        {
+          "price": 98.769997,
+          "kind": "SSL",
+          "equal": true
+        },
+        {
+          "price": 97.870003,
+          "kind": "SSL",
+          "equal": true
+        },
+        {
+          "price": 97.75,
+          "kind": "SSL",
+          "equal": true
+        },
+        {
+          "price": 95.550003,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 96.489998,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 98.489998,
+          "kind": "SSL",
+          "equal": true
+        },
+        {
+          "price": 98.879997,
+          "kind": "SSL",
+          "equal": true
+        }
+      ],
+      "draw_on_liquidity": "BSL (EQH) at 100.36000",
+      "key_poi_label": "Bullish OB D1: 98.84000\u201399.44000",
+      "confidence": 5,
+      "narrative": "On the weekly timeframe, DXY is showing a neutral bias with hh+hl (bullish) \u2013 hh:4 hl:3. Price is currently above equilibrium (99.71000), placing it in a premium zone. Previous day high is 99.88000 and previous day low is 99.30000. Market structure: Price between swing high 100.54000 and swing low 98.88000. There is an unmitigated bullish order block between 98.84000 and 99.44000 \u2014 a key POI for potential reaction. The draw on liquidity is: BSL (EQH) at 100.36000. Overall, the daily bias for DXY is bullish (moderate, 5/10). Look for buys from discount POIs during London or NY killzone."
+    },
+    {
+      "symbol": "SPX500",
+      "current_price": 6582.689941,
+      "weekly_bias": "Bullish",
+      "daily_bias": "Bearish",
+      "structure_label": "LH+LL (Bearish) \u2013 LH:3 LL:4",
+      "last_bos": "Price between swing high 6754.29980 and swing low 6316.91016",
+      "swing_high": 6754.299805,
+      "swing_low": 6316.910156,
+      "equilibrium": 6535.60498,
+      "premium_discount": "Premium",
+      "previous_day_high": 6609.669922,
+      "previous_day_low": 6554.290039,
+      "previous_week_high": 6651.620117,
+      "previous_week_low": 6356.080078,
+      "nearest_ob": {
+        "timestamp": "2025-11-19T05:00:00",
+        "high": 6689.75,
+        "low": 6603.5,
+        "kind": "bearish",
+        "mitigated": false
+      },
+      "nearest_fvg": {
+        "timestamp": "2026-03-18T04:00:00",
+        "top": 6710.799805,
+        "bottom": 6636.740234,
+        "ce": 6673.77002,
+        "kind": "bearish",
+        "filled": false
+      },
+      "liquidity_levels": [
+        {
+          "price": 6920.339844,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 6869.910156,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 6903.459961,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 6945.77002,
+          "kind": "BSL",
+          "equal": true
+        },
+        {
+          "price": 6986.330078,
+          "kind": "BSL",
+          "equal": true
+        },
+        {
+          "price": 7002.279785,
+          "kind": "BSL",
+          "equal": true
+        },
+        {
+          "price": 6993.080078,
+          "kind": "BSL",
+          "equal": true
+        },
+        {
+          "price": 6993.47998,
+          "kind": "BSL",
+          "equal": true
+        },
+        {
+          "price": 6952.509766,
+          "kind": "BSL",
+          "equal": true
+        },
+        {
+          "price": 6754.299805,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 6720.430176,
+          "kind": "SSL",
+          "equal": true
+        },
+        {
+          "price": 6824.310059,
+          "kind": "SSL",
+          "equal": true
+        },
+        {
+          "price": 6789.049805,
+          "kind": "SSL",
+          "equal": true
+        },
+        {
+          "price": 6780.129883,
+          "kind": "SSL",
+          "equal": true
+        },
+        {
+          "price": 6775.5,
+          "kind": "SSL",
+          "equal": true
+        },
+        {
+          "price": 6815.430176,
+          "kind": "SSL",
+          "equal": true
+        },
+        {
+          "price": 6710.419922,
+          "kind": "SSL",
+          "equal": true
+        },
+        {
+          "price": 6636.040039,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 6473.52002,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 6316.910156,
+          "kind": "SSL",
+          "equal": false
+        }
+      ],
+      "draw_on_liquidity": "SSL at 6473.52002",
+      "key_poi_label": "Bearish OB D1: 6603.50000\u20136689.75000",
+      "confidence": 7,
+      "narrative": "On the weekly timeframe, SPX500 is showing a bullish bias with lh+ll (bearish) \u2013 lh:3 ll:4. Price is currently above equilibrium (6535.60498), placing it in a premium zone. Previous day high is 6609.66992 and previous day low is 6554.29004. Market structure: Price between swing high 6754.29980 and swing low 6316.91016. There is an unmitigated bearish order block between 6603.50000 and 6689.75000 \u2014 a key POI for potential reaction. The draw on liquidity is: SSL at 6473.52002. Overall, the daily bias for SPX500 is bearish (high-confidence, 7/10). Look for sells from premium POIs during London or NY killzone."
+    },
+    {
+      "symbol": "XAUUSD",
+      "current_price": 4702.700195,
+      "weekly_bias": "Bullish",
+      "daily_bias": "Bullish",
+      "structure_label": "HH+HL (Bullish) \u2013 HH:3 HL:4",
+      "last_bos": "Price between swing high 5229.70020 and swing low 4100.79980",
+      "swing_high": 5229.700195,
+      "swing_low": 4100.799805,
+      "equilibrium": 4665.25,
+      "premium_discount": "Equilibrium",
+      "previous_day_high": 4789.100098,
+      "previous_day_low": 4668.0,
+      "previous_week_high": 4551.899902,
+      "previous_week_low": 4100.799805,
+      "nearest_ob": {
+        "timestamp": "2025-12-24T05:00:00",
+        "high": 4503.399902,
+        "low": 4468.399902,
+        "kind": "bullish",
+        "mitigated": false
+      },
+      "nearest_fvg": {
+        "timestamp": "2026-03-31T04:00:00",
+        "top": 4668.0,
+        "bottom": 4579.100098,
+        "ce": 4623.550049,
+        "kind": "bullish",
+        "filled": false
+      },
+      "liquidity_levels": [
+        {
+          "price": 4228.700195,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 4262.100098,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 4255.700195,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 4355.0,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 4556.299805,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 5586.200195,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 5111.299805,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 5211.600098,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 5405.0,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 5229.700195,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 3310.100098,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 3913.699951,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 4019.399902,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 4031.800049,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 4285.0,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 4400.0,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 4655.0,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 4847.799805,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 5023.0,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 4100.799805,
+          "kind": "SSL",
+          "equal": false
+        }
+      ],
+      "draw_on_liquidity": "BSL at 5111.29980",
+      "key_poi_label": "Bullish OB D1: 4468.39990\u20134503.39990",
+      "confidence": 8,
+      "narrative": "On the weekly timeframe, XAUUSD is showing a bullish bias with hh+hl (bullish) \u2013 hh:3 hl:4. Price is currently above equilibrium (4665.25000), placing it in a equilibrium zone. Previous day high is 4789.10010 and previous day low is 4668.00000. Market structure: Price between swing high 5229.70020 and swing low 4100.79980. There is an unmitigated bullish order block between 4468.39990 and 4503.39990 \u2014 a key POI for potential reaction. The draw on liquidity is: BSL at 5111.29980. Overall, the daily bias for XAUUSD is bullish (high-confidence, 8/10). Look for buys from discount POIs during London or NY killzone."
+    },
+    {
+      "symbol": "XAGUSD",
+      "current_price": 73.169998,
+      "weekly_bias": "Bullish",
+      "daily_bias": "Neutral",
+      "structure_label": "Mixed structure \u2013 HH:2 HL:3 LH:3 LL:2",
+      "last_bos": "Price between swing high 73.17000 and swing low 61.09000",
+      "swing_high": 73.169998,
+      "swing_low": 61.09,
+      "equilibrium": 67.129999,
+      "premium_discount": "Premium",
+      "previous_day_high": 75.866997,
+      "previous_day_low": 73.900002,
+      "previous_week_high": 73.169998,
+      "previous_week_low": 61.09,
+      "nearest_ob": {
+        "timestamp": "2026-03-20T04:00:00",
+        "high": 71.925003,
+        "low": 69.360001,
+        "kind": "bullish",
+        "mitigated": false
+      },
+      "nearest_fvg": {
+        "timestamp": "2026-03-30T04:00:00",
+        "top": 72.555,
+        "bottom": 69.544998,
+        "ce": 71.049999,
+        "kind": "bullish",
+        "filled": false
+      },
+      "liquidity_levels": [
+        {
+          "price": 48.68,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 54.200001,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 58.900002,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 63.929001,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 79.699997,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 121.300003,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 84.470001,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 95.860001,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 89.589996,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 73.169998,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 46.735001,
+          "kind": "SSL",
+          "equal": true
+        },
+        {
+          "price": 45.845001,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 46.805,
+          "kind": "SSL",
+          "equal": true
+        },
+        {
+          "price": 48.125,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 73.165001,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 68.709999,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 72.0,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 79.0,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 79.5,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 61.09,
+          "kind": "SSL",
+          "equal": false
+        }
+      ],
+      "draw_on_liquidity": "SSL at 73.16500",
+      "key_poi_label": "Bullish OB D1: 69.36000\u201371.92500",
+      "confidence": 3,
+      "narrative": "On the weekly timeframe, XAGUSD is showing a bullish bias with mixed structure \u2013 hh:2 hl:3 lh:3 ll:2. Price is currently above equilibrium (67.13000), placing it in a premium zone. Previous day high is 75.86700 and previous day low is 73.90000. Market structure: Price between swing high 73.17000 and swing low 61.09000. There is an unmitigated bullish order block between 69.36000 and 71.92500 \u2014 a key POI for potential reaction. The draw on liquidity is: SSL at 73.16500. Overall, the daily bias for XAGUSD is neutral (low-confidence, 3/10). No clear directional bias \u2014 wait for a structural shift or liquidity sweep."
+    },
+    {
+      "symbol": "USOIL",
+      "current_price": 112.059998,
+      "weekly_bias": "Bullish",
+      "daily_bias": "Bullish",
+      "structure_label": "HH+HL (Bullish) \u2013 HH:2 HL:5",
+      "last_bos": "Bullish BOS \u2013 close broke swing high 101.67000",
+      "swing_high": 101.669998,
+      "swing_low": 84.370003,
+      "equilibrium": 93.02,
+      "premium_discount": "Premium",
+      "previous_day_high": 103.309998,
+      "previous_day_low": 96.5,
+      "previous_week_high": 101.669998,
+      "previous_week_low": 84.370003,
+      "nearest_ob": {
+        "timestamp": "2026-03-19T04:00:00",
+        "high": 101.480003,
+        "low": 92.800003,
+        "kind": "bullish",
+        "mitigated": false
+      },
+      "nearest_fvg": {
+        "timestamp": "2026-03-27T04:00:00",
+        "top": 99.43,
+        "bottom": 95.440002,
+        "ce": 97.435001,
+        "kind": "bullish",
+        "filled": false
+      },
+      "liquidity_levels": [
+        {
+          "price": 60.93,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 60.5,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 58.880001,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 62.360001,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 66.480003,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 65.830002,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 67.279999,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 119.480003,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 102.440002,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 101.669998,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 58.830002,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 58.119999,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 57.099998,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 54.98,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 55.759998,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 58.700001,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 61.119999,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 61.869999,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 63.599998,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 84.370003,
+          "kind": "SSL",
+          "equal": false
+        }
+      ],
+      "draw_on_liquidity": "BSL at 119.48000",
+      "key_poi_label": "Bullish OB D1: 92.80000\u2013101.48000",
+      "confidence": 7,
+      "narrative": "On the weekly timeframe, USOIL is showing a bullish bias with hh+hl (bullish) \u2013 hh:2 hl:5. Price is currently above equilibrium (93.02000), placing it in a premium zone. Previous day high is 103.31000 and previous day low is 96.50000. Market structure: Bullish BOS \u2013 close broke swing high 101.67000. There is an unmitigated bullish order block between 92.80000 and 101.48000 \u2014 a key POI for potential reaction. The draw on liquidity is: BSL at 119.48000. Overall, the daily bias for USOIL is bullish (high-confidence, 7/10). Look for buys from discount POIs during London or NY killzone."
+    }
+  ]
+}
