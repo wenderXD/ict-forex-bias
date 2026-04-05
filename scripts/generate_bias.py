@@ -1,38 +1,41 @@
 """
 generate_bias.py
-Orchestrator: fetches data → runs ICT analysis → writes JSON output.
-Run daily via GitHub Actions.
+Orchestrator: fetches data → Claude ICT analysis → writes JSON output.
+
+Primary path:  Claude claude-opus-4-6 analyses raw price data directly (full ICT agent)
+Fallback path: rule-based ict_analysis.py (when ANTHROPIC_API_KEY is not set)
 """
 
 import json
 import os
-import sys
 from datetime import datetime, timezone
 from pathlib import Path
 import numpy as np
 
-
-class SafeEncoder(json.JSONEncoder):
-    """Handles numpy scalar types that Python 3.14 won't auto-convert."""
-    def default(self, obj):
-        if isinstance(obj, (np.bool_,)):
-            return bool(obj)
-        if isinstance(obj, (np.integer,)):
-            return int(obj)
-        if isinstance(obj, (np.floating,)):
-            return float(obj)
-        return super().default(obj)
-
 from fetch_data import fetch_all
-from ict_analysis import analyse, ICTAnalysis, OrderBlock, FVG, LiquidityLevel
-from ai_narrative import generate_ai_narrative
+from ict_analysis import analyse as rule_based_analyse, ICTAnalysis, OrderBlock, FVG, LiquidityLevel
+from claude_analyst import analyse_with_claude
 
 
 OUTPUT_DIR = Path(__file__).parent.parent / "data" / "bias"
 
+USE_AI = bool(os.environ.get("ANTHROPIC_API_KEY"))
+
 
 # ---------------------------------------------------------------------------
-# Serialisation helpers
+# Numpy-safe JSON encoder
+# ---------------------------------------------------------------------------
+
+class SafeEncoder(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, np.bool_):    return bool(obj)
+        if isinstance(obj, np.integer):  return int(obj)
+        if isinstance(obj, np.floating): return float(obj)
+        return super().default(obj)
+
+
+# ---------------------------------------------------------------------------
+# Fallback serialisation (rule-based path)
 # ---------------------------------------------------------------------------
 
 def ob_to_dict(ob: OrderBlock | None) -> dict | None:
@@ -40,50 +43,38 @@ def ob_to_dict(ob: OrderBlock | None) -> dict | None:
         return None
     return {
         "timestamp": ob.timestamp.isoformat(),
-        "high": round(ob.high, 6),
-        "low":  round(ob.low,  6),
-        "kind": ob.kind,
-        "mitigated": ob.mitigated,
+        "high": round(ob.high, 6), "low": round(ob.low, 6),
+        "kind": ob.kind, "mitigated": ob.mitigated,
     }
-
 
 def fvg_to_dict(fvg: FVG | None) -> dict | None:
     if fvg is None:
         return None
     return {
         "timestamp": fvg.timestamp.isoformat(),
-        "top":    round(fvg.top,    6),
-        "bottom": round(fvg.bottom, 6),
-        "ce":     round(fvg.ce,     6),
-        "kind":   fvg.kind,
-        "filled": fvg.filled,
+        "top": round(fvg.top, 6), "bottom": round(fvg.bottom, 6),
+        "ce":  round(fvg.ce, 6),  "kind": fvg.kind, "filled": fvg.filled,
     }
-
 
 def liq_to_dict(l: LiquidityLevel) -> dict:
-    return {
-        "price": round(l.price, 6),
-        "kind":  l.kind,
-        "equal": l.equal,
-    }
+    return {"price": round(l.price, 6), "kind": l.kind, "equal": l.equal}
 
-
-def analysis_to_dict(a: ICTAnalysis) -> dict:
+def rule_analysis_to_dict(a: ICTAnalysis) -> dict:
     return {
-        "symbol":           a.symbol,
-        "current_price":    round(a.current_price, 6),
-        "weekly_bias":      a.weekly_bias,
-        "daily_bias":       a.daily_bias,
-        "structure_label":  a.structure_label,
-        "last_bos":         a.last_bos,
-        "swing_high":       round(a.swing_high, 6),
-        "swing_low":        round(a.swing_low,  6),
-        "equilibrium":      round(a.equilibrium, 6),
-        "premium_discount": a.premium_discount,
+        "symbol":            a.symbol,
+        "current_price":     round(a.current_price, 6),
+        "weekly_bias":       a.weekly_bias,
+        "daily_bias":        a.daily_bias,
+        "structure_label":   a.structure_label,
+        "last_bos":          a.last_bos,
+        "swing_high":        round(a.swing_high, 6),
+        "swing_low":         round(a.swing_low, 6),
+        "equilibrium":       round(a.equilibrium, 6),
+        "premium_discount":  a.premium_discount,
         "previous_day_high": round(a.previous_day_high, 6),
-        "previous_day_low":  round(a.previous_day_low,  6),
-        "previous_week_high": round(a.previous_week_high, 6),
-        "previous_week_low":  round(a.previous_week_low,  6),
+        "previous_day_low":  round(a.previous_day_low, 6),
+        "previous_week_high":round(a.previous_week_high, 6),
+        "previous_week_low": round(a.previous_week_low, 6),
         "nearest_ob":        ob_to_dict(a.nearest_ob),
         "nearest_fvg":       fvg_to_dict(a.nearest_fvg),
         "liquidity_levels":  [liq_to_dict(l) for l in a.liquidity_levels],
@@ -95,31 +86,27 @@ def analysis_to_dict(a: ICTAnalysis) -> dict:
 
 
 # ---------------------------------------------------------------------------
-# Market overview
+# Market overview (works on both paths — uses dicts)
 # ---------------------------------------------------------------------------
 
-def build_market_overview(analyses: list[ICTAnalysis]) -> str:
-    bullish = [a.symbol for a in analyses if a.daily_bias == "Bullish"]
-    bearish = [a.symbol for a in analyses if a.daily_bias == "Bearish"]
-    neutral = [a.symbol for a in analyses if a.daily_bias == "Neutral"]
+def build_market_overview(instruments: list[dict]) -> str:
+    bullish = [i["symbol"] for i in instruments if i["daily_bias"] == "Bullish"]
+    bearish = [i["symbol"] for i in instruments if i["daily_bias"] == "Bearish"]
+    neutral = [i["symbol"] for i in instruments if i["daily_bias"] == "Neutral"]
 
-    # DXY context
-    dxy = next((a for a in analyses if a.symbol == "DXY"), None)
+    dxy = next((i for i in instruments if i["symbol"] == "DXY"), None)
     dxy_note = ""
     if dxy:
+        d = dxy["daily_bias"]
         dxy_note = (
-            f" The US Dollar Index (DXY) is {dxy.daily_bias.lower()}, "
-            f"which {'supports USD strength — risk-off tone' if dxy.daily_bias == 'Bullish' else 'suggests USD weakness — risk-on tone' if dxy.daily_bias == 'Bearish' else 'is indecisive'}."
+            f" The US Dollar Index (DXY) is {d.lower()}, "
+            f"which {'supports USD strength — risk-off tone' if d == 'Bullish' else 'suggests USD weakness — risk-on tone' if d == 'Bearish' else 'is indecisive'}."
         )
 
     lines = []
-    if bullish:
-        lines.append(f"Bullish: {', '.join(bullish)}")
-    if bearish:
-        lines.append(f"Bearish: {', '.join(bearish)}")
-    if neutral:
-        lines.append(f"Neutral/Ranging: {', '.join(neutral)}")
-
+    if bullish: lines.append(f"Bullish: {', '.join(bullish)}")
+    if bearish: lines.append(f"Bearish: {', '.join(bearish)}")
+    if neutral: lines.append(f"Neutral/Ranging: {', '.join(neutral)}")
     return f"Daily market overview — {'; '.join(lines)}.{dxy_note}"
 
 
@@ -131,17 +118,19 @@ def main():
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     out_path = OUTPUT_DIR / f"{today}.json"
 
-    print(f"=== ICT Bias Generator — {today} ===\n")
+    mode = "Claude claude-opus-4-6 (AI agent)" if USE_AI else "Rule-based fallback (no API key)"
+    print(f"=== ICT Bias Generator — {today} ===")
+    print(f"    Mode: {mode}\n")
 
-    # Fetch all market data
+    # Step 1 — fetch market data
     print("Step 1: Fetching market data...")
     all_data = fetch_all()
     print(f"\nFetched data for {len(all_data)} instruments.\n")
 
-    # Run ICT analysis
+    # Step 2 — analyse each instrument
     print("Step 2: Running ICT analysis...")
-    results: list[ICTAnalysis] = []
-    errors: list[str] = []
+    results: list[dict] = []
+    errors:  list[str]  = []
 
     for symbol, frames in all_data.items():
         daily_df  = frames.get("1d")
@@ -151,53 +140,58 @@ def main():
             errors.append(f"{symbol}: missing timeframe data")
             continue
 
-        try:
-            analysis = analyse(symbol, daily_df, weekly_df)
-            # Replace rule-based narrative with Claude AI narrative
-            print(f"    Generating AI narrative for {symbol}...")
-            analysis.narrative = generate_ai_narrative(analysis, today)
-            results.append(analysis)
-            bias_icon = "▲" if analysis.daily_bias == "Bullish" else "▼" if analysis.daily_bias == "Bearish" else "◆"
-            print(f"  {symbol}: {bias_icon} {analysis.daily_bias} | Confidence: {analysis.confidence}/10")
-        except Exception as e:
-            errors.append(f"{symbol}: {e}")
-            print(f"  {symbol}: ERROR – {e}")
+        instrument_dict = None
+
+        # --- Primary: Claude full ICT agent ---
+        if USE_AI:
+            try:
+                print(f"  {symbol}: asking Claude...")
+                instrument_dict = analyse_with_claude(symbol, daily_df, weekly_df, today)
+            except Exception as e:
+                print(f"  {symbol}: Claude error ({e}) — falling back to rule-based")
+
+        # --- Fallback: rule-based analysis ---
+        if instrument_dict is None:
+            try:
+                analysis = rule_based_analyse(symbol, daily_df, weekly_df)
+                instrument_dict = rule_analysis_to_dict(analysis)
+            except Exception as e:
+                errors.append(f"{symbol}: {e}")
+                print(f"  {symbol}: ERROR – {e}")
+                continue
+
+        results.append(instrument_dict)
+        bias    = instrument_dict.get("daily_bias", "Neutral")
+        conf    = instrument_dict.get("confidence", "?")
+        icon    = "▲" if bias == "Bullish" else "▼" if bias == "Bearish" else "◆"
+        print(f"  {symbol}: {icon} {bias} | Confidence: {conf}/10")
 
     if errors:
         print(f"\nWarnings ({len(errors)}):")
         for e in errors:
             print(f"  - {e}")
 
-    # Build output JSON
+    # Step 3 — write output
     print(f"\nStep 3: Writing output to {out_path} ...")
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
-    overview = build_market_overview(results)
     output = {
-        "date":             today,
-        "generated_at":     datetime.now(timezone.utc).isoformat(),
-        "market_overview":  overview,
-        "instruments":      [analysis_to_dict(a) for a in results],
+        "date":            today,
+        "generated_at":    datetime.now(timezone.utc).isoformat(),
+        "market_overview": build_market_overview(results),
+        "instruments":     results,
     }
 
-    with open(out_path, "w") as f:
-        json.dump(output, f, indent=2, cls=SafeEncoder)
+    for path in [out_path, OUTPUT_DIR / "latest.json"]:
+        with open(path, "w") as f:
+            json.dump(output, f, indent=2, cls=SafeEncoder)
 
-    # Also write latest.json for the website to read easily
-    latest_path = OUTPUT_DIR / "latest.json"
-    with open(latest_path, "w") as f:
-        json.dump(output, f, indent=2, cls=SafeEncoder)
+    # Update date index
+    all_files = sorted(OUTPUT_DIR.glob("????-??-??.json"), reverse=True)
+    with open(OUTPUT_DIR / "index.json", "w") as f:
+        json.dump([fp.stem for fp in all_files], f, indent=2)
 
     print(f"Done. {len(results)} instruments analysed.")
-    if errors:
-        print(f"{len(errors)} instruments had errors (see above).")
-
-    # Write an index of all available dates
-    all_files = sorted(OUTPUT_DIR.glob("????-??-??.json"), reverse=True)
-    date_index = [f.stem for f in all_files]
-    with open(OUTPUT_DIR / "index.json", "w") as f:
-        json.dump(date_index, f, indent=2)
-
     print("index.json updated.")
 
 
