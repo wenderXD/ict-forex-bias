@@ -1,11 +1,11 @@
 {
   "date": "2026-04-05",
-  "generated_at": "2026-04-05T20:00:44.007780+00:00",
+  "generated_at": "2026-04-05T21:10:29.488604+00:00",
   "market_overview": "Daily market overview \u2014 Bullish: USDCAD, USDCHF, USDJPY, DXY, XAUUSD, USOIL; Bearish: EURUSD, GBPUSD, NZDUSD, SPX500; Neutral/Ranging: AUDUSD, XAGUSD. The US Dollar Index (DXY) is bullish, which supports USD strength \u2014 risk-off tone.",
   "instruments": [
     {
       "symbol": "EURUSD",
-      "current_price": 1.151808,
+      "current_price": 1.152605,
       "weekly_bias": "Neutral",
       "daily_bias": "Bearish",
       "structure_label": "LH+LL (Bearish) \u2013 LH:4 LL:4",
@@ -138,11 +138,11 @@
       "draw_on_liquidity": "SSL at 1.15081",
       "key_poi_label": "Bearish OB D1: 1.15354\u20131.15976",
       "confidence": 5,
-      "narrative": "On the weekly timeframe, EURUSD is showing a neutral bias with lh+ll (bearish) \u2013 lh:4 ll:4. Price is currently below equilibrium (1.15352), placing it in a discount zone. Previous day high is 1.15487 and previous day low is 1.15209. Market structure: Price between swing high 1.16266 and swing low 1.14439. There is an unmitigated bearish order block between 1.15354 and 1.15976 \u2014 a key POI for potential reaction. The draw on liquidity is: SSL at 1.15081. Overall, the daily bias for EURUSD is bearish (moderate, 5/10). Look for sells from premium POIs during London or NY killzone."
+      "narrative": "On the weekly timeframe, EURUSD is showing a neutral bias with lh+ll (bearish) \u2013 lh:4 ll:4. Price is currently below equilibrium (1.15352), placing it in a discount zone. Previous day high is 1.15487 and previous day low is 1.15209. Market structure: Price between swing high 1.16266 and swing low 1.14439. There is an unmitigated bearish order block between 1.15354 and 1.15976 - a key POI for potential reaction. The draw on liquidity is: SSL at 1.15081. Overall, the daily bias for EURUSD is bearish (moderate, 5/10). Look for sells from premium POIs during London or NY killzone."
     },
     {
       "symbol": "GBPUSD",
-      "current_price": 1.320552,
+      "current_price": 1.319446,
       "weekly_bias": "Bullish",
       "daily_bias": "Bearish",
       "structure_label": "LH+LL (Bearish) \u2013 LH:4 LL:4",
@@ -275,11 +275,11 @@
       "draw_on_liquidity": "SSL at 1.31612",
       "key_poi_label": "Bearish OB D1: 1.32336\u20131.33697",
       "confidence": 5,
-      "narrative": "On the weekly timeframe, GBPUSD is showing a bullish bias with lh+ll (bearish) \u2013 lh:4 ll:4. Price is currently below equilibrium (1.33188), placing it in a discount zone. Previous day high is 1.32450 and previous day low is 1.31978. Market structure: Price between swing high 1.34764 and swing low 1.31612. There is an unmitigated bearish order block between 1.32336 and 1.33697 \u2014 a key POI for potential reaction. The draw on liquidity is: SSL at 1.31612. Overall, the daily bias for GBPUSD is bearish (moderate, 5/10). Look for sells from premium POIs during London or NY killzone."
+      "narrative": "On the weekly timeframe, GBPUSD is showing a bullish bias with lh+ll (bearish) \u2013 lh:4 ll:4. Price is currently below equilibrium (1.33188), placing it in a discount zone. Previous day high is 1.32450 and previous day low is 1.31978. Market structure: Price between swing high 1.34764 and swing low 1.31612. There is an unmitigated bearish order block between 1.32336 and 1.33697 - a key POI for potential reaction. The draw on liquidity is: SSL at 1.31612. Overall, the daily bias for GBPUSD is bearish (moderate, 5/10). Look for sells from premium POIs during London or NY killzone."
     },
     {
       "symbol": "AUDUSD",
-      "current_price": 0.689175,
+      "current_price": 0.688743,
       "weekly_bias": "Bullish",
       "daily_bias": "Neutral",
       "structure_label": "Mixed structure \u2013 HH:2 HL:3 LH:3 LL:2",
@@ -412,11 +412,11 @@
       "draw_on_liquidity": "SSL at 0.68342",
       "key_poi_label": "Bullish OB D1: 0.68352\u20130.68883",
       "confidence": 3,
-      "narrative": "On the weekly timeframe, AUDUSD is showing a bullish bias with mixed structure \u2013 hh:2 hl:3 lh:3 ll:2. Price is currently below equilibrium (0.68983), placing it in a discount zone. Previous day high is 0.69191 and previous day low is 0.68916. Market structure: Price between swing high 0.69623 and swing low 0.68342. There is an unmitigated bullish order block between 0.68352 and 0.68883 \u2014 a key POI for potential reaction. The draw on liquidity is: SSL at 0.68342. Overall, the daily bias for AUDUSD is neutral (low-confidence, 3/10). No clear directional bias \u2014 wait for a structural shift or liquidity sweep."
+      "narrative": "On the weekly timeframe, AUDUSD is showing a bullish bias with mixed structure \u2013 hh:2 hl:3 lh:3 ll:2. Price is currently below equilibrium (0.68983), placing it in a discount zone. Previous day high is 0.69191 and previous day low is 0.68916. Market structure: Price between swing high 0.69623 and swing low 0.68342. There is an unmitigated bullish order block between 0.68352 and 0.68883 - a key POI for potential reaction. The draw on liquidity is: SSL at 0.68342. Overall, the daily bias for AUDUSD is neutral (low-confidence, 3/10). No clear directional bias - wait for a structural shift or liquidity sweep."
     },
     {
       "symbol": "NZDUSD",
-      "current_price": 0.570028,
+      "current_price": 0.569411,
       "weekly_bias": "Neutral",
       "daily_bias": "Bearish",
       "structure_label": "LH+LL (Bearish) \u2013 LH:5 LL:3",
@@ -549,11 +549,11 @@
       "draw_on_liquidity": "No clear liquidity draw identified",
       "key_poi_label": "Bearish OB D1: 0.57279\u20130.57696",
       "confidence": 5,
-      "narrative": "On the weekly timeframe, NZDUSD is showing a neutral bias with lh+ll (bearish) \u2013 lh:5 ll:3. Price is currently below equilibrium (0.57965), placing it in a discount zone. Previous day high is 0.57230 and previous day low is 0.56945. Market structure: Bearish BOS \u2013 close broke swing low 0.57009. There is an unmitigated bearish order block between 0.57279 and 0.57696 \u2014 a key POI for potential reaction. The draw on liquidity is: No clear liquidity draw identified. Overall, the daily bias for NZDUSD is bearish (moderate, 5/10). Look for sells from premium POIs during London or NY killzone."
+      "narrative": "On the weekly timeframe, NZDUSD is showing a neutral bias with lh+ll (bearish) \u2013 lh:5 ll:3. Price is currently below equilibrium (0.57965), placing it in a discount zone. Previous day high is 0.57230 and previous day low is 0.56945. Market structure: Bearish BOS \u2013 close broke swing low 0.57009. There is an unmitigated bearish order block between 0.57279 and 0.57696 - a key POI for potential reaction. The draw on liquidity is: No clear liquidity draw identified. Overall, the daily bias for NZDUSD is bearish (moderate, 5/10). Look for sells from premium POIs during London or NY killzone."
     },
     {
       "symbol": "USDCAD",
-      "current_price": 1.3926,
+      "current_price": 1.3925,
       "weekly_bias": "Neutral",
       "daily_bias": "Bullish",
       "structure_label": "HH+HL (Bullish) \u2013 HH:3 HL:3",
@@ -564,8 +564,8 @@
       "premium_discount": "Premium",
       "previous_day_high": 1.39484,
       "previous_day_low": 1.3913,
-      "previous_week_high": 1.3897,
-      "previous_week_low": 1.36699,
+      "previous_week_high": 1.39643,
+      "previous_week_low": 1.38689,
       "nearest_ob": {
         "timestamp": "2026-01-15T00:00:00",
         "high": 1.39189,
@@ -686,7 +686,7 @@
       "draw_on_liquidity": "BSL at 1.39643",
       "key_poi_label": "Bullish OB D1: 1.38830\u20131.39189",
       "confidence": 5,
-      "narrative": "On the weekly timeframe, USDCAD is showing a neutral bias with hh+hl (bullish) \u2013 hh:3 hl:3. Price is currently above equilibrium (1.38171), placing it in a premium zone. Previous day high is 1.39484 and previous day low is 1.39130. Market structure: Price between swing high 1.39643 and swing low 1.36699. There is an unmitigated bullish order block between 1.38830 and 1.39189 \u2014 a key POI for potential reaction. The draw on liquidity is: BSL at 1.39643. Overall, the daily bias for USDCAD is bullish (moderate, 5/10). Look for buys from discount POIs during London or NY killzone."
+      "narrative": "On the weekly timeframe, USDCAD is showing a neutral bias with hh+hl (bullish) \u2013 hh:3 hl:3. Price is currently above equilibrium (1.38171), placing it in a premium zone. Previous day high is 1.39484 and previous day low is 1.39130. Market structure: Price between swing high 1.39643 and swing low 1.36699. There is an unmitigated bullish order block between 1.38830 and 1.39189 - a key POI for potential reaction. The draw on liquidity is: BSL at 1.39643. Overall, the daily bias for USDCAD is bullish (moderate, 5/10). Look for buys from discount POIs during London or NY killzone."
     },
     {
       "symbol": "USDCHF",
@@ -818,21 +818,21 @@
       "draw_on_liquidity": "BSL (EQH) at 0.80396",
       "key_poi_label": "Bullish OB D1: 0.79297\u20130.79698",
       "confidence": 5,
-      "narrative": "On the weekly timeframe, USDCHF is showing a bearish bias with hh+hl (bullish) \u2013 hh:3 hl:3. Price is currently above equilibrium (0.79394), placing it in a premium zone. Previous day high is 0.80080 and previous day low is 0.79300. Market structure: Price between swing high 0.80410 and swing low 0.78377. There is an unmitigated bullish order block between 0.79297 and 0.79698 \u2014 a key POI for potential reaction. The draw on liquidity is: BSL (EQH) at 0.80396. Overall, the daily bias for USDCHF is bullish (moderate, 5/10). Look for buys from discount POIs during London or NY killzone."
+      "narrative": "On the weekly timeframe, USDCHF is showing a bearish bias with hh+hl (bullish) \u2013 hh:3 hl:3. Price is currently above equilibrium (0.79394), placing it in a premium zone. Previous day high is 0.80080 and previous day low is 0.79300. Market structure: Price between swing high 0.80410 and swing low 0.78377. There is an unmitigated bullish order block between 0.79297 and 0.79698 - a key POI for potential reaction. The draw on liquidity is: BSL (EQH) at 0.80396. Overall, the daily bias for USDCHF is bullish (moderate, 5/10). Look for buys from discount POIs during London or NY killzone."
     },
     {
       "symbol": "USDJPY",
-      "current_price": 159.632004,
+      "current_price": 159.585007,
       "weekly_bias": "Neutral",
       "daily_bias": "Bullish",
       "structure_label": "HH+HL (Bullish) \u2013 HH:3 HL:3",
-      "last_bos": "Price between swing high 160.23100 and swing low 157.73700",
+      "last_bos": "Price between swing high 160.23100 and swing low 158.27901",
       "swing_high": 160.231003,
-      "swing_low": 157.737,
-      "equilibrium": 158.984001,
+      "swing_low": 158.279007,
+      "equilibrium": 159.255005,
       "premium_discount": "Premium",
-      "previous_day_high": 159.742004,
-      "previous_day_low": 158.600998,
+      "previous_day_high": 159.695007,
+      "previous_day_low": 159.427002,
       "previous_week_high": 160.294006,
       "previous_week_low": 158.225006,
       "nearest_ob": {
@@ -844,9 +844,9 @@
       },
       "nearest_fvg": {
         "timestamp": "2026-04-01T23:00:00",
-        "top": 159.417999,
+        "top": 159.427002,
         "bottom": 158.990005,
-        "ce": 159.204002,
+        "ce": 159.208504,
         "kind": "bullish",
         "filled": false
       },
@@ -902,11 +902,6 @@
           "equal": false
         },
         {
-          "price": 151.548996,
-          "kind": "SSL",
-          "equal": false
-        },
-        {
           "price": 152.852997,
           "kind": "SSL",
           "equal": false
@@ -950,12 +945,17 @@
           "price": 157.737,
           "kind": "SSL",
           "equal": false
+        },
+        {
+          "price": 158.279007,
+          "kind": "SSL",
+          "equal": false
         }
       ],
-      "draw_on_liquidity": "BSL (EQH) at 159.81599",
+      "draw_on_liquidity": "BSL (EQH) at 159.63100",
       "key_poi_label": "Bullish OB D1: 158.56700\u2013159.56599",
       "confidence": 5,
-      "narrative": "On the weekly timeframe, USDJPY is showing a neutral bias with hh+hl (bullish) \u2013 hh:3 hl:3. Price is currently above equilibrium (158.98400), placing it in a premium zone. Previous day high is 159.74200 and previous day low is 158.60100. Market structure: Price between swing high 160.23100 and swing low 157.73700. There is an unmitigated bullish order block between 158.56700 and 159.56599 \u2014 a key POI for potential reaction. The draw on liquidity is: BSL (EQH) at 159.81599. Overall, the daily bias for USDJPY is bullish (moderate, 5/10). Look for buys from discount POIs during London or NY killzone."
+      "narrative": "On the weekly timeframe, USDJPY is showing a neutral bias with hh+hl (bullish) \u2013 hh:3 hl:3. Price is currently above equilibrium (159.25500), placing it in a premium zone. Previous day high is 159.69501 and previous day low is 159.42700. Market structure: Price between swing high 160.23100 and swing low 158.27901. There is an unmitigated bullish order block between 158.56700 and 159.56599 - a key POI for potential reaction. The draw on liquidity is: BSL (EQH) at 159.63100. Overall, the daily bias for USDJPY is bullish (moderate, 5/10). Look for buys from discount POIs during London or NY killzone."
     },
     {
       "symbol": "DXY",
@@ -1087,7 +1087,7 @@
       "draw_on_liquidity": "BSL (EQH) at 100.36000",
       "key_poi_label": "Bullish OB D1: 98.84000\u201399.44000",
       "confidence": 5,
-      "narrative": "On the weekly timeframe, DXY is showing a neutral bias with hh+hl (bullish) \u2013 hh:4 hl:3. Price is currently above equilibrium (99.71000), placing it in a premium zone. Previous day high is 99.88000 and previous day low is 99.30000. Market structure: Price between swing high 100.54000 and swing low 98.88000. There is an unmitigated bullish order block between 98.84000 and 99.44000 \u2014 a key POI for potential reaction. The draw on liquidity is: BSL (EQH) at 100.36000. Overall, the daily bias for DXY is bullish (moderate, 5/10). Look for buys from discount POIs during London or NY killzone."
+      "narrative": "On the weekly timeframe, DXY is showing a neutral bias with hh+hl (bullish) \u2013 hh:4 hl:3. Price is currently above equilibrium (99.71000), placing it in a premium zone. Previous day high is 99.88000 and previous day low is 99.30000. Market structure: Price between swing high 100.54000 and swing low 98.88000. There is an unmitigated bullish order block between 98.84000 and 99.44000 - a key POI for potential reaction. The draw on liquidity is: BSL (EQH) at 100.36000. Overall, the daily bias for DXY is bullish (moderate, 5/10). Look for buys from discount POIs during London or NY killzone."
     },
     {
       "symbol": "SPX500",
@@ -1224,7 +1224,7 @@
       "draw_on_liquidity": "SSL at 6473.52002",
       "key_poi_label": "Bearish OB D1: 6603.50000\u20136689.75000",
       "confidence": 7,
-      "narrative": "On the weekly timeframe, SPX500 is showing a bullish bias with lh+ll (bearish) \u2013 lh:3 ll:4. Price is currently above equilibrium (6535.60498), placing it in a premium zone. Previous day high is 6609.66992 and previous day low is 6554.29004. Market structure: Price between swing high 6754.29980 and swing low 6316.91016. There is an unmitigated bearish order block between 6603.50000 and 6689.75000 \u2014 a key POI for potential reaction. The draw on liquidity is: SSL at 6473.52002. Overall, the daily bias for SPX500 is bearish (high-confidence, 7/10). Look for sells from premium POIs during London or NY killzone."
+      "narrative": "On the weekly timeframe, SPX500 is showing a bullish bias with lh+ll (bearish) \u2013 lh:3 ll:4. Price is currently above equilibrium (6535.60498), placing it in a premium zone. Previous day high is 6609.66992 and previous day low is 6554.29004. Market structure: Price between swing high 6754.29980 and swing low 6316.91016. There is an unmitigated bearish order block between 6603.50000 and 6689.75000 - a key POI for potential reaction. The draw on liquidity is: SSL at 6473.52002. Overall, the daily bias for SPX500 is bearish (high-confidence, 7/10). Look for sells from premium POIs during London or NY killzone."
     },
     {
       "symbol": "XAUUSD",
@@ -1361,7 +1361,7 @@
       "draw_on_liquidity": "BSL at 5111.29980",
       "key_poi_label": "Bullish OB D1: 4468.39990\u20134503.39990",
       "confidence": 8,
-      "narrative": "On the weekly timeframe, XAUUSD is showing a bullish bias with hh+hl (bullish) \u2013 hh:3 hl:4. Price is currently above equilibrium (4665.25000), placing it in a equilibrium zone. Previous day high is 4789.10010 and previous day low is 4668.00000. Market structure: Price between swing high 5229.70020 and swing low 4100.79980. There is an unmitigated bullish order block between 4468.39990 and 4503.39990 \u2014 a key POI for potential reaction. The draw on liquidity is: BSL at 5111.29980. Overall, the daily bias for XAUUSD is bullish (high-confidence, 8/10). Look for buys from discount POIs during London or NY killzone."
+      "narrative": "On the weekly timeframe, XAUUSD is showing a bullish bias with hh+hl (bullish) \u2013 hh:3 hl:4. Price is currently above equilibrium (4665.25000), placing it in a equilibrium zone. Previous day high is 4789.10010 and previous day low is 4668.00000. Market structure: Price between swing high 5229.70020 and swing low 4100.79980. There is an unmitigated bullish order block between 4468.39990 and 4503.39990 - a key POI for potential reaction. The draw on liquidity is: BSL at 5111.29980. Overall, the daily bias for XAUUSD is bullish (high-confidence, 8/10). Look for buys from discount POIs during London or NY killzone."
     },
     {
       "symbol": "XAGUSD",
@@ -1498,7 +1498,7 @@
       "draw_on_liquidity": "SSL at 73.16500",
       "key_poi_label": "Bullish OB D1: 69.36000\u201371.92500",
       "confidence": 3,
-      "narrative": "On the weekly timeframe, XAGUSD is showing a bullish bias with mixed structure \u2013 hh:2 hl:3 lh:3 ll:2. Price is currently above equilibrium (67.13000), placing it in a premium zone. Previous day high is 75.86700 and previous day low is 73.90000. Market structure: Price between swing high 73.17000 and swing low 61.09000. There is an unmitigated bullish order block between 69.36000 and 71.92500 \u2014 a key POI for potential reaction. The draw on liquidity is: SSL at 73.16500. Overall, the daily bias for XAGUSD is neutral (low-confidence, 3/10). No clear directional bias \u2014 wait for a structural shift or liquidity sweep."
+      "narrative": "On the weekly timeframe, XAGUSD is showing a bullish bias with mixed structure \u2013 hh:2 hl:3 lh:3 ll:2. Price is currently above equilibrium (67.13000), placing it in a premium zone. Previous day high is 75.86700 and previous day low is 73.90000. Market structure: Price between swing high 73.17000 and swing low 61.09000. There is an unmitigated bullish order block between 69.36000 and 71.92500 - a key POI for potential reaction. The draw on liquidity is: SSL at 73.16500. Overall, the daily bias for XAGUSD is neutral (low-confidence, 3/10). No clear directional bias - wait for a structural shift or liquidity sweep."
     },
     {
       "symbol": "USOIL",
@@ -1635,7 +1635,7 @@
       "draw_on_liquidity": "BSL at 119.48000",
       "key_poi_label": "Bullish OB D1: 92.80000\u2013101.48000",
       "confidence": 7,
-      "narrative": "On the weekly timeframe, USOIL is showing a bullish bias with hh+hl (bullish) \u2013 hh:2 hl:5. Price is currently above equilibrium (93.02000), placing it in a premium zone. Previous day high is 103.31000 and previous day low is 96.50000. Market structure: Bullish BOS \u2013 close broke swing high 101.67000. There is an unmitigated bullish order block between 92.80000 and 101.48000 \u2014 a key POI for potential reaction. The draw on liquidity is: BSL at 119.48000. Overall, the daily bias for USOIL is bullish (high-confidence, 7/10). Look for buys from discount POIs during London or NY killzone."
+      "narrative": "On the weekly timeframe, USOIL is showing a bullish bias with hh+hl (bullish) \u2013 hh:2 hl:5. Price is currently above equilibrium (93.02000), placing it in a premium zone. Previous day high is 103.31000 and previous day low is 96.50000. Market structure: Bullish BOS \u2013 close broke swing high 101.67000. There is an unmitigated bullish order block between 92.80000 and 101.48000 - a key POI for potential reaction. The draw on liquidity is: BSL at 119.48000. Overall, the daily bias for USOIL is bullish (high-confidence, 7/10). Look for buys from discount POIs during London or NY killzone."
     }
   ]
 }
