@@ -37,7 +37,7 @@ jobs:
       # 4. Run the ICT analysis
       - name: Generate daily bias
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.DAILYBIASKEY }}
         run: |
           cd scripts
           python generate_bias.py
