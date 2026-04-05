@@ -39,6 +39,11 @@ jobs:
         env:
           AI_API_KEY: ${{ secrets.DAILYBIASKEY }}
         run: |
+          if [ -z "$AI_API_KEY" ]; then
+            echo "ERROR: AI_API_KEY is empty — check DAILYBIASKEY secret"
+          else
+            echo "API key loaded OK (length: ${#AI_API_KEY})"
+          fi
           cd scripts
           python generate_bias.py
 
