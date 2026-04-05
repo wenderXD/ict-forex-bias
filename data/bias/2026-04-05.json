@@ -1,806 +1,430 @@
 {
   "date": "2026-04-05",
-  "generated_at": "2026-04-05T21:28:17.562294+00:00",
-  "market_overview": "Daily market overview \u2014 Bullish: USDCAD, USDCHF, USDJPY, DXY, XAUUSD, USOIL; Bearish: EURUSD, GBPUSD, NZDUSD, SPX500; Neutral/Ranging: AUDUSD, XAGUSD. The US Dollar Index (DXY) is bullish, which supports USD strength \u2014 risk-off tone.",
+  "generated_at": "2026-04-05T21:52:14.030307+00:00",
+  "market_overview": "Daily market overview \u2014 Bullish: USDCAD, USDJPY, XAUUSD, USOIL; Bearish: EURUSD, GBPUSD, AUDUSD, NZDUSD, USDCHF, DXY, SPX500, XAGUSD. The US Dollar Index (DXY) is bearish, which suggests USD weakness \u2014 risk-on tone.",
   "instruments": [
     {
+      "weekly_bias": "Bearish",
+      "daily_bias": "Bearish",
+      "confidence": 6,
+      "structure_label": "Bearish LH/LL sequence from 1.2024 weekly high; price forming lower highs and lower lows since late January 2026, currently consolidating near recent lows",
+      "last_bos": "Daily BOS to the downside confirmed on 2026-03-03 when price broke below the 2026-02-19 swing low at 1.1743, extending the bearish leg toward 1.1416 (March 16 low); subsequent recovery attempts forming lower highs, with ChoCH attempt failing around 1.1638",
+      "swing_high": 1.16379,
+      "swing_low": 1.14157,
+      "equilibrium": 1.15268,
+      "premium_discount": "Equilibrium",
+      "previous_day_high": 1.15274,
+      "previous_day_low": 1.15128,
+      "previous_week_high": 1.16266,
+      "previous_week_low": 1.14439,
+      "nearest_ob": {
+        "high": 1.15988,
+        "low": 1.15439,
+        "kind": "bearish",
+        "mitigated": false,
+        "timestamp": "2026-04-05T21:47:02.142030+00:00"
+      },
+      "nearest_fvg": {
+        "top": 1.15388,
+        "bottom": 1.15104,
+        "ce": 1.15246,
+        "kind": "bearish",
+        "filled": false,
+        "timestamp": "2026-04-05T21:47:02.142030+00:00"
+      },
+      "liquidity_levels": [
+        {
+          "price": 1.16379,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 1.16266,
+          "kind": "BSL",
+          "equal": true
+        },
+        {
+          "price": 1.15988,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 1.15473,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 1.15274,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 1.15128,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 1.1492,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 1.14439,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 1.14348,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 1.14157,
+          "kind": "SSL",
+          "equal": false
+        }
+      ],
+      "draw_on_liquidity": "SSL cluster at 1.1444\u20131.1416 (March lows / swing low pool); price likely targeting sell-side liquidity resting below 1.1440 after failing to sustain above equilibrium",
+      "key_poi_label": "Bearish OB 1.1544\u20131.1599 (Apr 1 supply zone)",
+      "narrative": "On the weekly timeframe, EURUSD has been in a clear bearish structural sequence since printing a swing high at 1.2024 in late January 2026. Each subsequent weekly candle has formed lower highs and lower lows, with the most recent weekly range (March 29 week) printing a high of 1.1627 and low of 1.1444, confirming continued sell-side pressure. The weekly dealing range from the 1.2024 high to the 1.1416 low places equilibrium near 1.1720, and current price at 1.1523 is well into the discount zone on the weekly chart \u2014 however, this discount is within a bearish trend, suggesting further downside rather than a reversal.\n\nOn the daily timeframe, the bearish structure remains intact. The March 3 breakdown below 1.1743 constituted a significant BOS to the downside, with price subsequently finding a local low at 1.1416 on March 16. The recovery from that low has produced a series of lower highs: 1.1638 (March 10), 1.1638 (March 23), and 1.1599 (April 1), all failing to reclaim the prior structural swing. The most recent daily dealing range (1.1416 low to 1.1638 high) places equilibrium at approximately 1.1527, and current price at 1.1523 is essentially at equilibrium \u2014 slightly in discount within this micro-range.\n\nThe nearest unmitigated bearish order block sits between 1.1544 and 1.1599, corresponding to the April 1 session where price opened at 1.1592, briefly spiked to 1.1599, and then sold off sharply. This OB also aligns with the prior broken support turned resistance around the 1.1550 area and the bearish FVG formed between the March 30 high (1.1539) and April 2 low (1.1510), with a CE at approximately 1.1525. Price trading into this confluence zone would represent a high-probability short entry aligned with the bearish daily bias.\n\nLiquidity pools of significance include the sell-side cluster below 1.1440\u20131.1416 (March lows), which represents the primary draw on liquidity. Buy-side liquidity rests above the series of lower highs at 1.1599, 1.1638, and ultimately 1.1638 (EQH cluster), but these are likely to serve as manipulation targets rather than true reversal levels given the dominant bearish structure. The Power of 3 framework suggests the current accumulation/consolidation phase between 1.1441 and 1.1539 may be a manipulation setup to raid buy-side stops above 1.1527\u20131.1539 before a distribution leg targets the SSL pool beneath 1.1416.\n\nIn summary, the path of least resistance remains bearish. Any intraday rally into the 1.1544\u20131.1599 bearish OB zone should be treated as a potential short opportunity targeting the SSL cluster at 1.1439\u20131.1416. A clean break and daily close above 1.1638 would invalidate the bearish bias and suggest a potential structural shift. Confidence is moderate at 6/10 given price is currently at equilibrium within the micro-range and some choppiness in the recent price action could produce short-term upside manipulation before the next leg lower.",
       "symbol": "EURUSD",
-      "current_price": 1.152472,
-      "weekly_bias": "Neutral",
+      "current_price": 1.152339
+    },
+    {
+      "weekly_bias": "Bearish",
       "daily_bias": "Bearish",
-      "structure_label": "LH+LL (Bearish) \u2013 LH:4 LL:4",
-      "last_bos": "Price between swing high 1.16266 and swing low 1.14439",
-      "swing_high": 1.162656,
-      "swing_low": 1.144387,
-      "equilibrium": 1.153521,
+      "confidence": 7,
+      "structure_label": "Bearish LH/LL sequence on weekly; daily confirmed bearish BOS below 1.3176 with price compressing lower",
+      "last_bos": "Daily BOS bearish \u2014 price broke below the 1.3176 swing low (late March) on 2026-03-30/04-04, confirming continuation of lower lows; weekly structure broke below 1.3234 support zone",
+      "swing_high": 1.34764,
+      "swing_low": 1.31612,
+      "equilibrium": 1.33188,
       "premium_discount": "Discount",
-      "previous_day_high": 1.154868,
-      "previous_day_low": 1.152087,
-      "previous_week_high": 1.163792,
-      "previous_week_low": 1.148501,
+      "previous_day_high": 1.32077,
+      "previous_day_low": 1.31866,
+      "previous_week_high": 1.3336,
+      "previous_week_low": 1.31612,
       "nearest_ob": {
-        "timestamp": "2025-11-19T00:00:00",
-        "high": 1.159757,
-        "low": 1.153536,
+        "high": 1.3245,
+        "low": 1.32303,
         "kind": "bearish",
-        "mitigated": false
+        "mitigated": false,
+        "timestamp": "2026-04-05T21:47:29.877820+00:00"
       },
       "nearest_fvg": {
-        "timestamp": "2026-04-01T23:00:00",
-        "top": 1.155588,
-        "bottom": 1.154868,
-        "ce": 1.155228,
+        "top": 1.32633,
+        "bottom": 1.31978,
+        "ce": 1.32306,
         "kind": "bearish",
-        "filled": false
+        "filled": false,
+        "timestamp": "2026-04-05T21:47:29.877820+00:00"
       },
       "liquidity_levels": [
         {
-          "price": 1.166861,
-          "kind": "BSL",
-          "equal": true
-        },
-        {
-          "price": 1.165365,
-          "kind": "BSL",
-          "equal": true
-        },
-        {
-          "price": 1.168224,
-          "kind": "BSL",
-          "equal": true
-        },
-        {
-          "price": 1.18047,
-          "kind": "BSL",
-          "equal": true
-        },
-        {
-          "price": 1.180916,
-          "kind": "BSL",
-          "equal": true
-        },
-        {
-          "price": 1.202357,
+          "price": 1.34764,
           "kind": "BSL",
           "equal": false
         },
         {
-          "price": 1.192848,
+          "price": 1.34363,
           "kind": "BSL",
           "equal": false
         },
         {
-          "price": 1.166385,
+          "price": 1.3336,
           "kind": "BSL",
-          "equal": true
+          "equal": false
         },
         {
-          "price": 1.163792,
+          "price": 1.3282,
           "kind": "BSL",
-          "equal": true
+          "equal": false
         },
         {
-          "price": 1.162656,
-          "kind": "BSL",
-          "equal": true
-        },
-        {
-          "price": 1.161697,
-          "kind": "SSL",
-          "equal": true
-        },
-        {
-          "price": 1.170412,
+          "price": 1.31612,
           "kind": "SSL",
           "equal": false
         },
         {
-          "price": 1.161926,
+          "price": 1.31759,
           "kind": "SSL",
           "equal": true
         },
         {
-          "price": 1.158547,
+          "price": 1.31866,
           "kind": "SSL",
-          "equal": false
-        },
-        {
-          "price": 1.176747,
-          "kind": "SSL",
-          "equal": false
-        },
-        {
-          "price": 1.174302,
-          "kind": "SSL",
-          "equal": false
-        },
-        {
-          "price": 1.153203,
-          "kind": "SSL",
-          "equal": false
-        },
-        {
-          "price": 1.150814,
-          "kind": "SSL",
-          "equal": false
-        },
-        {
-          "price": 1.141566,
-          "kind": "SSL",
-          "equal": false
-        },
-        {
-          "price": 1.144387,
-          "kind": "SSL",
-          "equal": false
+          "equal": true
         }
       ],
-      "draw_on_liquidity": "SSL at 1.15081",
-      "key_poi_label": "Bearish OB D1: 1.15354\u20131.15976",
-      "confidence": 5,
-      "narrative": "On the weekly timeframe, EURUSD is showing a neutral bias with lh+ll (bearish) \u2013 lh:4 ll:4. Price is currently below equilibrium (1.15352), placing it in a discount zone. Previous day high is 1.15487 and previous day low is 1.15209. Market structure: Price between swing high 1.16266 and swing low 1.14439. There is an unmitigated bearish order block between 1.15354 and 1.15976 - a key POI for potential reaction. The draw on liquidity is: SSL at 1.15081. Overall, the daily bias for EURUSD is bearish (moderate, 5/10). Look for sells from premium POIs during London or NY killzone."
-    },
-    {
+      "draw_on_liquidity": "SSL below 1.3161\u20131.3177 cluster (equal lows / prior swing low), with extension target toward 1.3100 psychological level",
+      "key_poi_label": "Bearish OB 1.3245\u20131.3203 + FVG 1.3263\u20131.3198 confluence resistance",
+      "narrative": "On the weekly timeframe, GBPUSD has been printing a clear sequence of lower highs and lower lows since the January 2026 peak at 1.38468. The rally from 1.30393 (November 2025) stalled at 1.38468 and has since been systematically distributing, with each weekly attempt at recovery forming a lower high \u2014 the most recent weekly high printed at 1.33360 before rolling over sharply into the week closing at 1.31934. This confirms the weekly bias remains decisively bearish, with smart money continuing to sell into corrective rallies.\n\nOn the daily timeframe, the structure is equally clean. After a brief consolidation between 1.3236 and 1.3476 throughout mid-to-late March, price broke down through the 1.3176 level on 2026-03-30, confirming a bearish BOS. The daily candles since April 1 have been printing lower highs (1.33145 on April 1, 1.32450 on April 2, 1.32077 on April 4), with each session unable to close back above the prior day's high \u2014 classic bearish price delivery. Current price at 1.3193 sits fractionally above the most recent swing low of 1.31612, suggesting a final push lower is imminent.\n\nFrom a liquidity perspective, the primary draw on liquidity sits below at the equal lows / SSL cluster between 1.3161 and 1.3177. These lows represent resting sell-side liquidity that has been engineered over the past two weeks of price action. Smart money will likely target these stops before any meaningful reversal can occur. To the upside, BSL pools exist at 1.3282 and 1.3336 (prior week high), but these would only be targeted in the context of a manipulation sweep before continuation lower \u2014 consistent with Power of 3 intraday dynamics.\n\nThe nearest unmitigated bearish order block sits between 1.3230 and 1.3245, which coincides with a bearish fair value gap (1.3198\u20131.3263). Any corrective retracement toward this zone \u2014 particularly the 50% CE of the FVG at 1.3231 \u2014 should be treated as a high-probability sell entry. Price is currently trading in discount relative to the dealing range (1.3161\u20131.3476), with equilibrium at 1.3319, so a short-term bounce to fill the FVG before continuation lower is a plausible intraday scenario.\n\nThe overall narrative for GBPUSD remains bearish. Weekly and daily structure are aligned to the downside, sell-side liquidity below current price is the primary draw, and corrective bounces into the 1.3230\u20131.3263 OB/FVG zone represent the highest-probability short opportunities. A clean break and close below 1.3161 would open the path toward 1.3100 and potentially 1.3040 as the next significant support region. Traders should avoid counter-trend longs unless a strong bullish ChoCH is confirmed on the daily timeframe with a close above 1.3360.",
       "symbol": "GBPUSD",
-      "current_price": 1.319524,
-      "weekly_bias": "Bullish",
-      "daily_bias": "Bearish",
-      "structure_label": "LH+LL (Bearish) \u2013 LH:4 LL:4",
-      "last_bos": "Price between swing high 1.34764 and swing low 1.31612",
-      "swing_high": 1.347636,
-      "swing_low": 1.316119,
-      "equilibrium": 1.331877,
-      "premium_discount": "Discount",
-      "previous_day_high": 1.324503,
-      "previous_day_low": 1.319784,
-      "previous_week_high": 1.347636,
-      "previous_week_low": 1.325996,
-      "nearest_ob": {
-        "timestamp": "2026-03-13T00:00:00",
-        "high": 1.33697,
-        "low": 1.323364,
-        "kind": "bearish",
-        "mitigated": false
-      },
-      "nearest_fvg": {
-        "timestamp": "2026-03-26T00:00:00",
-        "top": 1.33613,
-        "bottom": 1.3348,
-        "ce": 1.335465,
-        "kind": "bearish",
-        "filled": false
-      },
-      "liquidity_levels": [
-        {
-          "price": 1.338419,
-          "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 1.345406,
-          "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 1.353546,
-          "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 1.356815,
-          "kind": "BSL",
-          "equal": true
-        },
-        {
-          "price": 1.348872,
-          "kind": "BSL",
-          "equal": true
-        },
-        {
-          "price": 1.384677,
-          "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 1.371291,
-          "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 1.357405,
-          "kind": "BSL",
-          "equal": true
-        },
-        {
-          "price": 1.348145,
-          "kind": "BSL",
-          "equal": true
-        },
-        {
-          "price": 1.347636,
-          "kind": "BSL",
-          "equal": true
-        },
-        {
-          "price": 1.329027,
-          "kind": "SSL",
-          "equal": true
-        },
-        {
-          "price": 1.331363,
-          "kind": "SSL",
-          "equal": false
-        },
-        {
-          "price": 1.340339,
-          "kind": "SSL",
-          "equal": false
-        },
-        {
-          "price": 1.336559,
-          "kind": "SSL",
-          "equal": false
-        },
-        {
-          "price": 1.350986,
-          "kind": "SSL",
-          "equal": false
-        },
-        {
-          "price": 1.343526,
-          "kind": "SSL",
-          "equal": false
-        },
-        {
-          "price": 1.325486,
-          "kind": "SSL",
-          "equal": false
-        },
-        {
-          "price": 1.328498,
-          "kind": "SSL",
-          "equal": true
-        },
-        {
-          "price": 1.323241,
-          "kind": "SSL",
-          "equal": false
-        },
-        {
-          "price": 1.316119,
-          "kind": "SSL",
-          "equal": false
-        }
-      ],
-      "draw_on_liquidity": "SSL at 1.31612",
-      "key_poi_label": "Bearish OB D1: 1.32336\u20131.33697",
-      "confidence": 5,
-      "narrative": "On the weekly timeframe, GBPUSD is showing a bullish bias with lh+ll (bearish) \u2013 lh:4 ll:4. Price is currently below equilibrium (1.33188), placing it in a discount zone. Previous day high is 1.32450 and previous day low is 1.31978. Market structure: Price between swing high 1.34764 and swing low 1.31612. There is an unmitigated bearish order block between 1.32336 and 1.33697 - a key POI for potential reaction. The draw on liquidity is: SSL at 1.31612. Overall, the daily bias for GBPUSD is bearish (moderate, 5/10). Look for sells from premium POIs during London or NY killzone."
+      "current_price": 1.319343
     },
     {
-      "symbol": "AUDUSD",
-      "current_price": 0.688473,
-      "weekly_bias": "Bullish",
-      "daily_bias": "Neutral",
-      "structure_label": "Mixed structure \u2013 HH:2 HL:3 LH:3 LL:2",
-      "last_bos": "Price between swing high 0.69623 and swing low 0.68342",
-      "swing_high": 0.69623,
+      "weekly_bias": "Bearish",
+      "daily_bias": "Bearish",
+      "confidence": 7,
+      "structure_label": "Bearish: LH\u2192LL sequence from Feb 2026 peak; price printing lower highs and lower lows on weekly and daily timeframes after rejecting 0.7185 region",
+      "last_bos": "Daily BOS bearish: price broke below the 0.6900 swing low (late March 2026) on 2026-03-26/27, confirming continuation of the bearish leg from the 0.71846 high; ChoCH seen on 2026-03-31 rally attempt failed to reclaim 0.6962 \u2014 structure remains bearish",
+      "swing_high": 0.71846,
       "swing_low": 0.68342,
-      "equilibrium": 0.689825,
+      "equilibrium": 0.70094,
       "premium_discount": "Discount",
-      "previous_day_high": 0.69191,
-      "previous_day_low": 0.68916,
-      "previous_week_high": 0.7059,
-      "previous_week_low": 0.68651,
+      "previous_day_high": 0.68952,
+      "previous_day_low": 0.68822,
+      "previous_week_high": 0.69623,
+      "previous_week_low": 0.68342,
       "nearest_ob": {
-        "timestamp": "2026-03-30T23:00:00",
-        "high": 0.68883,
-        "low": 0.68352,
-        "kind": "bullish",
-        "mitigated": false
+        "high": 0.69352,
+        "low": 0.69115,
+        "kind": "bearish",
+        "mitigated": false,
+        "timestamp": "2026-04-05T21:48:01.360412+00:00"
       },
       "nearest_fvg": {
-        "timestamp": "2026-01-22T00:00:00",
-        "top": 0.68348,
-        "bottom": 0.67775,
-        "ce": 0.680615,
-        "kind": "bullish",
-        "filled": false
+        "top": 0.69191,
+        "bottom": 0.68952,
+        "ce": 0.69072,
+        "kind": "bearish",
+        "filled": false,
+        "timestamp": "2026-04-05T21:48:01.360412+00:00"
       },
       "liquidity_levels": [
-        {
-          "price": 0.65803,
-          "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 0.667913,
-          "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 0.672812,
-          "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 0.6768,
-          "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 0.7094,
-          "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 0.71473,
-          "kind": "BSL",
-          "equal": true
-        },
-        {
-          "price": 0.713725,
-          "kind": "BSL",
-          "equal": true
-        },
-        {
-          "price": 0.718458,
-          "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 0.71229,
-          "kind": "BSL",
-          "equal": false
-        },
         {
           "price": 0.69623,
           "kind": "BSL",
           "equal": false
         },
         {
-          "price": 0.66615,
-          "kind": "SSL",
-          "equal": true
-        },
-        {
-          "price": 0.66648,
-          "kind": "SSL",
-          "equal": true
-        },
-        {
-          "price": 0.66684,
-          "kind": "SSL",
-          "equal": true
-        },
-        {
-          "price": 0.691018,
-          "kind": "SSL",
+          "price": 0.70117,
+          "kind": "BSL",
           "equal": false
         },
         {
-          "price": 0.68979,
-          "kind": "SSL",
-          "equal": false
-        },
-        {
-          "price": 0.701671,
-          "kind": "SSL",
-          "equal": false
-        },
-        {
-          "price": 0.69455,
-          "kind": "SSL",
-          "equal": false
-        },
-        {
-          "price": 0.695691,
-          "kind": "SSL",
-          "equal": false
-        },
-        {
-          "price": 0.69979,
-          "kind": "SSL",
+          "price": 0.71846,
+          "kind": "BSL",
           "equal": false
         },
         {
           "price": 0.68342,
           "kind": "SSL",
           "equal": false
+        },
+        {
+          "price": 0.68651,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 0.68727,
+          "kind": "SSL",
+          "equal": true
         }
       ],
-      "draw_on_liquidity": "SSL at 0.68342",
-      "key_poi_label": "Bullish OB D1: 0.68352\u20130.68883",
-      "confidence": 3,
-      "narrative": "On the weekly timeframe, AUDUSD is showing a bullish bias with mixed structure \u2013 hh:2 hl:3 lh:3 ll:2. Price is currently below equilibrium (0.68983), placing it in a discount zone. Previous day high is 0.69191 and previous day low is 0.68916. Market structure: Price between swing high 0.69623 and swing low 0.68342. There is an unmitigated bullish order block between 0.68352 and 0.68883 - a key POI for potential reaction. The draw on liquidity is: SSL at 0.68342. Overall, the daily bias for AUDUSD is neutral (low-confidence, 3/10). No clear directional bias - wait for a structural shift or liquidity sweep."
+      "draw_on_liquidity": "SSL at 0.68342 (recent swing low / weekly low from 2026-03-29) \u2014 price is targeting sell-side liquidity resting below that level",
+      "key_poi_label": "Bearish OB 0.6912\u20130.6935 (2026-04-01 daily rejection zone)",
+      "narrative": "On the weekly timeframe, AUDUSD established a significant peak at 0.71846 during the week of 2026-03-09, forming a clear lower high relative to the 0.70940 swing and then reversing aggressively. The weekly structure has now printed two consecutive lower lows, with the most recent weekly close at 0.68853 sitting well beneath the prior consolidation base near 0.6940. Weekly momentum is decidedly bearish, and price is trading in discount territory relative to the broader dealing range (0.68342 low to 0.71846 high, equilibrium ~0.70094), yet the bias remains sell-side given the structural deterioration.\n\nOn the daily timeframe, the bearish narrative is reinforced by a clear sequence of lower highs and lower lows since the 0.71846 print. A confirmed Break of Structure (BOS) to the downside occurred when price violated the prior swing low around 0.6900 on 2026-03-26. Subsequent daily candles have failed to reclaim any meaningful structure level, with the 2026-03-31 through 2026-04-01 bounce capping out at 0.69623 \u2014 well below the prior swing high \u2014 and price returning to compress near 0.6885 by the analysis date.\n\nThe key Point of Interest (POI) on the sell side is the bearish Order Block formed by the 2026-04-01 daily candle (High: 0.69352, Low: 0.69115). This represents the last significant down-close candle before price continued lower, and any intraday or daily retracement into this zone (0.6912\u20130.6935) should be treated as a high-probability shorting opportunity aligned with the prevailing structure. Directly above this OB sits a Fair Value Gap (bearish FVG: 0.68952\u20130.69191, CE ~0.69072) left behind by the April 2nd / April 4th sequence, which price may tap before resuming the downtrend.\n\nLiquidity pools are clearly stacked to the downside. SSL rests at 0.68342 (the week's absolute low), and equal lows around 0.68727\u20130.68751 offer an intermediate draw. Buy-side liquidity sits at 0.69623 (last week's high) and further at 0.71846, but in the current bearish context these represent inducement levels rather than likely immediate targets. Smart money positioning (Power of 3) suggests the current phase is distribution/markdown \u2014 the accumulation of short positions occurred near the 0.71\u20130.72 highs, manipulation squeezed out longs, and the distribution phase is now delivering price into lower SSL pools.\n\nThe immediate trade narrative favors patience for a retracement into the bearish OB / FVG zone (0.6895\u20130.6935) for short entries targeting the 0.68342 SSL below, with a stop above 0.6963 (last week's high / BSL). The confluence of weekly bearish structure, daily BOS confirmation, unmitigated bearish OB overhead, and clear SSL draw below gives this setup a confidence rating of 7/10. A breach and close back above 0.6963 on the daily would invalidate the immediate bearish bias and signal a potential ChoCH to the upside.",
+      "symbol": "AUDUSD",
+      "current_price": 0.68853
     },
     {
-      "symbol": "NZDUSD",
-      "current_price": 0.569606,
-      "weekly_bias": "Neutral",
+      "weekly_bias": "Bearish",
       "daily_bias": "Bearish",
-      "structure_label": "LH+LL (Bearish) \u2013 LH:5 LL:3",
-      "last_bos": "Bearish BOS \u2013 close broke swing low 0.57009",
-      "swing_high": 0.589209,
-      "swing_low": 0.57009,
-      "equilibrium": 0.579649,
+      "confidence": 8,
+      "structure_label": "Bearish trend with series of LH/LL from February 2026 highs; price breaking below key weekly supports",
+      "last_bos": "Daily BOS bearish \u2014 price broke below 0.57300 swing low (week of 2026-03-23) on 2026-03-29, confirming continuation of bearish structure from 0.60933 peak",
+      "swing_high": 0.58921,
+      "swing_low": 0.56876,
+      "equilibrium": 0.57899,
       "premium_discount": "Discount",
-      "previous_day_high": 0.5723,
-      "previous_day_low": 0.56945,
-      "previous_week_high": 0.58862,
-      "previous_week_low": 0.573,
+      "previous_day_high": 0.57045,
+      "previous_day_low": 0.56876,
+      "previous_week_high": 0.57778,
+      "previous_week_low": 0.56876,
       "nearest_ob": {
-        "timestamp": "2026-01-12T00:00:00",
-        "high": 0.576961,
-        "low": 0.57279,
+        "high": 0.57561,
+        "low": 0.57317,
         "kind": "bearish",
-        "mitigated": false
+        "mitigated": false,
+        "timestamp": "2026-04-05T21:48:30.233674+00:00"
       },
       "nearest_fvg": {
-        "timestamp": "2026-04-01T23:00:00",
-        "top": 0.573171,
-        "bottom": 0.5723,
-        "ce": 0.572736,
+        "top": 0.5723,
+        "bottom": 0.57045,
+        "ce": 0.57138,
         "kind": "bearish",
-        "filled": false
+        "filled": false,
+        "timestamp": "2026-04-05T21:48:30.233674+00:00"
       },
       "liquidity_levels": [
         {
-          "price": 0.58322,
-          "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 0.585329,
-          "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 0.581051,
-          "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 0.578122,
-          "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 0.609329,
-          "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 0.607652,
-          "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 0.605081,
-          "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 0.601319,
-          "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 0.596189,
-          "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 0.589209,
-          "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 0.57372,
-          "kind": "SSL",
-          "equal": true
-        },
-        {
-          "price": 0.574162,
-          "kind": "SSL",
-          "equal": true
-        },
-        {
-          "price": 0.571249,
+          "price": 0.56876,
           "kind": "SSL",
           "equal": false
         },
         {
-          "price": 0.572721,
+          "price": 0.56951,
           "kind": "SSL",
           "equal": false
         },
         {
-          "price": 0.59294,
+          "price": 0.55842,
           "kind": "SSL",
           "equal": false
         },
         {
-          "price": 0.593969,
-          "kind": "SSL",
+          "price": 0.57778,
+          "kind": "BSL",
           "equal": false
         },
         {
-          "price": 0.583829,
-          "kind": "SSL",
+          "price": 0.58921,
+          "kind": "BSL",
           "equal": false
         },
         {
-          "price": 0.585189,
-          "kind": "SSL",
-          "equal": false
-        },
-        {
-          "price": 0.576389,
-          "kind": "SSL",
+          "price": 0.59619,
+          "kind": "BSL",
           "equal": false
         },
         {
           "price": 0.57009,
           "kind": "SSL",
-          "equal": false
+          "equal": true
+        },
+        {
+          "price": 0.57012,
+          "kind": "SSL",
+          "equal": true
         }
       ],
-      "draw_on_liquidity": "No clear liquidity draw identified",
-      "key_poi_label": "Bearish OB D1: 0.57279\u20130.57696",
-      "confidence": 5,
-      "narrative": "On the weekly timeframe, NZDUSD is showing a neutral bias with lh+ll (bearish) \u2013 lh:5 ll:3. Price is currently below equilibrium (0.57965), placing it in a discount zone. Previous day high is 0.57230 and previous day low is 0.56945. Market structure: Bearish BOS \u2013 close broke swing low 0.57009. There is an unmitigated bearish order block between 0.57279 and 0.57696 - a key POI for potential reaction. The draw on liquidity is: No clear liquidity draw identified. Overall, the daily bias for NZDUSD is bearish (moderate, 5/10). Look for sells from premium POIs during London or NY killzone."
+      "draw_on_liquidity": "SSL at 0.55842 (November 2025 weekly swing low) \u2014 price targeting deeper sell-side liquidity below current lows after sweeping 0.56876",
+      "key_poi_label": "Bearish OB / FVG confluence 0.57045\u20130.57561 (daily)",
+      "narrative": "NZDUSD has been in a sustained bearish trend since printing a major swing high at 0.60933 during the week of 2026-01-26. The weekly structure shows a clear sequence of lower highs and lower lows: 0.60933 \u2192 0.60765 \u2192 0.59954 \u2192 0.59619 \u2192 0.58921 \u2192 0.57778, with each weekly close confirming distribution and aggressive sell-side pressure. The weekly dealing range (0.56951 most recent close versus 0.60933 high) places current price well into the discount zone, yet the draw on liquidity is deeper \u2014 specifically the November 2025 lows near 0.55842 which represent untapped sell-side liquidity on the higher timeframe.\n\nOn the daily timeframe, the bearish thesis is unambiguous. Price has formed a textbook sequence of lower highs (0.59619, 0.58921, 0.57778, 0.57568) and lower lows (0.58033, 0.57300, 0.57009, 0.56876), with each minor rally rejected at overhead supply. The most recent confirmed BOS occurred when price broke below the 0.57300 swing low on 2026-03-29, which had previously marked the low of the week ending 2026-03-23. This structural break signals that smart money continues to distribute and that any bounces into supply should be treated as sell opportunities.\n\nThe nearest unmitigated bearish order block sits in the 0.57317\u20130.57561 zone, representing the last consolidation candles (2026-03-31) before the acceleration lower into the current 0.5695 area. Above this, the 0.57786 level and the 0.58921 weekly swing high serve as additional BSL pools that could be targeted in any deeper corrective rally, but these are not expected to be reached given the current momentum. A bearish FVG exists between approximately 0.57045 and 0.57230, formed by the gap between the 2026-04-02 candle and the 2026-04-01 candle, providing a precise intraday retracement zone for short entries should price retrace.\n\nCurrent price at 0.5695 is trading below the previous week's low (0.56876) and has effectively swept that sell-side liquidity level. This classic ICT manipulation pattern \u2014 sweeping SSL before a potential brief consolidation \u2014 does not negate the bearish draw. Rather, price may perform a minor retracement into the 0.5704\u20130.5756 bearish OB/FVG zone (Power of 3 accumulation/manipulation phase on the intraday) before distributing lower toward the 0.5584 target. Any retracement into the 0.5713\u20130.5756 zone that shows bearish rejection remains a high-probability short entry aligned with the dominant weekly and daily bias.\n\nOverall confidence in the bearish narrative is rated 8/10. All key timeframes are aligned bearishly, structure is clean and unambiguous, and the draw on liquidity is well-defined at the 0.55842 weekly SSL. The only caveat tempering a 9\u201310 rating is that current price has already made a significant move from the 0.60933 peak and is approaching a discount zone on the higher timeframe where some consolidation or counter-trend reaction is possible before the next leg lower materialises.",
+      "symbol": "NZDUSD",
+      "current_price": 0.569508
     },
     {
-      "symbol": "USDCAD",
-      "current_price": 1.3933,
-      "weekly_bias": "Neutral",
+      "weekly_bias": "Bullish",
       "daily_bias": "Bullish",
-      "structure_label": "HH+HL (Bullish) \u2013 HH:3 HL:3",
-      "last_bos": "Price between swing high 1.39643 and swing low 1.36699",
+      "confidence": 7,
+      "structure_label": "Bullish HH/HL trend on daily; price pushing into recent swing highs after sustained accumulation from March lows",
+      "last_bos": "Daily BOS bullish \u2014 price broke above the 1.3806 swing high (2026-03-25) on 2026-03-26, confirming continuation of bullish structure off the 1.3526 low",
       "swing_high": 1.39643,
-      "swing_low": 1.36699,
-      "equilibrium": 1.38171,
+      "swing_low": 1.38689,
+      "equilibrium": 1.39166,
       "premium_discount": "Premium",
-      "previous_day_high": 1.39484,
-      "previous_day_low": 1.3913,
-      "previous_week_high": 1.3897,
-      "previous_week_low": 1.36699,
+      "previous_day_high": 1.3946,
+      "previous_day_low": 1.3922,
+      "previous_week_high": 1.39643,
+      "previous_week_low": 1.38689,
       "nearest_ob": {
-        "timestamp": "2026-01-15T00:00:00",
-        "high": 1.39189,
-        "low": 1.3883,
+        "high": 1.3917,
+        "low": 1.3876,
         "kind": "bullish",
-        "mitigated": false
+        "mitigated": false,
+        "timestamp": "2026-04-05T21:48:54.764853+00:00"
       },
       "nearest_fvg": {
-        "timestamp": "2026-04-01T23:00:00",
-        "top": 1.3913,
+        "top": 1.39327,
         "bottom": 1.3911,
-        "ce": 1.3912,
+        "ce": 1.39219,
         "kind": "bullish",
-        "filled": false
+        "filled": false,
+        "timestamp": "2026-04-05T21:48:54.764853+00:00"
       },
       "liquidity_levels": [
-        {
-          "price": 1.40789,
-          "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 1.41395,
-          "kind": "BSL",
-          "equal": true
-        },
-        {
-          "price": 1.41295,
-          "kind": "BSL",
-          "equal": true
-        },
-        {
-          "price": 1.38,
-          "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 1.39237,
-          "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 1.37236,
-          "kind": "BSL",
-          "equal": true
-        },
-        {
-          "price": 1.37247,
-          "kind": "BSL",
-          "equal": true
-        },
-        {
-          "price": 1.37525,
-          "kind": "BSL",
-          "equal": true
-        },
-        {
-          "price": 1.3736,
-          "kind": "BSL",
-          "equal": true
-        },
         {
           "price": 1.39643,
           "kind": "BSL",
           "equal": false
         },
         {
-          "price": 1.38887,
+          "price": 1.41295,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 1.39484,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 1.38689,
           "kind": "SSL",
           "equal": false
         },
         {
-          "price": 1.39851,
-          "kind": "SSL",
-          "equal": true
-        },
-        {
-          "price": 1.3984,
-          "kind": "SSL",
-          "equal": true
-        },
-        {
-          "price": 1.37302,
+          "price": 1.3719,
           "kind": "SSL",
           "equal": false
-        },
-        {
-          "price": 1.3642,
-          "kind": "SSL",
-          "equal": true
-        },
-        {
-          "price": 1.3484,
-          "kind": "SSL",
-          "equal": true
-        },
-        {
-          "price": 1.35042,
-          "kind": "SSL",
-          "equal": true
-        },
-        {
-          "price": 1.36287,
-          "kind": "SSL",
-          "equal": true
         },
         {
           "price": 1.3526,
           "kind": "SSL",
           "equal": false
-        },
-        {
-          "price": 1.36699,
-          "kind": "SSL",
-          "equal": false
         }
       ],
-      "draw_on_liquidity": "BSL at 1.39643",
-      "key_poi_label": "Bullish OB D1: 1.38830\u20131.39189",
-      "confidence": 5,
-      "narrative": "On the weekly timeframe, USDCAD is showing a neutral bias with hh+hl (bullish) \u2013 hh:3 hl:3. Price is currently above equilibrium (1.38171), placing it in a premium zone. Previous day high is 1.39484 and previous day low is 1.39130. Market structure: Price between swing high 1.39643 and swing low 1.36699. There is an unmitigated bullish order block between 1.38830 and 1.39189 - a key POI for potential reaction. The draw on liquidity is: BSL at 1.39643. Overall, the daily bias for USDCAD is bullish (moderate, 5/10). Look for buys from discount POIs during London or NY killzone."
+      "draw_on_liquidity": "BSL at 1.3964 (weekly swing high from 2026-03-30) and extended draw toward 1.4130 (weekly BSL from November 2025)",
+      "key_poi_label": "Bullish OB 1.3876\u20131.3917 (2026-04-01 daily candle)",
+      "narrative": "On the weekly timeframe, USDCAD has been in a sustained bullish recovery since the December 2025 lows near 1.3642, printing a clear sequence of higher highs and higher lows. The most recent weekly candle (ending 2026-04-04) closed near 1.3936, firmly above the prior week's high of 1.3964, suggesting institutional accumulation and a continued bullish draw toward the November 2025 swing highs around 1.4130. Weekly structure remains bullish as long as price holds above the 1.3700 weekly demand zone.\n\nOn the daily timeframe, the bullish break of structure above 1.3806 in late March confirmed a shift in momentum. Price has since printed a clean sequence of HH and HL, with the most recent swing low established at 1.3869 on 2026-04-01 and the current swing high at 1.3964 from 2026-03-30. Current price of 1.3936 sits in slight premium relative to the dealing range equilibrium at ~1.3916, indicating price may briefly retrace before continuation.\n\nThe nearest unmitigated bullish order block resides between 1.3876 and 1.3917 (the 2026-04-01 daily candle body), which aligns closely with the bullish FVG formed between 1.3911 and 1.3933. This confluence zone represents the highest-probability area for price to revisit and load buy-side orders before targeting the BSL resting above the 1.3964 swing high. A mitigation of this OB/FVG zone would offer a precision long entry in the context of Power of 3 \u2014 accumulation through the Asian session, manipulation into the OB during London open, followed by distribution to the upside in the New York session.\n\nLiquidity mapping shows significant buy-side resting above 1.3964 and the larger BSL pool at 1.4130, both representing clean engineering targets for smart money. On the sell side, stops are clustered below 1.3869 and further below at 1.3719. As long as price does not take out the 1.3869 daily SSL, the bullish thesis remains intact and any dip into the 1.3876\u20131.3917 OB/FVG zone should be viewed as an opportunity to align with institutional flow.\n\nOverall confidence is rated 7/10. Both weekly and daily timeframes are aligned bullish, the dealing range is well-defined, and there is a clear draw on BSL above the current swing high. The only mitigating factor is that current price is in slight premium, meaning a short-term pullback or intraday stop hunt below recent lows may precede the next leg higher. Traders should monitor price behavior around the 1.3917\u20131.3876 OB for confirmation of a bullish reaction before entering.",
+      "symbol": "USDCAD",
+      "current_price": 1.3936
     },
     {
-      "symbol": "USDCHF",
-      "current_price": 0.79947,
       "weekly_bias": "Bearish",
-      "daily_bias": "Bullish",
-      "structure_label": "HH+HL (Bullish) \u2013 HH:3 HL:4",
-      "last_bos": "Price between swing high 0.80410 and swing low 0.79094",
+      "daily_bias": "Bearish",
+      "confidence": 7,
+      "structure_label": "Weekly bearish trend with lower highs since Nov 2025 highs; daily showing a rally into premium that is stalling near resistance",
+      "last_bos": "Daily BOS bearish: price broke below the 0.7894 swing low on April 1 after failing to sustain above 0.8041 (recent swing high), confirming bearish ChoCH from the 0.8041 high printed 2026-03-30",
       "swing_high": 0.8041,
       "swing_low": 0.79094,
       "equilibrium": 0.79752,
       "premium_discount": "Premium",
-      "previous_day_high": 0.80022,
-      "previous_day_low": 0.7976,
-      "previous_week_high": 0.7983,
-      "previous_week_low": 0.78377,
+      "previous_day_high": 0.79991,
+      "previous_day_low": 0.79849,
+      "previous_week_high": 0.8041,
+      "previous_week_low": 0.79094,
       "nearest_ob": {
-        "timestamp": "2025-12-16T00:00:00",
-        "high": 0.79698,
-        "low": 0.79297,
-        "kind": "bullish",
-        "mitigated": false
+        "high": 0.79984,
+        "low": 0.79399,
+        "kind": "bearish",
+        "mitigated": false,
+        "timestamp": "2026-04-05T21:49:23.262086+00:00"
       },
       "nearest_fvg": {
-        "timestamp": "2026-03-12T00:00:00",
-        "top": 0.7845,
-        "bottom": 0.78053,
-        "ce": 0.782515,
-        "kind": "bullish",
-        "filled": false
+        "top": 0.8008,
+        "bottom": 0.7976,
+        "ce": 0.7992,
+        "kind": "bearish",
+        "filled": false,
+        "timestamp": "2026-04-05T21:49:23.262086+00:00"
       },
       "liquidity_levels": [
         {
-          "price": 0.81235,
+          "price": 0.8041,
           "kind": "BSL",
           "equal": false
         },
         {
-          "price": 0.8102,
+          "price": 0.80126,
           "kind": "BSL",
           "equal": false
         },
         {
-          "price": 0.80839,
-          "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 0.79869,
-          "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 0.80396,
-          "kind": "BSL",
-          "equal": true
-        },
-        {
-          "price": 0.78159,
-          "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 0.77711,
-          "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 0.7878,
+          "price": 0.80022,
           "kind": "BSL",
           "equal": false
         },
         {
           "price": 0.79572,
           "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 0.8041,
-          "kind": "BSL",
           "equal": true
         },
         {
-          "price": 0.78788,
-          "kind": "SSL",
-          "equal": false
-        },
-        {
-          "price": 0.7993,
-          "kind": "SSL",
-          "equal": false
-        },
-        {
-          "price": 0.7929,
-          "kind": "SSL",
-          "equal": false
-        },
-        {
-          "price": 0.786,
-          "kind": "SSL",
-          "equal": false
-        },
-        {
-          "price": 0.7629,
-          "kind": "SSL",
-          "equal": true
-        },
-        {
-          "price": 0.7671,
-          "kind": "SSL",
-          "equal": false
-        },
-        {
-          "price": 0.7746,
+          "price": 0.79094,
           "kind": "SSL",
           "equal": false
         },
@@ -810,492 +434,292 @@
           "equal": false
         },
         {
-          "price": 0.79094,
-          "kind": "SSL",
-          "equal": false
-        }
-      ],
-      "draw_on_liquidity": "BSL (EQH) at 0.80396",
-      "key_poi_label": "Bullish OB D1: 0.79297\u20130.79698",
-      "confidence": 5,
-      "narrative": "On the weekly timeframe, USDCHF is showing a bearish bias with hh+hl (bullish) \u2013 hh:3 hl:4. Price is currently above equilibrium (0.79752), placing it in a premium zone. Previous day high is 0.80022 and previous day low is 0.79760. Market structure: Price between swing high 0.80410 and swing low 0.79094. There is an unmitigated bullish order block between 0.79297 and 0.79698 - a key POI for potential reaction. The draw on liquidity is: BSL (EQH) at 0.80396. Overall, the daily bias for USDCHF is bullish (moderate, 5/10). Look for buys from discount POIs during London or NY killzone."
-    },
-    {
-      "symbol": "USDJPY",
-      "current_price": 159.492996,
-      "weekly_bias": "Neutral",
-      "daily_bias": "Bullish",
-      "structure_label": "HH+HL (Bullish) \u2013 HH:3 HL:3",
-      "last_bos": "Price between swing high 160.23100 and swing low 158.27901",
-      "swing_high": 160.231003,
-      "swing_low": 158.279007,
-      "equilibrium": 159.255005,
-      "premium_discount": "Premium",
-      "previous_day_high": 159.695007,
-      "previous_day_low": 159.427002,
-      "previous_week_high": 160.294006,
-      "previous_week_low": 158.225006,
-      "nearest_ob": {
-        "timestamp": "2026-03-12T00:00:00",
-        "high": 159.283997,
-        "low": 158.572998,
-        "kind": "bullish",
-        "mitigated": false
-      },
-      "nearest_fvg": {
-        "timestamp": "2026-04-01T23:00:00",
-        "top": 159.427002,
-        "bottom": 158.990005,
-        "ce": 159.208504,
-        "kind": "bullish",
-        "filled": false
-      },
-      "liquidity_levels": [
-        {
-          "price": 157.886993,
-          "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 156.917999,
-          "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 157.649002,
-          "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 157.292007,
-          "kind": "BSL",
-          "equal": true
-        },
-        {
-          "price": 159.438004,
-          "kind": "BSL",
-          "equal": true
-        },
-        {
-          "price": 159.207001,
-          "kind": "BSL",
-          "equal": true
-        },
-        {
-          "price": 157.328003,
-          "kind": "BSL",
-          "equal": true
-        },
-        {
-          "price": 159.630997,
-          "kind": "BSL",
-          "equal": true
-        },
-        {
-          "price": 159.815994,
-          "kind": "BSL",
-          "equal": true
-        },
-        {
-          "price": 160.231003,
-          "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 152.852997,
+          "price": 0.7746,
           "kind": "SSL",
           "equal": false
         },
         {
-          "price": 153.649994,
-          "kind": "SSL",
-          "equal": false
-        },
-        {
-          "price": 154.352005,
-          "kind": "SSL",
-          "equal": true
-        },
-        {
-          "price": 154.470001,
-          "kind": "SSL",
-          "equal": true
-        },
-        {
-          "price": 156.158997,
-          "kind": "SSL",
-          "equal": false
-        },
-        {
-          "price": 157.425003,
-          "kind": "SSL",
-          "equal": false
-        },
-        {
-          "price": 152.330002,
-          "kind": "SSL",
-          "equal": true
-        },
-        {
-          "price": 152.278,
-          "kind": "SSL",
-          "equal": true
-        },
-        {
-          "price": 157.737,
-          "kind": "SSL",
-          "equal": false
-        },
-        {
-          "price": 158.279007,
-          "kind": "SSL",
-          "equal": false
-        }
-      ],
-      "draw_on_liquidity": "BSL (EQH) at 159.63100",
-      "key_poi_label": "Bullish OB D1: 158.57300\u2013159.28400",
-      "confidence": 5,
-      "narrative": "On the weekly timeframe, USDJPY is showing a neutral bias with hh+hl (bullish) \u2013 hh:3 hl:3. Price is currently above equilibrium (159.25500), placing it in a premium zone. Previous day high is 159.69501 and previous day low is 159.42700. Market structure: Price between swing high 160.23100 and swing low 158.27901. There is an unmitigated bullish order block between 158.57300 and 159.28400 - a key POI for potential reaction. The draw on liquidity is: BSL (EQH) at 159.63100. Overall, the daily bias for USDJPY is bullish (moderate, 5/10). Look for buys from discount POIs during London or NY killzone."
-    },
-    {
-      "symbol": "DXY",
-      "current_price": 100.029999,
-      "weekly_bias": "Neutral",
-      "daily_bias": "Bullish",
-      "structure_label": "HH+HL (Bullish) \u2013 HH:4 HL:3",
-      "last_bos": "Price between swing high 100.54000 and swing low 98.88000",
-      "swing_high": 100.540001,
-      "swing_low": 98.879997,
-      "equilibrium": 99.709999,
-      "premium_discount": "Premium",
-      "previous_day_high": 99.879997,
-      "previous_day_low": 99.300003,
-      "previous_week_high": 100.209999,
-      "previous_week_low": 98.879997,
-      "nearest_ob": {
-        "timestamp": "2026-03-06T05:00:00",
-        "high": 99.440002,
-        "low": 98.839996,
-        "kind": "bullish",
-        "mitigated": false
-      },
-      "nearest_fvg": {
-        "timestamp": "2026-03-02T05:00:00",
-        "top": 98.440002,
-        "bottom": 97.849998,
-        "ce": 98.145,
-        "kind": "bullish",
-        "filled": false
-      },
-      "liquidity_levels": [
-        {
-          "price": 100.360001,
-          "kind": "BSL",
-          "equal": true
-        },
-        {
-          "price": 100.400002,
-          "kind": "BSL",
-          "equal": true
-        },
-        {
-          "price": 99.309998,
-          "kind": "BSL",
-          "equal": true
-        },
-        {
-          "price": 98.75,
-          "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 99.260002,
-          "kind": "BSL",
-          "equal": true
-        },
-        {
-          "price": 99.489998,
-          "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 97.989998,
-          "kind": "BSL",
-          "equal": true
-        },
-        {
-          "price": 98.080002,
-          "kind": "BSL",
-          "equal": true
-        },
-        {
-          "price": 99.68,
-          "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 100.540001,
-          "kind": "BSL",
-          "equal": true
-        },
-        {
-          "price": 98.57,
-          "kind": "SSL",
-          "equal": true
-        },
-        {
-          "price": 98.989998,
-          "kind": "SSL",
-          "equal": true
-        },
-        {
-          "price": 98.769997,
-          "kind": "SSL",
-          "equal": true
-        },
-        {
-          "price": 97.870003,
-          "kind": "SSL",
-          "equal": true
-        },
-        {
-          "price": 97.75,
-          "kind": "SSL",
-          "equal": true
-        },
-        {
-          "price": 95.550003,
-          "kind": "SSL",
-          "equal": false
-        },
-        {
-          "price": 96.489998,
-          "kind": "SSL",
-          "equal": false
-        },
-        {
-          "price": 98.489998,
-          "kind": "SSL",
-          "equal": true
-        },
-        {
-          "price": 98.879997,
+          "price": 0.7629,
           "kind": "SSL",
           "equal": true
         }
       ],
-      "draw_on_liquidity": "BSL (EQH) at 100.36000",
-      "key_poi_label": "Bullish OB D1: 98.84000\u201399.44000",
-      "confidence": 5,
-      "narrative": "On the weekly timeframe, DXY is showing a neutral bias with hh+hl (bullish) \u2013 hh:4 hl:3. Price is currently above equilibrium (99.71000), placing it in a premium zone. Previous day high is 99.88000 and previous day low is 99.30000. Market structure: Price between swing high 100.54000 and swing low 98.88000. There is an unmitigated bullish order block between 98.84000 and 99.44000 - a key POI for potential reaction. The draw on liquidity is: BSL (EQH) at 100.36000. Overall, the daily bias for DXY is bullish (moderate, 5/10). Look for buys from discount POIs during London or NY killzone."
+      "draw_on_liquidity": "SSL at 0.79094 (recent swing low from week of 2026-03-29), then deeper SSL at 0.78377 \u2014 bearish draw on sell-side liquidity below",
+      "key_poi_label": "Bearish OB / FVG confluence 0.7976\u20130.8008 (daily)",
+      "narrative": "On the weekly timeframe, USDCHF has been in a sustained bearish trend since the November 2025 high of 0.81020, printing a consistent sequence of lower highs and lower lows through January and February 2026. The multi-month decline bottomed near the 0.76290 area in February before staging a corrective rally. That rally has now reached the 0.8041 area \u2014 which represents the premium zone of the broader dealing range \u2014 where sellers are likely to reassert control. The weekly structure remains bearish with no confirmed higher high yet established on that timeframe.\n\nOn the daily timeframe, price rallied from the 0.76290 lows through March, printing a swing high at 0.8041 on March 30. This move swept BSL resting above prior swing highs and appears to be an engineered liquidity grab (manipulation phase in Power of 3 context). Since that high, price has begun to retrace, printing lower closes and stalling around the 0.7993 area. The current price is sitting fractionally above equilibrium of the most recent dealing range (swing high 0.8041, swing low 0.7909), placing it in slight premium \u2014 ideal for bearish entries.\n\nA bearish order block is identified between 0.7940 and 0.7998, corresponding to the last bullish candle cluster before the March 29-30 surge that swept BSL. A bearish FVG exists between 0.7976 and 0.8008, which is currently unmitigated. Price is hovering near the upper boundary of this FVG, offering a high-probability rejection zone. Any short-term bounce into 0.8000\u20130.8008 would be a prime bearish entry opportunity with the FVG acting as a ceiling.\n\nThe primary draw on liquidity is the SSL pool at 0.79094 (the most recent swing low), followed by the larger SSL cluster near 0.78377 and ultimately the equal lows at 0.76290. Smart money appears to have distributed at the 0.8041 high and is now targeting these sell-side pools to the downside. The bearish OB/FVG confluence at 0.7976\u20130.8008 is the key POI to watch for distribution confirmation.\n\nIn summary, the weight of evidence across weekly and daily timeframes favors a bearish continuation. The ideal scenario (Power of 3) would be a brief morning accumulation/minor push into the 0.7995\u20130.8008 FVG/OB zone to sweep residual BSL before a sustained decline toward 0.7909 and beyond. Traders should watch for bearish confirmation signals (bearish engulfing, rejection wicks) within the identified OB/FVG zone and avoid longs given the premium pricing and overarching bearish weekly structure.",
+      "symbol": "USDCHF",
+      "current_price": 0.7993
     },
     {
-      "symbol": "SPX500",
-      "current_price": 6582.689941,
       "weekly_bias": "Bullish",
-      "daily_bias": "Bearish",
-      "structure_label": "LH+LL (Bearish) \u2013 LH:3 LL:4",
-      "last_bos": "Price between swing high 6754.29980 and swing low 6316.91016",
-      "swing_high": 6754.299805,
-      "swing_low": 6316.910156,
-      "equilibrium": 6535.60498,
-      "premium_discount": "Premium",
-      "previous_day_high": 6609.669922,
-      "previous_day_low": 6554.290039,
-      "previous_week_high": 6651.620117,
-      "previous_week_low": 6356.080078,
-      "nearest_ob": {
-        "timestamp": "2025-11-19T05:00:00",
-        "high": 6689.75,
-        "low": 6603.5,
-        "kind": "bearish",
-        "mitigated": false
-      },
-      "nearest_fvg": {
-        "timestamp": "2026-03-18T04:00:00",
-        "top": 6710.799805,
-        "bottom": 6636.740234,
-        "ce": 6673.77002,
-        "kind": "bearish",
-        "filled": false
-      },
-      "liquidity_levels": [
-        {
-          "price": 6920.339844,
-          "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 6869.910156,
-          "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 6903.459961,
-          "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 6945.77002,
-          "kind": "BSL",
-          "equal": true
-        },
-        {
-          "price": 6986.330078,
-          "kind": "BSL",
-          "equal": true
-        },
-        {
-          "price": 7002.279785,
-          "kind": "BSL",
-          "equal": true
-        },
-        {
-          "price": 6993.080078,
-          "kind": "BSL",
-          "equal": true
-        },
-        {
-          "price": 6993.47998,
-          "kind": "BSL",
-          "equal": true
-        },
-        {
-          "price": 6952.509766,
-          "kind": "BSL",
-          "equal": true
-        },
-        {
-          "price": 6754.299805,
-          "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 6720.430176,
-          "kind": "SSL",
-          "equal": true
-        },
-        {
-          "price": 6824.310059,
-          "kind": "SSL",
-          "equal": true
-        },
-        {
-          "price": 6789.049805,
-          "kind": "SSL",
-          "equal": true
-        },
-        {
-          "price": 6780.129883,
-          "kind": "SSL",
-          "equal": true
-        },
-        {
-          "price": 6775.5,
-          "kind": "SSL",
-          "equal": true
-        },
-        {
-          "price": 6815.430176,
-          "kind": "SSL",
-          "equal": true
-        },
-        {
-          "price": 6710.419922,
-          "kind": "SSL",
-          "equal": true
-        },
-        {
-          "price": 6636.040039,
-          "kind": "SSL",
-          "equal": false
-        },
-        {
-          "price": 6473.52002,
-          "kind": "SSL",
-          "equal": false
-        },
-        {
-          "price": 6316.910156,
-          "kind": "SSL",
-          "equal": false
-        }
-      ],
-      "draw_on_liquidity": "SSL at 6473.52002",
-      "key_poi_label": "Bearish OB D1: 6603.50000\u20136689.75000",
+      "daily_bias": "Bullish",
       "confidence": 7,
-      "narrative": "On the weekly timeframe, SPX500 is showing a bullish bias with lh+ll (bearish) \u2013 lh:3 ll:4. Price is currently above equilibrium (6535.60498), placing it in a premium zone. Previous day high is 6609.66992 and previous day low is 6554.29004. Market structure: Price between swing high 6754.29980 and swing low 6316.91016. There is an unmitigated bearish order block between 6603.50000 and 6689.75000 - a key POI for potential reaction. The draw on liquidity is: SSL at 6473.52002. Overall, the daily bias for SPX500 is bearish (high-confidence, 7/10). Look for sells from premium POIs during London or NY killzone."
-    },
-    {
-      "symbol": "XAUUSD",
-      "current_price": 4702.700195,
-      "weekly_bias": "Bullish",
-      "daily_bias": "Bullish",
-      "structure_label": "HH+HL (Bullish) \u2013 HH:3 HL:4",
-      "last_bos": "Price between swing high 5229.70020 and swing low 4100.79980",
-      "swing_high": 5229.700195,
-      "swing_low": 4100.799805,
-      "equilibrium": 4665.25,
-      "premium_discount": "Equilibrium",
-      "previous_day_high": 4789.100098,
-      "previous_day_low": 4668.0,
-      "previous_week_high": 4551.899902,
-      "previous_week_low": 4100.799805,
+      "structure_label": "Bullish HH/HL structure on both weekly and daily; price consolidating near recent swing highs after BOS above 159.74",
+      "last_bos": "Daily BOS confirmed above 159.74 (March 9 swing high) as price pushed to 160.23 on March 27-29, establishing a new HH; weekly structure shows continuation of higher highs from the 152.28 low",
+      "swing_high": 160.29,
+      "swing_low": 158.23,
+      "equilibrium": 159.26,
+      "premium_discount": "Premium",
+      "previous_day_high": 159.73,
+      "previous_day_low": 159.46,
+      "previous_week_high": 160.23,
+      "previous_week_low": 158.28,
       "nearest_ob": {
-        "timestamp": "2025-12-24T05:00:00",
-        "high": 4503.399902,
-        "low": 4468.399902,
+        "high": 159.74,
+        "low": 159.21,
         "kind": "bullish",
-        "mitigated": false
+        "mitigated": false,
+        "timestamp": "2026-04-05T21:49:49.307095+00:00"
       },
       "nearest_fvg": {
-        "timestamp": "2026-03-31T04:00:00",
-        "top": 4668.0,
-        "bottom": 4579.100098,
-        "ce": 4623.550049,
+        "top": 159.74,
+        "bottom": 159.43,
+        "ce": 159.585,
         "kind": "bullish",
-        "filled": false
+        "filled": false,
+        "timestamp": "2026-04-05T21:49:49.307095+00:00"
       },
       "liquidity_levels": [
         {
-          "price": 4228.700195,
+          "price": 160.29,
           "kind": "BSL",
           "equal": false
         },
         {
-          "price": 4262.100098,
+          "price": 160.23,
+          "kind": "BSL",
+          "equal": true
+        },
+        {
+          "price": 160.16,
           "kind": "BSL",
           "equal": false
         },
         {
-          "price": 4255.700195,
+          "price": 159.73,
+          "kind": "BSL",
+          "equal": true
+        },
+        {
+          "price": 158.23,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 157.74,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 156.15,
+          "kind": "SSL",
+          "equal": false
+        }
+      ],
+      "draw_on_liquidity": "BSL resting at 160.29 (weekly swing high / EQH cluster with 160.23); price likely targeting this level after consolidation above equilibrium",
+      "key_poi_label": "Bullish OB / FVG confluence 159.21\u2013159.74",
+      "narrative": "On the weekly timeframe, USDJPY has carved out a clear bullish market structure since printing a significant swing low at 152.28 in mid-February 2026. Each subsequent week has printed higher highs and higher lows, culminating in the most recent swing high at 160.29 during the week of March 23. The weekly range from the 152.28 low to the 160.29 high defines the current dealing range, with equilibrium near 156.29. Current price at 159.73 sits firmly in the premium half of this range, suggesting institutional distribution or a brief consolidation before continuation higher.\n\nOn the daily timeframe, the bullish structure is equally compelling. After a prolonged basing period in the 152\u2013155 zone during February, price broke structure aggressively to the upside through the 156.81 swing high on March 2, then continued to post a sequence of higher highs \u2014 157.97, 158.89, 159.63, and ultimately 160.23 on March 29. The most recent daily swing low is anchored at 158.23 (March 20), establishing the inner dealing range. Price has since consolidated in a narrow band between 159.46 and 160.23, indicative of Power of 3 accumulation ahead of a potential distribution leg higher.\n\nThe nearest unmitigated bullish Order Block is identified at the 159.21\u2013159.74 zone, corresponding to the April 1\u20132 consolidation candles and the prior March 13 swing area. This zone has coalesced with a bullish Fair Value Gap (bottom: 159.43, top: 159.74, CE: 159.585) formed between the April 2 low and the April 4 high. Any short-term pullback into this OB/FVG confluence would represent a high-probability long entry aligned with the prevailing bullish bias. Importantly, price is currently sitting just above the CE of this FVG, indicating partial mitigation has not yet fully resolved.\n\nThe primary draw on liquidity is the buy-side pool resting above the 160.23\u2013160.29 cluster (EQH formed by the March 29 high and the March 23 weekly high). Equal highs in this zone represent a dense pool of buy-side liquidity (resting stop orders above old highs and breakout buy orders) that Smart Money is likely engineering price to sweep. A clean move through 160.29 would constitute a liquidity raid and could trigger a short-term reversal or, in the bullish continuation scenario, a breakout into uncharted territory targeting the psychological 161.00 level.\n\nOverall bias is Bullish on both weekly and daily timeframes with a confidence of 7/10. The setup is supported by aligned multi-timeframe structure, a well-defined bullish OB/FVG confluence in the discount of the daily dealing range, and a clear liquidity draw above 160.29. The main risk to this bias is a daily close below the 158.23 swing low, which would constitute a Change of Character (ChoCH) and invalidate the bullish daily structure. Traders should monitor price behavior within the 159.43\u2013159.74 OB/FVG zone for confirmation of bullish intent before targeting the 160.23\u2013160.29 BSL pool.",
+      "symbol": "USDJPY",
+      "current_price": 159.731995
+    },
+    {
+      "weekly_bias": "Bearish",
+      "daily_bias": "Bearish",
+      "confidence": 6,
+      "structure_label": "Weekly bearish trend with recent consolidation range between ~98.88 and ~100.64; price stalling near range highs after a ChoCH attempt",
+      "last_bos": "Daily BOS bearish: price broke below the 99.30 swing low on 2026-03-23 after failing to sustain above 100.54 (2026-03-13 high), confirming a lower-high / lower-low sequence; daily ChoCH occurred when price rejected 100.64 (2026-03-30) and closed below 99.96 on 2026-03-31",
+      "swing_high": 100.64,
+      "swing_low": 98.88,
+      "equilibrium": 99.76,
+      "premium_discount": "Premium",
+      "previous_day_high": 100.26,
+      "previous_day_low": 99.45,
+      "previous_week_high": 100.64,
+      "previous_week_low": 99.3,
+      "nearest_ob": {
+        "high": 99.88,
+        "low": 99.3,
+        "kind": "bearish",
+        "mitigated": false,
+        "timestamp": "2026-04-05T21:50:13.046372+00:00"
+      },
+      "nearest_fvg": {
+        "top": 99.88,
+        "bottom": 99.3,
+        "ce": 99.59,
+        "kind": "bearish",
+        "filled": false,
+        "timestamp": "2026-04-05T21:50:13.046372+00:00"
+      },
+      "liquidity_levels": [
+        {
+          "price": 100.64,
           "kind": "BSL",
           "equal": false
         },
         {
-          "price": 4355.0,
+          "price": 100.54,
+          "kind": "BSL",
+          "equal": true
+        },
+        {
+          "price": 100.48,
+          "kind": "BSL",
+          "equal": true
+        },
+        {
+          "price": 100.31,
           "kind": "BSL",
           "equal": false
         },
         {
-          "price": 4556.299805,
+          "price": 99.3,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 98.88,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 97.87,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 96.49,
+          "kind": "SSL",
+          "equal": false
+        }
+      ],
+      "draw_on_liquidity": "SSL at 98.88 (weekly swing low / range bottom) \u2014 price likely targeting sell-side liquidity resting below the March 23 low as the dominant draw in the current bearish leg",
+      "key_poi_label": "Bearish OB / distribution zone 99.30\u201399.88 (daily)",
+      "narrative": "On the weekly timeframe, DXY has been entrenched in a broad bearish trend since early 2026, printing a series of lower highs and lower lows from the 100.54 peak in early March. The most recent weeks show a consolidation range between approximately 98.88 and 100.64, with price repeatedly rejected at the upper bound. The weekly candle structure reflects distribution, with multiple wicks into the 100.40\u2013100.64 area and closes well off the highs, indicating institutional selling pressure capping rallies. The weekly range equilibrium sits near 99.76, and current price at 100.03 places DXY marginally in premium territory relative to this dealing range.\n\nOn the daily timeframe, the market posted a significant bearish ChoCH/BOS sequence beginning March 31 when price sold off from 100.64 and failed to hold above 100.00. After the 2026-03-13 swing high at 100.54 was temporarily breached by the 2026-03-30 high at 100.64, price could not sustain these levels, printing a lower high and confirming distribution. The daily structure now shows a clear pattern of lower highs capped around 100.26\u2013100.64 and the draw on liquidity pointing toward the sell-side pool resting below 98.88 \u2014 the most significant unmitigated SSL on the visible range.\n\nThe current price of 100.03 sits within a bearish order block / POI zone identified between 99.30 and 99.88, which represents the last area of bearish consolidation before the 2026-03-30 push up to 100.61. This OB aligns with a fair value gap in the same region, offering a premium sell opportunity should price retest into this zone. The clustering of equal highs at 100.48\u2013100.54 represents a BSL pool that smart money may spike toward in a manipulation move (Power of 3 accumulation/manipulation phase) before distributing aggressively lower.\n\nThe Power of 3 context suggests the current intraday/daily action near 100.03 may represent the manipulation phase \u2014 a liquidity grab into the EQH cluster at 100.48\u2013100.54 \u2014 before the distribution leg drives price toward the SSL at 98.88 and potentially the 97.87 and 96.49 swing lows below. The bearish narrative is reinforced by the weekly trend, daily structure breakdown, and current premium positioning. Traders should watch for a bearish reaction from the 99.88\u2013100.26 OB zone as confirmation, with invalidation above 100.64.",
+      "symbol": "DXY",
+      "current_price": 100.029999
+    },
+    {
+      "weekly_bias": "Bearish",
+      "daily_bias": "Bearish",
+      "confidence": 6,
+      "structure_label": "Bearish market structure with LH/LL sequence; price in short-term relief rally after sweeping multi-week lows near 6316.91",
+      "last_bos": "Bearish BOS confirmed week of 2026-03-02 when price broke below 6710.42 (prior swing low), accelerating into 6316.91 \u2014 most recent daily ChoCH attempt as price reclaims 6539\u20136582 zone from 6316.91 low",
+      "swing_high": 6609.67,
+      "swing_low": 6316.91,
+      "equilibrium": 6463.29,
+      "premium_discount": "Premium",
+      "previous_day_high": 6601.91,
+      "previous_day_low": 6474.94,
+      "previous_week_high": 6609.67,
+      "previous_week_low": 6316.91,
+      "nearest_ob": {
+        "high": 6609.67,
+        "low": 6556.56,
+        "kind": "bearish",
+        "mitigated": false,
+        "timestamp": "2026-04-05T21:50:44.540080+00:00"
+      },
+      "nearest_fvg": {
+        "top": 6539.05,
+        "bottom": 6427.31,
+        "ce": 6483.18,
+        "kind": "bullish",
+        "filled": false,
+        "timestamp": "2026-04-05T21:50:44.540080+00:00"
+      },
+      "liquidity_levels": [
+        {
+          "price": 6316.91,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 6356.08,
+          "kind": "SSL",
+          "equal": false
+        },
+        {
+          "price": 6609.67,
           "kind": "BSL",
           "equal": false
         },
         {
-          "price": 5586.200195,
+          "price": 6651.62,
           "kind": "BSL",
           "equal": false
         },
         {
-          "price": 5111.299805,
+          "price": 6473.52,
+          "kind": "SSL",
+          "equal": true
+        },
+        {
+          "price": 6473.79,
+          "kind": "SSL",
+          "equal": true
+        },
+        {
+          "price": 6754.3,
           "kind": "BSL",
           "equal": false
         },
         {
-          "price": 5211.600098,
+          "price": 6845.08,
           "kind": "BSL",
           "equal": false
+        }
+      ],
+      "draw_on_liquidity": "SSL at 6316.91 remains the primary draw on liquidity on the weekly timeframe; on the daily, price may target BSL at 6609.67\u20136651.62 (prior week high / swing high cluster) before resuming bearish trend",
+      "key_poi_label": "Bearish OB 6556\u20136609 (last down-close before 3/27\u20133/30 drop)",
+      "narrative": "On the weekly timeframe, SPX500 has been printing a clear sequence of lower highs and lower lows since the 7002 peak in late January 2026. The most recent weekly candle (March 30) posted a significant wick rejection from 6609.67 back toward the low at 6316.91, closing at 6582.69. This structure is unambiguously bearish on the higher timeframe, with the macro dealing range defined from the 7002.28 all-time high to the current swing low at 6316.91. The weekly equilibrium of this range sits near 6659, meaning price at 6582 is technically trading in discount relative to the full range \u2014 however, relative to the most recent local dealing range (6316.91 to 6609.67), current price at 6582 is in premium, creating a sell-side narrative at current levels.\n\nOn the daily timeframe, the aggressive impulsive leg from 6601 down to 6316.91 (March 27\u201330) displaced price significantly and created a clear bullish FVG between 6427.31 and 6539.05. The subsequent recovery from 6316.91 swept back into this imbalance and is now approaching the bearish order block zone at 6556\u20136609, which was the last area of institutional selling before the breakdown. This OB aligns with the prior week's high at 6609.67 and represents a confluent BSL pool that may attract price for a liquidity grab before sellers reassert control.\n\nFrom an ICT Power of 3 perspective, the relief rally from 6316.91 through April 1\u20132 appears to be a manipulation phase \u2014 a classic short-squeeze or liquidity hunt targeting sell-side stops placed above recent swing highs at 6556\u20136609. Smart money would use this upward manipulation to distribute positions at premium prices against the bearish macro trend. The daily candle on April 2 closed at 6582.69, tagging into the lower portion of the bearish OB and showing early signs of resistance. A rejection from this zone would be consistent with the prevailing bearish narrative.\n\nKey liquidity considerations: SSL remains stacked below 6316.91 and 6356.08 \u2014 these are the primary weekly draw-on-liquidity targets for smart money. On the daily, the equal lows cluster at 6473\u20136474 (March 26 and March 2 lows) also represent an intermediate SSL target that price would likely revisit on any bearish continuation. BSL above 6609.67 and 6651.62 could be tapped in a deeper manipulation before the broader decline resumes toward sub-6300 liquidity pools.\n\nIn summary, the bias remains bearish on both weekly and daily timeframes. Current price action represents a corrective/manipulative rally into a confluent bearish POI at 6556\u20136609. Traders aligned with the smart money narrative would look for bearish confirmation signals (rejection wicks, bearish engulfing, or displacement lower) from the 6582\u20136609 zone, targeting a return toward 6473 SSL cluster and ultimately the 6316.91 and sub-6300 liquidity pools. The confidence level is moderate (6/10) as the short-term daily price action shows some bullish momentum that could extend into the 6609\u20136651 BSL zone before reversing.",
+      "symbol": "SPX500",
+      "current_price": 6582.689941
+    },
+    {
+      "weekly_bias": "Bearish",
+      "daily_bias": "Bullish",
+      "confidence": 6,
+      "structure_label": "Weekly bearish trend with daily bullish recovery \u2014 price bouncing from major sell-off lows, attempting structure recovery after ChoCH",
+      "last_bos": "Daily BOS bullish: price broke above 4551.90 (Mar 25 swing high) and 4684.10 (Mar 31 high), confirming short-term bullish structure shift from 4100.80 lows",
+      "swing_high": 4825.9,
+      "swing_low": 4100.8,
+      "equilibrium": 4463.35,
+      "premium_discount": "Premium",
+      "previous_day_high": 4825.9,
+      "previous_day_low": 4580.4,
+      "previous_week_high": 4825.9,
+      "previous_week_low": 4413.4,
+      "nearest_ob": {
+        "high": 4684.1,
+        "low": 4510.0,
+        "kind": "bullish",
+        "mitigated": false,
+        "timestamp": "2026-04-05T21:51:14.696985+00:00"
+      },
+      "nearest_fvg": {
+        "top": 4789.1,
+        "bottom": 4684.1,
+        "ce": 4736.6,
+        "kind": "bullish",
+        "filled": false,
+        "timestamp": "2026-04-05T21:51:14.696985+00:00"
+      },
+      "liquidity_levels": [
+        {
+          "price": 4825.9,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 5009.5,
+          "kind": "BSL",
+          "equal": false
+        },
+        {
+          "price": 5017.6,
+          "kind": "BSL",
+          "equal": true
         },
         {
           "price": 5405.0,
@@ -1303,189 +727,79 @@
           "equal": false
         },
         {
-          "price": 5229.700195,
-          "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 3310.100098,
+          "price": 4413.4,
           "kind": "SSL",
           "equal": false
         },
         {
-          "price": 3913.699951,
+          "price": 4325.2,
           "kind": "SSL",
           "equal": false
         },
         {
-          "price": 4019.399902,
-          "kind": "SSL",
-          "equal": false
-        },
-        {
-          "price": 4031.800049,
-          "kind": "SSL",
-          "equal": false
-        },
-        {
-          "price": 4285.0,
-          "kind": "SSL",
-          "equal": false
-        },
-        {
-          "price": 4400.0,
-          "kind": "SSL",
-          "equal": false
-        },
-        {
-          "price": 4655.0,
-          "kind": "SSL",
-          "equal": false
-        },
-        {
-          "price": 4847.799805,
-          "kind": "SSL",
-          "equal": false
-        },
-        {
-          "price": 5023.0,
-          "kind": "SSL",
-          "equal": false
-        },
-        {
-          "price": 4100.799805,
+          "price": 4100.8,
           "kind": "SSL",
           "equal": false
         }
       ],
-      "draw_on_liquidity": "BSL at 5111.29980",
-      "key_poi_label": "Bullish OB D1: 4468.39990\u20134503.39990",
-      "confidence": 8,
-      "narrative": "On the weekly timeframe, XAUUSD is showing a bullish bias with hh+hl (bullish) \u2013 hh:3 hl:4. Price is currently above equilibrium (4665.25000), placing it in a equilibrium zone. Previous day high is 4789.10010 and previous day low is 4668.00000. Market structure: Price between swing high 5229.70020 and swing low 4100.79980. There is an unmitigated bullish order block between 4468.39990 and 4503.39990 - a key POI for potential reaction. The draw on liquidity is: BSL at 5111.29980. Overall, the daily bias for XAUUSD is bullish (high-confidence, 8/10). Look for buys from discount POIs during London or NY killzone."
+      "draw_on_liquidity": "BSL at 4825.90 (April 1 swing high / previous day high) as immediate target, with deeper draw toward 5009.50\u20135017.60 EQH cluster (March 13\u201317 range highs) if momentum sustains",
+      "key_poi_label": "Bullish OB + FVG confluence zone 4510\u20134684 (daily)",
+      "narrative": "On the weekly timeframe, XAUUSD remains in a broader bearish corrective phase after printing an all-time high near 5586.20 in late January 2026. The weekly structure shows a series of lower highs and lower lows since that peak \u2014 from 5586 down to 4100.80 \u2014 defining a clear bearish macro narrative. The most recent weekly candle (March 30 week) closed at 4702.70, recovering from the 4413.40 low, but price remains well below the weekly bearish order blocks and FVGs left behind in the 5000\u20135400 region. Weekly bias remains bearish with the larger draw on liquidity pointing back toward the 4100 SSL zone on any reversal of the current recovery.\n\nOn the daily timeframe, a meaningful bullish structure shift (ChoCH) occurred after price found a significant swing low at 4100.80 on March 23. From that low, price has been printing higher highs and higher lows: 4404 \u2192 4492 \u2192 4526 \u2192 4647 \u2192 4783 \u2192 4825.90. This sequence of daily HH/HL confirms a short-term bullish leg is underway. The break above 4684 (March 31 high) constitutes a confirmed daily BOS, and current price at 4702.70 is holding above that breakout level, suggesting the bullish impulse remains intact near term.\n\nThe current dealing range for this daily recovery is defined between the 4100.80 swing low and the 4825.90 swing high (April 1), placing equilibrium at approximately 4463.35. With price at 4702.70, we are currently trading in premium territory relative to this range. The most relevant bullish order block sits between 4510\u20134684 (the March 30\u201331 consolidation zone), which has not yet been revisited and represents strong demand. A bullish FVG exists between approximately 4684.10 and 4789.10 (gap formed by the March 31 to April 1 impulse), with a CE at 4736.60 \u2014 this zone is the immediate area of interest on any shallow retracement.\n\nThe immediate draw on liquidity is the buy-side resting above 4825.90 (April 1 and April 2 swing highs), which serve as BSL. A clean sweep of that level would open the door toward the 5009\u20135017 EQH cluster, where multiple daily highs from mid-March converged. That zone also aligns with the lower boundary of a large imbalance left by the March 16\u201320 sell-off, adding confluence. Sell-side liquidity pools below at 4413 and 4100.80 remain viable targets should daily bullish structure fail.\n\nIn terms of Power of 3 context, the current week appears to be in a distribution/markup phase after accumulating near the 4413\u20134492 lows in late March. Monday (March 30) opened and ran higher through the week, with the current close at 4702.70 suggesting continued upside delivery. The optimal trade location would be a pullback into the 4636\u20134684 bullish OB/FVG overlap for long entries targeting 4825.90 BSL, while remaining aware that weekly bearish context could reassert itself strongly above 5000. Confidence is moderate at 6/10 given the premium daily positioning and the counter-trend nature of this move against the dominant weekly bearish flow.",
+      "symbol": "XAUUSD",
+      "current_price": 4702.700195
     },
     {
-      "symbol": "XAGUSD",
-      "current_price": 73.169998,
-      "weekly_bias": "Bullish",
-      "daily_bias": "Neutral",
-      "structure_label": "Mixed structure \u2013 HH:2 HL:3 LH:3 LL:2",
-      "last_bos": "Price between swing high 73.17000 and swing low 61.09000",
-      "swing_high": 73.169998,
+      "weekly_bias": "Bearish",
+      "daily_bias": "Bearish",
+      "confidence": 6,
+      "structure_label": "Bearish: Lower Highs and Lower Lows from Jan 2026 peak; current price in discount but downtrend intact with minor relief bounce",
+      "last_bos": "ChoCH bearish confirmed week of 2026-03-16 as price broke below 79.000 swing low, continuing the sequence of LH/LL from the 121.300 all-time high set in late January 2026; daily BOS bearish on 2026-03-19 breaking 74.800 prior LL",
+      "swing_high": 75.985,
       "swing_low": 61.09,
-      "equilibrium": 67.129999,
+      "equilibrium": 68.538,
       "premium_discount": "Premium",
-      "previous_day_high": 75.866997,
-      "previous_day_low": 73.900002,
-      "previous_week_high": 73.169998,
-      "previous_week_low": 61.09,
+      "previous_day_high": 75.985,
+      "previous_day_low": 69.61,
+      "previous_week_high": 75.985,
+      "previous_week_low": 67.82,
       "nearest_ob": {
-        "timestamp": "2026-03-20T04:00:00",
-        "high": 71.925003,
-        "low": 69.360001,
-        "kind": "bullish",
-        "mitigated": false
+        "high": 75.17,
+        "low": 72.555,
+        "kind": "bearish",
+        "mitigated": false,
+        "timestamp": "2026-04-05T21:51:45.825096+00:00"
       },
       "nearest_fvg": {
-        "timestamp": "2026-03-30T04:00:00",
-        "top": 72.555,
-        "bottom": 69.544998,
-        "ce": 71.049999,
-        "kind": "bullish",
-        "filled": false
+        "top": 75.17,
+        "bottom": 73.9,
+        "ce": 74.535,
+        "kind": "bearish",
+        "filled": false,
+        "timestamp": "2026-04-05T21:51:45.825096+00:00"
       },
       "liquidity_levels": [
         {
-          "price": 48.68,
+          "price": 75.985,
           "kind": "BSL",
           "equal": false
         },
         {
-          "price": 54.200001,
+          "price": 75.867,
           "kind": "BSL",
-          "equal": false
+          "equal": true
         },
         {
-          "price": 58.900002,
-          "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 63.929001,
-          "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 79.699997,
-          "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 121.300003,
-          "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 84.470001,
-          "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 95.860001,
-          "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 89.589996,
-          "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 73.169998,
-          "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 46.735001,
+          "price": 73.17,
           "kind": "SSL",
           "equal": true
         },
         {
-          "price": 45.845001,
+          "price": 69.545,
           "kind": "SSL",
           "equal": false
         },
         {
-          "price": 46.805,
-          "kind": "SSL",
-          "equal": true
-        },
-        {
-          "price": 48.125,
-          "kind": "SSL",
-          "equal": false
-        },
-        {
-          "price": 73.165001,
-          "kind": "SSL",
-          "equal": false
-        },
-        {
-          "price": 68.709999,
-          "kind": "SSL",
-          "equal": false
-        },
-        {
-          "price": 72.0,
-          "kind": "SSL",
-          "equal": false
-        },
-        {
-          "price": 79.0,
-          "kind": "SSL",
-          "equal": false
-        },
-        {
-          "price": 79.5,
+          "price": 67.82,
           "kind": "SSL",
           "equal": false
         },
@@ -1495,147 +809,88 @@
           "equal": false
         }
       ],
-      "draw_on_liquidity": "SSL at 73.16500",
-      "key_poi_label": "Bullish OB D1: 69.36000\u201371.92500",
-      "confidence": 3,
-      "narrative": "On the weekly timeframe, XAGUSD is showing a bullish bias with mixed structure \u2013 hh:2 hl:3 lh:3 ll:2. Price is currently above equilibrium (67.13000), placing it in a premium zone. Previous day high is 75.86700 and previous day low is 73.90000. Market structure: Price between swing high 73.17000 and swing low 61.09000. There is an unmitigated bullish order block between 69.36000 and 71.92500 - a key POI for potential reaction. The draw on liquidity is: SSL at 73.16500. Overall, the daily bias for XAGUSD is neutral (low-confidence, 3/10). No clear directional bias - wait for a structural shift or liquidity sweep."
+      "draw_on_liquidity": "SSL at 61.090 (swing low / sell-side liquidity pool) \u2014 price likely targets this level after sweeping internal liquidity below 67.820 and 67.000",
+      "key_poi_label": "Bearish OB / FVG zone 72.555\u201375.170 (31-Mar daily candle origin)",
+      "narrative": "XAGUSD has been in a pronounced bearish macro trend since its January 2026 peak of 121.300, printing a consistent sequence of lower highs and lower lows on both the weekly and daily timeframes. The weekly structure confirms this bias: each recovery attempt has been capped at a lower high relative to the prior swing, and every relief rally has been sold into aggressively. The most recent weekly dealing range is defined between the 75.985 high (week of 2026-03-30) and the 61.090 swing low (week of 2026-03-23), placing the equilibrium at approximately 68.54. At the current price of 73.17, silver is trading in the premium half of this range \u2014 a zone where bearish smart money is expected to distribute and initiate new short positions.\n\nOn the daily timeframe, the bearish impulse from the 95.860 high (2026-03-02) through to the 61.090 low (2026-03-23) represents a significant displacement leg. Price has since staged a corrective bounce, creating a series of small daily candles that have retraced into the 70\u201376 area. This retracement has formed a prominent bearish order block between 72.555 and 75.170 (the 2026-03-31 up-close candle that preceded the rejection from 75.985), and a bearish fair value gap exists between approximately 73.900 and 75.170. These two overlapping POIs constitute the primary supply zone where institutional distribution is anticipated.\n\nLiquidity engineering is clearly visible on the daily chart. The recent highs at 75.867 (2026-04-01) and 75.985 (2026-04-02) form a near-equal high cluster representing buy-side liquidity (BSL) above current price. In the context of Power of 3, the current session behaviour suggests an accumulation/manipulation phase where price may spike briefly into the 74.50\u201376.00 BSL zone to raid resting stops before the distribution leg resumes. However, with price already at 73.17 and having closed the week below the OB midpoint, the manipulation phase may already be complete.\n\nThe primary draw on liquidity remains the sell-side pool at 61.090 \u2014 the most recent significant swing low. Intermediate SSL targets exist at 67.820 (prior week low) and 67.000 (March 19 breakdown low), both of which are likely waypoints before any test of 61.090. A sustained close back above 76.00 on the daily timeframe would challenge the bearish thesis and suggest a more complex corrective structure is unfolding, potentially targeting the 82\u201384 OB zone from early March. Until then, any intraday or daily rallies into the 72.55\u201375.17 OB/FVG zone should be treated as sell opportunities aligned with the dominant trend.\n\nConfidence in this bearish outlook is moderate (6/10) due to the extended distance from the macro high (price has already moved significantly), the possibility of a deeper correction into the weekly OB above 80.00, and the fact that current price has shown some stabilisation above 67.00. However, the structural sequence of LH/LL, the premium positioning relative to the current dealing range, and the unmitigated bearish OB overhead all support the thesis that the path of least resistance remains to the downside targeting 61.090 SSL.",
+      "symbol": "XAGUSD",
+      "current_price": 73.169998
     },
     {
-      "symbol": "USOIL",
-      "current_price": 112.059998,
       "weekly_bias": "Bullish",
       "daily_bias": "Bullish",
-      "structure_label": "HH+HL (Bullish) \u2013 HH:2 HL:5",
-      "last_bos": "Bullish BOS \u2013 close broke swing high 101.67000",
-      "swing_high": 101.669998,
-      "swing_low": 84.370003,
-      "equilibrium": 93.02,
+      "confidence": 7,
+      "structure_label": "Bullish HH/HL weekly structure after explosive impulse from ~67 to 119.48; daily consolidating and pushing higher after ChoCH off 84.37 low",
+      "last_bos": "Daily BOS confirmed on 2026-04-02 as price broke above the 101.67 swing high (week of 2026-03-23) and extended to 113.97, printing a new HH; weekly BOS already confirmed with the 119.48 spike and subsequent higher-low structure",
+      "swing_high": 119.48,
+      "swing_low": 84.37,
+      "equilibrium": 101.925,
       "premium_discount": "Premium",
-      "previous_day_high": 103.309998,
-      "previous_day_low": 96.5,
-      "previous_week_high": 101.669998,
-      "previous_week_low": 84.370003,
+      "previous_day_high": 113.97,
+      "previous_day_low": 97.5,
+      "previous_week_high": 113.97,
+      "previous_week_low": 96.5,
       "nearest_ob": {
-        "timestamp": "2026-03-19T04:00:00",
-        "high": 101.480003,
-        "low": 92.800003,
+        "high": 101.24,
+        "low": 92.08,
         "kind": "bullish",
-        "mitigated": false
+        "mitigated": false,
+        "timestamp": "2026-04-05T21:52:14.030241+00:00"
       },
       "nearest_fvg": {
-        "timestamp": "2026-03-27T04:00:00",
-        "top": 99.43,
-        "bottom": 95.440002,
-        "ce": 97.435001,
+        "top": 105.36,
+        "bottom": 99.43,
+        "ce": 102.395,
         "kind": "bullish",
-        "filled": false
+        "filled": false,
+        "timestamp": "2026-04-05T21:52:14.030241+00:00"
       },
       "liquidity_levels": [
         {
-          "price": 60.93,
+          "price": 119.48,
           "kind": "BSL",
           "equal": false
         },
         {
-          "price": 60.5,
+          "price": 113.97,
           "kind": "BSL",
           "equal": false
         },
         {
-          "price": 58.880001,
+          "price": 106.86,
           "kind": "BSL",
           "equal": false
         },
         {
-          "price": 62.360001,
+          "price": 101.67,
           "kind": "BSL",
           "equal": false
         },
         {
-          "price": 66.480003,
-          "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 65.830002,
-          "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 67.279999,
-          "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 119.480003,
-          "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 102.440002,
-          "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 101.669998,
-          "kind": "BSL",
-          "equal": false
-        },
-        {
-          "price": 58.830002,
+          "price": 99.43,
           "kind": "SSL",
           "equal": false
         },
         {
-          "price": 58.119999,
+          "price": 96.5,
           "kind": "SSL",
           "equal": false
         },
         {
-          "price": 57.099998,
+          "price": 84.37,
           "kind": "SSL",
           "equal": false
         },
         {
-          "price": 54.98,
-          "kind": "SSL",
-          "equal": false
-        },
-        {
-          "price": 55.759998,
-          "kind": "SSL",
-          "equal": false
-        },
-        {
-          "price": 58.700001,
-          "kind": "SSL",
-          "equal": false
-        },
-        {
-          "price": 61.119999,
-          "kind": "SSL",
-          "equal": false
-        },
-        {
-          "price": 61.869999,
-          "kind": "SSL",
-          "equal": false
-        },
-        {
-          "price": 63.599998,
-          "kind": "SSL",
-          "equal": false
-        },
-        {
-          "price": 84.370003,
+          "price": 81.19,
           "kind": "SSL",
           "equal": false
         }
       ],
-      "draw_on_liquidity": "BSL at 119.48000",
-      "key_poi_label": "Bullish OB D1: 92.80000\u2013101.48000",
-      "confidence": 7,
-      "narrative": "On the weekly timeframe, USOIL is showing a bullish bias with hh+hl (bullish) \u2013 hh:2 hl:5. Price is currently above equilibrium (93.02000), placing it in a premium zone. Previous day high is 103.31000 and previous day low is 96.50000. Market structure: Bullish BOS \u2013 close broke swing high 101.67000. There is an unmitigated bullish order block between 92.80000 and 101.48000 - a key POI for potential reaction. The draw on liquidity is: BSL at 119.48000. Overall, the daily bias for USOIL is bullish (high-confidence, 7/10). Look for buys from discount POIs during London or NY killzone."
+      "draw_on_liquidity": "BSL at 119.48 (absolute swing high / weekly spike high) \u2014 price has cleared 113.97 and is likely targeting a retest and potential extension toward the 119.48 BSL",
+      "key_poi_label": "Bullish OB 92.08\u2013101.24 (2026-03-27 impulse base) + FVG 99.43\u2013105.36",
+      "narrative": "On the weekly timeframe, USOIL has undergone one of the most aggressive bullish impulses in the dataset, launching from a 67.83 swing high area in late February 2026 into a spike high of 119.48 on the week of 2026-03-09. Since then, price has been carving out a higher-low structure, with the week ending 2026-03-30 printing a strong bullish close at 112.06 from a low of 96.50 \u2014 a textbook higher low inside premium/discount context. The weekly bias is unambiguously bullish, with a clear HTF draw remaining at the 119.48 BSL.\n\nOn the daily timeframe, the ChoCH occurred on 2026-03-24 when price reclaimed structure above the 93.36 resistance and began printing higher highs and higher lows. The most recent daily candle (2026-04-02) is a powerful bullish engulfing bar from 97.50 to 113.97, representing a decisive BOS above the prior 101.67\u2013101.48 swing highs. This candle essentially swept all sell-side liquidity resting below 99.43 before aggressively reversing, a classic ICT manipulation sequence (Power of 3: accumulation near 97.50, manipulation wick below prior lows, distribution into 113.97).\n\nThe nearest unmitigated bullish Order Block sits between 92.08 (the low of the 2026-03-27 candle, which preceded the final impulse) and 101.24 (the high of that same candle), anchoring strong demand. Above current price, the only significant liquidity resting is the 119.48 HTF spike high \u2014 the primary draw on liquidity. The FVG created between 2026-03-31 and 2026-04-02 (99.43\u2013105.36 gap) may act as a near-term magnet if price returns for a rebalance before continuing higher.\n\nCurrent price at 112.06 sits in premium territory relative to the 84.37\u2013119.48 dealing range (equilibrium ~101.93). A shallow pullback into the 105.36\u2013102.60 area (FVG CE / prior week open) would represent a high-probability continuation entry aligned with the bullish order block and HTF structure. Any deeper retracement into the 96.50\u201399.43 zone (previous week low / SSL sweep area) should be treated as an aggressive buying opportunity, provided price shows displacement and does not close below 92.08.\n\nKey risk: the 119.48 weekly spike high represents an unclosed wick that could act as a significant sell-side distribution zone. If price reaches that level without fundamental backing, a sharp reversal is plausible. Traders should monitor for bearish ChoCH on the daily if price fails to hold above the 99.43 weekly low on any pullback. Overall confidence is 7/10 given the strong multi-timeframe alignment tempered by the extreme premium pricing and the unmitigated overhead wick at 119.48.",
+      "symbol": "USOIL",
+      "current_price": 112.059998
     }
   ]
 }
