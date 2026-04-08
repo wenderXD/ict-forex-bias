@@ -22,69 +22,101 @@ function getBias(date: string): DailyBias | null {
   }
 }
 
-function BiasIndicator({ bias }: { bias: string }) {
-  if (bias === "Bullish") return <span className="text-bullish text-xs">▲</span>;
-  if (bias === "Bearish") return <span className="text-bearish text-xs">▼</span>;
-  return <span className="text-neutral text-xs">◆</span>;
-}
-
 export default function ArchivePage() {
   const dates = getDateIndex();
   const today = dates[0] ?? new Date().toISOString().split("T")[0];
-  const latestBias = getBias(today);
 
   return (
     <div className="min-h-screen">
       <Header date={today} />
-      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
+
+        {/* Header */}
         <div className="mb-8">
-          <Link href="/" className="text-muted text-sm hover:text-text-secondary mb-4 inline-block">
-            ← Back to today
+          <Link
+            href="/"
+            className="text-muted text-xs font-mono hover:text-text-secondary transition-colors inline-flex items-center gap-1.5 mb-4"
+          >
+            <span>←</span>
+            <span>Back to today</span>
           </Link>
-          <h1 className="text-2xl font-bold text-text-primary">Archive</h1>
-          <p className="text-text-secondary text-sm">Historical daily bias records.</p>
+          <p className="text-muted text-xs font-mono uppercase tracking-[0.18em] mb-1.5">
+            Historical Records
+          </p>
+          <h1 className="text-2xl sm:text-3xl font-mono font-semibold text-text-primary">
+            Archive
+          </h1>
+          <p className="text-text-secondary text-sm font-mono mt-1.5">
+            {dates.length} session{dates.length !== 1 ? "s" : ""} recorded
+          </p>
         </div>
 
         {dates.length === 0 ? (
-          <div className="bg-card border border-border rounded-xl p-8 text-center text-text-secondary">
-            No historical data yet. Check back after the first automated run.
+          <div className="border border-border rounded-lg p-8 text-center bg-card">
+            <p className="text-text-secondary font-mono text-sm">
+              No historical data yet.
+            </p>
+            <p className="text-muted font-mono text-xs mt-1">
+              Check back after the first automated run.
+            </p>
           </div>
         ) : (
-          <div className="space-y-2">
-            {dates.map((date) => {
-              const bias = getBias(date);
-              const bullCount = bias?.instruments.filter(i => i.daily_bias === "Bullish").length ?? 0;
-              const bearCount = bias?.instruments.filter(i => i.daily_bias === "Bearish").length ?? 0;
-              const neuCount  = (bias?.instruments.length ?? 0) - bullCount - bearCount;
-              const formattedDate = new Date(date + "T12:00:00Z").toLocaleDateString("en-US", {
-                weekday: "short", year: "numeric", month: "short", day: "numeric",
-              });
+          <div className="border border-border rounded-lg bg-card overflow-hidden">
+            {/* Table header */}
+            <div className="flex items-center justify-between px-4 py-2.5 border-b border-border bg-surface">
+              <span className="text-muted text-xs font-mono uppercase tracking-wider">Date</span>
+              <div className="flex items-center gap-6">
+                <span className="text-muted text-xs font-mono uppercase tracking-wider">Bias summary</span>
+              </div>
+            </div>
 
-              return (
-                <Link
-                  key={date}
-                  href={`/archive/${date}/`}
-                  className="flex items-center justify-between bg-card border border-border hover:border-accent/40 rounded-xl px-4 py-3 transition-colors group"
-                >
-                  <div className="flex items-center gap-3">
-                    <span className="text-text-primary text-sm font-medium group-hover:text-accent transition-colors">
-                      {formattedDate}
-                    </span>
-                    {date === today && (
-                      <span className="text-xs bg-accent/20 text-accent border border-accent/30 px-1.5 py-0.5 rounded">
-                        Today
+            {/* Rows */}
+            <div className="divide-y divide-border/60">
+              {dates.map((date, idx) => {
+                const bias = getBias(date);
+                const bull = bias?.instruments.filter((i) => i.daily_bias === "Bullish").length ?? 0;
+                const bear = bias?.instruments.filter((i) => i.daily_bias === "Bearish").length ?? 0;
+                const neut = (bias?.instruments.length ?? 0) - bull - bear;
+
+                const formattedDate = new Date(date + "T12:00:00Z").toLocaleDateString("en-US", {
+                  weekday: "short",
+                  year: "numeric",
+                  month: "short",
+                  day: "numeric",
+                });
+
+                const isToday = date === today && idx === 0;
+
+                return (
+                  <Link
+                    key={date}
+                    href={`/archive/${date}/`}
+                    className="flex items-center justify-between px-4 py-3 hover:bg-surface/60 transition-colors group"
+                  >
+                    <div className="flex items-center gap-3">
+                      <span className="text-text-primary text-sm font-mono group-hover:text-accent transition-colors">
+                        {formattedDate}
                       </span>
-                    )}
-                  </div>
-                  <div className="flex items-center gap-3 text-xs">
-                    <span className="text-bullish font-mono">▲ {bullCount}</span>
-                    <span className="text-bearish font-mono">▼ {bearCount}</span>
-                    <span className="text-neutral font-mono">◆ {neuCount}</span>
-                    <span className="text-muted">→</span>
-                  </div>
-                </Link>
-              );
-            })}
+                      {isToday && (
+                        <span className="text-xs font-mono bg-accent/15 text-accent border border-accent/30 px-1.5 py-px rounded leading-tight">
+                          Today
+                        </span>
+                      )}
+                    </div>
+                    <div className="flex items-center gap-4">
+                      <div className="flex items-center gap-3 text-xs font-mono">
+                        <span className="text-bullish">▲&nbsp;{bull}</span>
+                        <span className="text-bearish">▼&nbsp;{bear}</span>
+                        <span className="text-neutral">◆&nbsp;{neut}</span>
+                      </div>
+                      <span className="text-muted text-xs font-mono group-hover:text-accent transition-colors">
+                        →
+                      </span>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
           </div>
         )}
       </main>

@@ -21,39 +21,63 @@ export default function HomePage() {
 
   if (!bias) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center gap-6 px-4">
-        <div className="text-center">
-          <div className="text-4xl mb-4">ICT</div>
-          <h1 className="text-2xl font-bold text-text-primary mb-2">ICT Forex Bias</h1>
-          <p className="text-text-secondary mb-6">
-            No bias data yet. The first analysis will run automatically via GitHub Actions.
+      <div className="min-h-screen flex flex-col items-center justify-center px-4">
+        <div className="text-center max-w-sm w-full">
+          <div className="font-mono font-semibold text-xl text-text-primary mb-1">
+            ICT<span className="text-accent">.</span>
+          </div>
+          <h1 className="text-base font-mono text-text-primary mb-1.5">
+            Awaiting first run
+          </h1>
+          <p className="text-text-secondary text-sm font-mono mb-6">
+            No data yet. Automation runs at 06:00 UTC on weekdays.
           </p>
-          <div className="bg-card border border-border rounded-xl p-6 text-left max-w-md text-sm text-text-secondary space-y-2">
-            <p className="font-semibold text-text-primary">Setup checklist:</p>
-            <p>1. Push this repo to GitHub</p>
-            <p>2. Connect to Vercel</p>
-            <p>3. GitHub Actions will run at 06:00 UTC daily</p>
-            <p>4. Or trigger it manually in the Actions tab</p>
+          <div className="border border-border rounded-lg p-5 text-left bg-card">
+            <p className="text-text-primary font-mono text-xs font-semibold mb-3 uppercase tracking-wider">
+              Setup checklist
+            </p>
+            <div className="space-y-2">
+              {[
+                "Push this repo to GitHub",
+                "Connect to Vercel",
+                "GitHub Actions runs at 06:00 UTC daily",
+                "Or trigger manually in Actions tab",
+              ].map((step, i) => (
+                <div key={i} className="flex items-start gap-3">
+                  <span className="text-accent font-mono text-xs shrink-0 pt-px">
+                    0{i + 1}
+                  </span>
+                  <span className="text-text-secondary font-mono text-xs">{step}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
     );
   }
 
+  const dateDisplay = new Date(bias.date + "T12:00:00Z").toLocaleDateString("en-US", {
+    weekday: "long",
+    month: "long",
+    day: "numeric",
+  });
+
   return (
     <div className="min-h-screen">
       <Header date={bias.date} generatedAt={bias.generated_at} />
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Hero */}
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
+        {/* Page header */}
         <div className="mb-8">
-          <h1 className="text-2xl sm:text-3xl font-bold text-text-primary mb-1">
-            Daily Bias — {new Date(bias.date + "T12:00:00Z").toLocaleDateString("en-US", {
-              weekday: "long", month: "long", day: "numeric",
-            })}
+          <p className="text-muted text-xs font-mono uppercase tracking-[0.18em] mb-1.5">
+            Daily Analysis
+          </p>
+          <h1 className="text-2xl sm:text-3xl font-mono font-semibold text-text-primary leading-tight">
+            {dateDisplay}
           </h1>
-          <p className="text-text-secondary text-sm">
-            AI analysis based on ICT / Smart Money concepts. Click any card for full analysis.
+          <p className="text-text-secondary text-sm font-mono mt-1.5">
+            ICT / Smart Money framework&nbsp;·&nbsp;{bias.instruments.length} instruments
           </p>
         </div>
 
@@ -61,10 +85,15 @@ export default function HomePage() {
         <StatsPill instruments={bias.instruments} />
         <BiasGrid instruments={bias.instruments} />
 
-        {/* Footer */}
-        <footer className="mt-16 pt-8 border-t border-border text-center text-muted text-xs space-y-1">
-          <p>ICT Forex Bias — AI-generated analysis using Inner Circle Trader concepts.</p>
-          <p>For educational purposes only. Not financial advice. Always do your own research.</p>
+        <footer className="mt-16 pt-8 border-t border-border">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-1.5">
+            <span className="text-xs font-mono text-muted">
+              ICT Forex Bias · AI-generated analysis using Inner Circle Trader concepts
+            </span>
+            <span className="text-xs font-mono text-muted">
+              Educational only · Not financial advice
+            </span>
+          </div>
         </footer>
       </main>
     </div>

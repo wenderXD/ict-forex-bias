@@ -3,31 +3,46 @@ import { InstrumentBias } from "@/types/bias";
 import { useLang } from "@/lib/LanguageContext";
 import { t } from "@/lib/translations";
 
+interface StatItemProps {
+  label: string;
+  value: string;
+  colorClass: string;
+  isLast?: boolean;
+}
+
+function StatItem({ label, value, colorClass, isLast }: StatItemProps) {
+  return (
+    <div className={`flex items-center gap-3 px-4 py-3 ${!isLast ? "border-r border-border" : ""}`}>
+      <span className={`font-mono font-semibold text-base leading-none ${colorClass}`}>
+        {value}
+      </span>
+      <span className="text-text-secondary text-xs font-mono uppercase tracking-wider hidden sm:block">
+        {label}
+      </span>
+      <span className="text-text-secondary text-xs font-mono sm:hidden">
+        {label}
+      </span>
+    </div>
+  );
+}
+
 export default function StatsPill({ instruments }: { instruments: InstrumentBias[] }) {
   const { lang } = useLang();
   const tr = t[lang];
   const bull = instruments.filter((i) => i.daily_bias === "Bullish").length;
   const bear = instruments.filter((i) => i.daily_bias === "Bearish").length;
   const neut = instruments.filter((i) => i.daily_bias === "Neutral").length;
-  const avgConf = instruments.reduce((s, i) => s + i.confidence, 0) / instruments.length;
+  const avgConf = (
+    instruments.reduce((s, i) => s + i.confidence, 0) / instruments.length
+  ).toFixed(1);
 
   return (
-    <div className="flex flex-wrap gap-3 mb-8">
-      <div className="flex items-center gap-2 bg-bullish/10 border border-bullish/30 rounded-lg px-3 py-2">
-        <span className="text-bullish text-sm font-bold">▲ {bull}</span>
-        <span className="text-text-secondary text-xs">{tr.bullish}</span>
-      </div>
-      <div className="flex items-center gap-2 bg-bearish/10 border border-bearish/30 rounded-lg px-3 py-2">
-        <span className="text-bearish text-sm font-bold">▼ {bear}</span>
-        <span className="text-text-secondary text-xs">{tr.bearish}</span>
-      </div>
-      <div className="flex items-center gap-2 bg-neutral/10 border border-neutral/30 rounded-lg px-3 py-2">
-        <span className="text-neutral text-sm font-bold">◆ {neut}</span>
-        <span className="text-text-secondary text-xs">{tr.neutral}</span>
-      </div>
-      <div className="flex items-center gap-2 bg-card border border-border rounded-lg px-3 py-2">
-        <span className="text-accent text-sm font-bold">{avgConf.toFixed(1)}/10</span>
-        <span className="text-text-secondary text-xs">{tr.avgConfidence}</span>
+    <div className="mb-8 border border-border rounded-lg bg-card overflow-hidden">
+      <div className="flex flex-wrap">
+        <StatItem label={tr.bullish}       value={`▲ ${bull}`}        colorClass="text-bullish" />
+        <StatItem label={tr.bearish}       value={`▼ ${bear}`}        colorClass="text-bearish" />
+        <StatItem label={tr.neutral}       value={`◆ ${neut}`}        colorClass="text-neutral" />
+        <StatItem label={tr.avgConfidence} value={`${avgConf}/10`}    colorClass="text-accent" isLast />
       </div>
     </div>
   );
