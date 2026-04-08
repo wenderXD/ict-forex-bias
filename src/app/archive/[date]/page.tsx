@@ -7,6 +7,7 @@ import Header from "@/components/Header";
 import MarketOverview from "@/components/MarketOverview";
 import BiasGrid from "@/components/BiasGrid";
 import StatsPill from "@/components/StatsPill";
+import KillzoneTracker from "@/components/KillzoneTracker";
 
 function getBias(date: string): DailyBias | null {
   try {
@@ -75,6 +76,7 @@ export default async function ArchiveDatePage({
 
         <MarketOverview text={bias.market_overview} />
         <StatsPill instruments={bias.instruments} />
+        <KillzoneTracker />
         <BiasGrid instruments={bias.instruments} />
 
         <footer className="mt-16 pt-8 border-t border-border">
