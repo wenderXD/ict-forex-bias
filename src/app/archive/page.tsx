@@ -22,9 +22,69 @@ function getBias(date: string): DailyBias | null {
   }
 }
 
+interface OutcomeResult {
+  correct: number;
+  total: number;
+}
+
+function computeOutcome(bias: DailyBias, nextBias: DailyBias): OutcomeResult {
+  let correct = 0;
+  let total = 0;
+
+  for (const inst of bias.instruments) {
+    if (inst.daily_bias === "Neutral") continue;
+    const next = nextBias.instruments.find((n) => n.symbol === inst.symbol);
+    if (!next || inst.current_price == null || next.current_price == null) continue;
+    if (inst.current_price === next.current_price) continue;
+
+    total++;
+    const priceRose = next.current_price > inst.current_price;
+    if ((inst.daily_bias === "Bullish" && priceRose) || (inst.daily_bias === "Bearish" && !priceRose)) {
+      correct++;
+    }
+  }
+
+  return { correct, total };
+}
+
+function outcomeColor(correct: number, total: number): string {
+  if (total === 0) return "text-muted";
+  const pct = correct / total;
+  if (pct >= 0.67) return "text-bullish";
+  if (pct >= 0.5) return "text-neutral";
+  return "text-bearish";
+}
+
 export default function ArchivePage() {
   const dates = getDateIndex();
   const today = dates[0] ?? new Date().toISOString().split("T")[0];
+
+  // Pre-compute outcomes for all dates that have a next-day file
+  // dates is sorted newest→oldest, so dates[idx-1] is the next trading day for dates[idx]
+  const outcomes: Map<string, OutcomeResult | null> = new Map();
+  for (let idx = 0; idx < dates.length; idx++) {
+    if (idx === 0) {
+      outcomes.set(dates[idx], null); // today — day not closed yet
+      continue;
+    }
+    const bias = getBias(dates[idx]);
+    const nextBias = getBias(dates[idx - 1]);
+    if (!bias || !nextBias) {
+      outcomes.set(dates[idx], null);
+    } else {
+      outcomes.set(dates[idx], computeOutcome(bias, nextBias));
+    }
+  }
+
+  // Overall accuracy across all resolved days
+  let totalCorrect = 0;
+  let totalPredictions = 0;
+  for (const [, out] of outcomes) {
+    if (out) {
+      totalCorrect += out.correct;
+      totalPredictions += out.total;
+    }
+  }
 
   return (
     <div className="min-h-screen">
@@ -46,9 +106,16 @@ export default function ArchivePage() {
           <h1 className="text-2xl sm:text-3xl font-mono font-semibold text-text-primary">
             Archive
           </h1>
-          <p className="text-text-secondary text-sm font-mono mt-1.5">
-            {dates.length} session{dates.length !== 1 ? "s" : ""} recorded
-          </p>
+          <div className="flex items-center gap-4 mt-1.5 flex-wrap">
+            <p className="text-text-secondary text-sm font-mono">
+              {dates.length} session{dates.length !== 1 ? "s" : ""} recorded
+            </p>
+            {totalPredictions > 0 && (
+              <p className={`text-sm font-mono ${outcomeColor(totalCorrect, totalPredictions)}`}>
+                {totalCorrect}/{totalPredictions} correct ({Math.round((totalCorrect / totalPredictions) * 100)}%)
+              </p>
+            )}
+          </div>
         </div>
 
         {dates.length === 0 ? (
@@ -66,7 +133,8 @@ export default function ArchivePage() {
             <div className="flex items-center justify-between px-4 py-2.5 border-b border-border bg-surface">
               <span className="text-muted text-xs font-mono uppercase tracking-wider">Date</span>
               <div className="flex items-center gap-6">
-                <span className="text-muted text-xs font-mono uppercase tracking-wider">Bias summary</span>
+                <span className="text-muted text-xs font-mono uppercase tracking-wider hidden sm:inline">Bias</span>
+                <span className="text-muted text-xs font-mono uppercase tracking-wider">Result</span>
               </div>
             </div>
 
@@ -77,6 +145,7 @@ export default function ArchivePage() {
                 const bull = bias?.instruments.filter((i) => i.daily_bias === "Bullish").length ?? 0;
                 const bear = bias?.instruments.filter((i) => i.daily_bias === "Bearish").length ?? 0;
                 const neut = (bias?.instruments.length ?? 0) - bull - bear;
+                const outcome = outcomes.get(date) ?? null;
 
                 const formattedDate = new Date(date + "T12:00:00Z").toLocaleDateString("en-US", {
                   weekday: "short",
@@ -104,10 +173,21 @@ export default function ArchivePage() {
                       )}
                     </div>
                     <div className="flex items-center gap-4">
-                      <div className="flex items-center gap-3 text-xs font-mono">
+                      <div className="flex items-center gap-3 text-xs font-mono hidden sm:flex">
                         <span className="text-bullish">▲&nbsp;{bull}</span>
                         <span className="text-bearish">▼&nbsp;{bear}</span>
                         <span className="text-neutral">◆&nbsp;{neut}</span>
+                      </div>
+                      <div className="w-16 text-right">
+                        {outcome ? (
+                          <span className={`text-xs font-mono ${outcomeColor(outcome.correct, outcome.total)}`}>
+                            {outcome.correct}/{outcome.total}
+                          </span>
+                        ) : isToday ? (
+                          <span className="text-xs font-mono text-muted">pending</span>
+                        ) : (
+                          <span className="text-xs font-mono text-muted">—</span>
+                        )}
                       </div>
                       <span className="text-muted text-xs font-mono group-hover:text-accent transition-colors">
                         →
