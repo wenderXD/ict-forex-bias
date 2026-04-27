@@ -76,9 +76,33 @@ export default function ArchivePage() {
     }
   }
 
-  // Overall accuracy across all resolved days
+  // Overall accuracy + per-symbol stats for DXY and SPX500
   let totalCorrect = 0;
   let totalPredictions = 0;
+  const indexStats: Record<string, { correct: number; total: number }> = {
+    DXY: { correct: 0, total: 0 },
+    SPX500: { correct: 0, total: 0 },
+  };
+
+  for (let idx = 1; idx < dates.length; idx++) {
+    const bias = getBias(dates[idx]);
+    const nextBias = getBias(dates[idx - 1]);
+    if (!bias || !nextBias) continue;
+
+    for (const symbol of ["DXY", "SPX500"]) {
+      const inst = bias.instruments.find((i) => i.symbol === symbol);
+      const next = nextBias.instruments.find((i) => i.symbol === symbol);
+      if (!inst || !next || inst.daily_bias === "Neutral") continue;
+      if (inst.current_price == null || next.current_price == null) continue;
+      if (inst.current_price === next.current_price) continue;
+      indexStats[symbol].total++;
+      const priceRose = next.current_price > inst.current_price;
+      if ((inst.daily_bias === "Bullish" && priceRose) || (inst.daily_bias === "Bearish" && !priceRose)) {
+        indexStats[symbol].correct++;
+      }
+    }
+  }
+
   for (const [, out] of outcomes) {
     if (out) {
       totalCorrect += out.correct;
@@ -117,6 +141,31 @@ export default function ArchivePage() {
             )}
           </div>
         </div>
+
+        {/* Index accuracy stats */}
+        {(indexStats.DXY.total > 0 || indexStats.SPX500.total > 0) && (
+          <div className="mb-6 border border-border rounded-lg bg-card px-4 py-3 flex items-center gap-6 flex-wrap">
+            <span className="text-muted text-xs font-mono uppercase tracking-wider shrink-0">
+              Index accuracy
+            </span>
+            {(["DXY", "SPX500"] as const).map((sym) => {
+              const s = indexStats[sym];
+              if (s.total === 0) return null;
+              const pct = Math.round((s.correct / s.total) * 100);
+              return (
+                <div key={sym} className="flex items-center gap-2">
+                  <span className="text-text-secondary text-xs font-mono">{sym}</span>
+                  <span className={`text-xs font-mono font-medium ${outcomeColor(s.correct, s.total)}`}>
+                    {s.correct}/{s.total}
+                  </span>
+                  <span className={`text-xs font-mono ${outcomeColor(s.correct, s.total)}`}>
+                    ({pct}%)
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+        )}
 
         {dates.length === 0 ? (
           <div className="border border-border rounded-lg p-8 text-center bg-card">
