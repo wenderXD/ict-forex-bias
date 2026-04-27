@@ -86,6 +86,25 @@ def rule_analysis_to_dict(a: ICTAnalysis) -> dict:
 
 
 # ---------------------------------------------------------------------------
+# Zone-driven bias override
+# ---------------------------------------------------------------------------
+# Backtest finding (2y, 4209 setups, 58.7% killzone win rate, 56-62% per
+# instrument): the data-proven daily bias is the premium/discount zone, not
+# the structure label. Apply this regardless of whether Claude or the rule-
+# based engine produced the analysis.
+
+def apply_zone_bias_rule(instrument: dict) -> dict:
+    zone = instrument.get("premium_discount")
+    if zone == "Premium":
+        instrument["daily_bias"] = "Bullish"
+    elif zone == "Discount":
+        instrument["daily_bias"] = "Bearish"
+    else:
+        instrument["daily_bias"] = "Neutral"
+    return instrument
+
+
+# ---------------------------------------------------------------------------
 # Market overview (works on both paths — uses dicts)
 # ---------------------------------------------------------------------------
 
@@ -164,11 +183,14 @@ def main():
                 print(f"  {symbol}: ERROR – {e}")
                 continue
 
+        # Apply zone-driven bias rule (overrides whatever the source said)
+        instrument_dict = apply_zone_bias_rule(instrument_dict)
+
         results.append(instrument_dict)
         bias    = instrument_dict.get("daily_bias", "Neutral")
-        conf    = instrument_dict.get("confidence", "?")
+        zone    = instrument_dict.get("premium_discount", "?")
         icon    = "▲" if bias == "Bullish" else "▼" if bias == "Bearish" else "◆"
-        print(f"  {symbol}: {icon} {bias} | Confidence: {conf}/10")
+        print(f"  {symbol}: {icon} {bias} | Zone: {zone}")
 
     if errors:
         print(f"\nWarnings ({len(errors)}):")
