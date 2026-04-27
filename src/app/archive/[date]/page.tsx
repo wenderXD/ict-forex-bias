@@ -9,6 +9,8 @@ import BiasGrid from "@/components/BiasGrid";
 import StatsPill from "@/components/StatsPill";
 import KillzoneTracker from "@/components/KillzoneTracker";
 
+export type InstrumentOutcome = { correct: boolean; nextPrice: number };
+
 function getBias(date: string): DailyBias | null {
   try {
     const raw = readFileSync(join(process.cwd(), "data", "bias", `${date}.json`), "utf-8");
@@ -43,6 +45,31 @@ export default async function ArchiveDatePage({
   const bias = getBias(date);
   if (!bias) notFound();
 
+  // Load next trading day's file to evaluate prediction outcomes
+  const dates = getDateIndex();
+  const currentIdx = dates.indexOf(date);
+  const nextDate = currentIdx > 0 ? dates[currentIdx - 1] : null;
+  const nextBias = nextDate ? getBias(nextDate) : null;
+
+  const outcomes: Record<string, InstrumentOutcome> = {};
+  if (nextBias) {
+    for (const inst of bias.instruments) {
+      if (inst.daily_bias === "Neutral") continue;
+      const next = nextBias.instruments.find((n) => n.symbol === inst.symbol);
+      if (!next || inst.current_price == null || next.current_price == null) continue;
+      if (inst.current_price === next.current_price) continue;
+      const priceRose = next.current_price > inst.current_price;
+      const correct =
+        (inst.daily_bias === "Bullish" && priceRose) ||
+        (inst.daily_bias === "Bearish" && !priceRose);
+      outcomes[inst.symbol] = { correct, nextPrice: next.current_price };
+    }
+  }
+
+  const hasOutcomes = Object.keys(outcomes).length > 0;
+  const correctCount = Object.values(outcomes).filter((o) => o.correct).length;
+  const totalCount = Object.keys(outcomes).length;
+
   const dateDisplay = new Date(bias.date + "T12:00:00Z").toLocaleDateString("en-US", {
     weekday: "long",
     month: "long",
@@ -69,15 +96,26 @@ export default async function ArchiveDatePage({
           <h1 className="text-2xl sm:text-3xl font-mono font-semibold text-text-primary">
             {dateDisplay}
           </h1>
-          <p className="text-text-secondary text-sm font-mono mt-1.5">
-            ICT / Smart Money framework · {bias.instruments.length} instruments
-          </p>
+          <div className="flex items-center gap-4 mt-1.5 flex-wrap">
+            <p className="text-text-secondary text-sm font-mono">
+              ICT / Smart Money framework · {bias.instruments.length} instruments
+            </p>
+            {hasOutcomes && (
+              <p className={`text-sm font-mono ${
+                correctCount / totalCount >= 0.67 ? "text-bullish"
+                : correctCount / totalCount >= 0.5  ? "text-neutral"
+                : "text-bearish"
+              }`}>
+                {correctCount}/{totalCount} correct
+              </p>
+            )}
+          </div>
         </div>
 
         <MarketOverview text={bias.market_overview} />
         <StatsPill instruments={bias.instruments} />
         <KillzoneTracker />
-        <BiasGrid instruments={bias.instruments} />
+        <BiasGrid instruments={bias.instruments} outcomes={outcomes} />
 
         <footer className="mt-16 pt-8 border-t border-border">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-1.5">

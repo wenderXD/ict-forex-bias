@@ -1,6 +1,7 @@
 "use client";
 import BiasCard from "./BiasCard";
 import { InstrumentBias } from "@/types/bias";
+import { InstrumentOutcome } from "@/app/archive/[date]/page";
 import { useLang } from "@/lib/LanguageContext";
 import { t } from "@/lib/translations";
 
@@ -19,7 +20,13 @@ const SECTION_NUM: Record<string, string> = {
   commodity: "03",
 };
 
-export default function BiasGrid({ instruments }: { instruments: InstrumentBias[] }) {
+export default function BiasGrid({
+  instruments,
+  outcomes,
+}: {
+  instruments: InstrumentBias[];
+  outcomes?: Record<string, InstrumentOutcome>;
+}) {
   const { lang } = useLang();
   const tr = t[lang];
 
@@ -51,7 +58,7 @@ export default function BiasGrid({ instruments }: { instruments: InstrumentBias[
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3">
               {items.map((inst) => (
-                <BiasCard key={inst.symbol} data={inst} />
+                <BiasCard key={inst.symbol} data={inst} outcome={outcomes?.[inst.symbol]} />
               ))}
             </div>
           </section>

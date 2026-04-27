@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { InstrumentBias, BiasDirection } from "@/types/bias";
+import { InstrumentOutcome } from "@/app/archive/[date]/page";
 import { useLang } from "@/lib/LanguageContext";
 import { t } from "@/lib/translations";
 
@@ -85,7 +86,7 @@ function DataRow({ label, value }: { label: string; value: string }) {
   );
 }
 
-export default function BiasCard({ data }: { data: InstrumentBias }) {
+export default function BiasCard({ data, outcome }: { data: InstrumentBias; outcome?: InstrumentOutcome }) {
   const [expanded, setExpanded] = useState(false);
   const { lang } = useLang();
   const tr = t[lang];
@@ -141,6 +142,20 @@ export default function BiasCard({ data }: { data: InstrumentBias }) {
                 <div className="text-text-secondary text-xs font-mono">
                   {data.current_price.toFixed(dp)}
                 </div>
+                {outcome && (
+                  <div className="mt-2">
+                    <span className={`inline-flex items-center gap-1 text-xs font-mono px-2 py-0.5 rounded border ${
+                      outcome.correct
+                        ? "text-bullish border-bullish/30 bg-bullish/10"
+                        : "text-bearish border-bearish/30 bg-bearish/10"
+                    }`}>
+                      {outcome.correct ? "✓" : "✗"}&nbsp;{outcome.correct ? "Correct" : "Missed"}
+                    </span>
+                    <div className="text-muted text-[10px] font-mono mt-1">
+                      → {outcome.nextPrice.toFixed(dp)}
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
 
