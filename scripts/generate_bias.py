@@ -19,7 +19,10 @@ from claude_analyst import analyse_with_claude
 
 OUTPUT_DIR = Path(__file__).parent.parent / "data" / "bias"
 
-USE_AI = bool(os.environ.get("ANTHROPIC_API_KEY"))
+# Disabled — the live system uses the rule-based engine only, matching what
+# we backtested (58.7% killzone win rate with the zone-driven bias rule).
+# Re-enable by flipping to True; ANTHROPIC_API_KEY must be present.
+USE_AI = False
 
 
 # ---------------------------------------------------------------------------
