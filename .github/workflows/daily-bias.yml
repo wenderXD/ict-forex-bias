@@ -1,12 +1,11 @@
 name: Daily ICT Bias Analysis
 
 on:
-  # Daily cron PAUSED while we refine the strategy — re-enable by
-  # uncommenting the schedule block below.
-  # schedule:
-  #   - cron: "0 6 * * 1-5"
+  schedule:
+    # Runs at 06:00 UTC every weekday (Mon–Fri) — before London open
+    - cron: "0 6 * * 1-5"
 
-  # Manual trigger only for now
+  # Allow manual trigger from GitHub Actions tab
   workflow_dispatch:
 
 jobs:
