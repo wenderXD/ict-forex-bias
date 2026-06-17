@@ -4,6 +4,8 @@ import MarketOverview from "@/components/MarketOverview";
 import BiasGrid from "@/components/BiasGrid";
 import StatsPill from "@/components/StatsPill";
 import KillzoneTracker from "@/components/KillzoneTracker";
+import NewsBlock from "@/components/NewsBlock";
+import RiskWarning from "@/components/RiskWarning";
 import { readFileSync } from "fs";
 import { join } from "path";
 
@@ -24,16 +26,16 @@ export default function HomePage() {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center px-4">
         <div className="text-center max-w-sm w-full">
-          <div className="font-mono font-semibold text-xl text-text-primary mb-1">
+          <div className="font-mono font-semibold text-xl text-text-primary mb-3">
             ICT<span className="text-accent">.</span>
           </div>
-          <h1 className="text-base font-mono text-text-primary mb-1.5">
+          <h1 className="display text-3xl font-medium text-text-primary mb-2">
             Awaiting first run
           </h1>
-          <p className="text-text-secondary text-sm font-mono mb-6">
+          <p className="text-text-secondary text-sm font-mono mb-7">
             No data yet. Automation runs at 06:00 UTC on weekdays.
           </p>
-          <div className="border border-border rounded-lg p-5 text-left bg-card">
+          <div className="border border-border rounded-xl p-5 text-left bg-card card-raise">
             <p className="text-text-primary font-mono text-xs font-semibold mb-3 uppercase tracking-wider">
               Setup checklist
             </p>
@@ -68,24 +70,29 @@ export default function HomePage() {
     <div className="min-h-screen">
       <Header date={bias.date} generatedAt={bias.generated_at} />
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
         {/* Page header */}
-        <div className="mb-8">
-          <p className="text-muted text-xs font-mono uppercase tracking-[0.18em] mb-1.5">
-            Daily Analysis
-          </p>
-          <h1 className="text-2xl sm:text-3xl font-mono font-semibold text-text-primary leading-tight">
+        <div className="mb-10 sm:mb-12">
+          <div className="flex items-center gap-2.5 mb-3">
+            <span className="h-px w-8 rule-fade" />
+            <p className="text-accent text-xs font-mono uppercase tracking-[0.22em]">
+              Daily Analysis
+            </p>
+          </div>
+          <h1 className="display text-4xl sm:text-5xl lg:text-[3.4rem] font-medium text-text-primary leading-[1.05]">
             {dateDisplay}
           </h1>
-          <p className="text-text-secondary text-sm font-mono mt-1.5">
+          <p className="text-text-secondary text-sm font-mono mt-3">
             ICT / Smart Money framework&nbsp;·&nbsp;{bias.instruments.length} instruments
           </p>
         </div>
 
+        <RiskWarning />
         <MarketOverview text={bias.market_overview} />
         <StatsPill instruments={bias.instruments} />
         <KillzoneTracker />
-        <BiasGrid instruments={bias.instruments} />
+        <NewsBlock />
+        <BiasGrid instruments={bias.instruments} date={bias.date} />
 
         <footer className="mt-16 pt-8 border-t border-border">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-1.5">

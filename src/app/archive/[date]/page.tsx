@@ -2,12 +2,14 @@ import { readFileSync } from "fs";
 import { join } from "path";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 import { DailyBias } from "@/types/bias";
 import Header from "@/components/Header";
 import MarketOverview from "@/components/MarketOverview";
 import BiasGrid from "@/components/BiasGrid";
 import StatsPill from "@/components/StatsPill";
 import KillzoneTracker from "@/components/KillzoneTracker";
+import RiskWarning from "@/components/RiskWarning";
 
 export type InstrumentOutcome = { correct: boolean; nextPrice: number };
 
@@ -87,7 +89,7 @@ export default async function ArchiveDatePage({
             href="/archive/"
             className="text-muted text-xs font-mono hover:text-text-secondary transition-colors inline-flex items-center gap-1.5 mb-4"
           >
-            <span>←</span>
+            <ArrowLeft className="w-3.5 h-3.5" />
             <span>Back to archive</span>
           </Link>
           <p className="text-muted text-xs font-mono uppercase tracking-[0.18em] mb-1.5">
@@ -112,10 +114,11 @@ export default async function ArchiveDatePage({
           </div>
         </div>
 
+        <RiskWarning />
         <MarketOverview text={bias.market_overview} />
         <StatsPill instruments={bias.instruments} />
         <KillzoneTracker />
-        <BiasGrid instruments={bias.instruments} outcomes={outcomes} />
+        <BiasGrid instruments={bias.instruments} outcomes={outcomes} date={bias.date} />
 
         <footer className="mt-16 pt-8 border-t border-border">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-1.5">

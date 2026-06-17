@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import { useTheme } from "@/lib/ThemeContext";
 
 /* ─── Kill zone definitions (all times in New York / Eastern) ─── */
 interface KZ {
@@ -19,11 +20,21 @@ const KILLZONES: KZ[] = [
   { id: "ny-index",  label: "NY Index",   scope: "Indices",      startH: 8,  startM: 30, endH: 11, endM: 0  },
 ];
 
-const KZ_COLORS: Record<string, { text: string; bg: string; border: string; dim: string }> = {
-  "asia":     { text: "#C084FC", bg: "rgba(192,132,252,0.07)", border: "rgba(192,132,252,0.22)", dim: "rgba(192,132,252,0.45)" },
-  "london":   { text: "#38BDF8", bg: "rgba(56,189,248,0.07)",  border: "rgba(56,189,248,0.22)",  dim: "rgba(56,189,248,0.45)"  },
-  "ny-forex": { text: "#AAFF45", bg: "rgba(170,255,69,0.07)",  border: "rgba(170,255,69,0.22)",  dim: "rgba(170,255,69,0.45)"  },
-  "ny-index": { text: "#FB923C", bg: "rgba(251,146,60,0.07)",  border: "rgba(251,146,60,0.22)",  dim: "rgba(251,146,60,0.45)"  },
+type KZColor = { text: string; bg: string; border: string; dim: string };
+
+const KZ_COLORS_DARK: Record<string, KZColor> = {
+  "asia":     { text: "#9D8BC4", bg: "rgba(157,139,196,0.08)", border: "rgba(157,139,196,0.24)", dim: "rgba(157,139,196,0.48)" },
+  "london":   { text: "#6FA0A8", bg: "rgba(111,160,168,0.08)", border: "rgba(111,160,168,0.24)", dim: "rgba(111,160,168,0.48)" },
+  "ny-forex": { text: "#C79A5B", bg: "rgba(199,154,91,0.08)",  border: "rgba(199,154,91,0.24)",  dim: "rgba(199,154,91,0.48)"  },
+  "ny-index": { text: "#C26B4E", bg: "rgba(194,107,78,0.08)",  border: "rgba(194,107,78,0.24)",  dim: "rgba(194,107,78,0.48)"  },
+};
+
+/* Darkened for legibility on the light parchment theme. */
+const KZ_COLORS_LIGHT: Record<string, KZColor> = {
+  "asia":     { text: "#5B4A93", bg: "rgba(91,74,147,0.10)",  border: "rgba(91,74,147,0.30)",  dim: "rgba(91,74,147,0.55)"  },
+  "london":   { text: "#2F6A73", bg: "rgba(47,106,115,0.10)", border: "rgba(47,106,115,0.30)", dim: "rgba(47,106,115,0.55)" },
+  "ny-forex": { text: "#8D642F", bg: "rgba(141,100,47,0.10)", border: "rgba(141,100,47,0.30)", dim: "rgba(141,100,47,0.55)" },
+  "ny-index": { text: "#A8472A", bg: "rgba(168,71,42,0.10)",  border: "rgba(168,71,42,0.30)",  dim: "rgba(168,71,42,0.55)"  },
 };
 
 /* ─── Helpers ─── */
@@ -94,6 +105,8 @@ function getStatus(kz: KZ, h: number, m: number): KZStatus {
 
 /* ─── Component ─── */
 export default function KillzoneTracker() {
+  const { theme } = useTheme();
+  const KZ_COLORS = theme === "light" ? KZ_COLORS_LIGHT : KZ_COLORS_DARK;
   const [time, setTime] = useState<{ h: number; m: number; s: number } | null>(null);
 
   useEffect(() => {
@@ -106,9 +119,9 @@ export default function KillzoneTracker() {
   /* Skeleton while hydrating */
   if (!time) {
     return (
-      <div className="mb-8 border border-border rounded-lg bg-card overflow-hidden">
-        <div className="flex items-center justify-between px-4 py-2.5 border-b border-border bg-surface">
-          <span className="text-xs font-mono uppercase tracking-[0.18em] text-text-secondary">Kill Zones</span>
+      <div className="mb-8 border border-border rounded-xl bg-card card-raise overflow-hidden">
+        <div className="flex items-center justify-between px-5 py-3 border-b border-border-soft">
+          <span className="text-xs font-mono uppercase tracking-[0.2em] text-text-secondary">Kill Zones</span>
           <div className="w-24 h-3 bg-border rounded animate-pulse" />
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-4">
@@ -128,9 +141,9 @@ export default function KillzoneTracker() {
   const anyActive = KILLZONES.some((kz) => getStatus(kz, h, m) === "active");
 
   return (
-    <div className="mb-8 border border-border rounded-lg bg-card overflow-hidden">
+    <div className="mb-8 border border-border rounded-xl bg-card card-raise overflow-hidden">
       {/* Header bar */}
-      <div className="flex items-center justify-between px-4 py-2.5 border-b border-border bg-surface">
+      <div className="flex items-center justify-between px-5 py-3 border-b border-border-soft">
         <div className="flex items-center gap-2">
           {anyActive && <div className="w-1.5 h-1.5 rounded-full bg-accent live-dot" />}
           <span className="text-xs font-mono uppercase tracking-[0.18em] text-text-secondary font-medium">
@@ -183,7 +196,7 @@ export default function KillzoneTracker() {
                       ? colors.text
                       : isUpcoming
                       ? colors.dim
-                      : "#3D5270",
+                      : "rgb(var(--muted))",
                   }}
                 >
                   {kz.label}
@@ -194,8 +207,8 @@ export default function KillzoneTracker() {
                     isActive
                       ? { color: colors.text, borderColor: colors.border, backgroundColor: colors.bg }
                       : isUpcoming
-                      ? { color: colors.dim, borderColor: "rgba(27,43,69,0.8)", backgroundColor: "transparent" }
-                      : { color: "#3D5270", borderColor: "#1B2B45", backgroundColor: "transparent" }
+                      ? { color: colors.dim, borderColor: "rgb(var(--border) / 0.85)", backgroundColor: "transparent" }
+                      : { color: "rgb(var(--muted))", borderColor: "rgb(var(--border))", backgroundColor: "transparent" }
                   }
                 >
                   {isActive ? "LIVE" : isUpcoming ? "SOON" : "CLOSED"}
@@ -224,8 +237,8 @@ export default function KillzoneTracker() {
                     color: isActive
                       ? colors.text
                       : isUpcoming
-                      ? "#7A93B8"
-                      : "#3D5270",
+                      ? "rgb(var(--text-2))"
+                      : "rgb(var(--muted))",
                   }}
                 >
                   {timer}

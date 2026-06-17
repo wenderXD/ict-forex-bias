@@ -1,6 +1,7 @@
 import { readFileSync } from "fs";
 import { join } from "path";
 import Link from "next/link";
+import { ArrowLeft, ArrowRight, TrendingUp, TrendingDown, Minus } from "lucide-react";
 import Header from "@/components/Header";
 import { DailyBias } from "@/types/bias";
 
@@ -121,7 +122,7 @@ export default function ArchivePage() {
             href="/"
             className="text-muted text-xs font-mono hover:text-text-secondary transition-colors inline-flex items-center gap-1.5 mb-4"
           >
-            <span>←</span>
+            <ArrowLeft className="w-3.5 h-3.5" />
             <span>Back to today</span>
           </Link>
           <p className="text-muted text-xs font-mono uppercase tracking-[0.18em] mb-1.5">
@@ -223,9 +224,9 @@ export default function ArchivePage() {
                     </div>
                     <div className="flex items-center gap-4">
                       <div className="flex items-center gap-3 text-xs font-mono hidden sm:flex">
-                        <span className="text-bullish">▲&nbsp;{bull}</span>
-                        <span className="text-bearish">▼&nbsp;{bear}</span>
-                        <span className="text-neutral">◆&nbsp;{neut}</span>
+                        <span className="inline-flex items-center gap-1 text-bullish"><TrendingUp className="w-3 h-3" strokeWidth={2.25} />{bull}</span>
+                        <span className="inline-flex items-center gap-1 text-bearish"><TrendingDown className="w-3 h-3" strokeWidth={2.25} />{bear}</span>
+                        <span className="inline-flex items-center gap-1 text-neutral"><Minus className="w-3 h-3" strokeWidth={2.25} />{neut}</span>
                       </div>
                       <div className="w-16 text-right">
                         {outcome ? (
@@ -238,9 +239,7 @@ export default function ArchivePage() {
                           <span className="text-xs font-mono text-muted">—</span>
                         )}
                       </div>
-                      <span className="text-muted text-xs font-mono group-hover:text-accent transition-colors">
-                        →
-                      </span>
+                      <ArrowRight className="w-3.5 h-3.5 text-muted group-hover:text-accent transition-colors" />
                     </div>
                   </Link>
                 );

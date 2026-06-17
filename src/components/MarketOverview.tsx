@@ -1,29 +1,27 @@
-"use client";
-import { useLang } from "@/lib/LanguageContext";
+import { Quote } from "lucide-react";
 import { t } from "@/lib/translations";
 
 export default function MarketOverview({ text }: { text: string }) {
-  const { lang } = useLang();
-
   return (
     <div className="mb-8">
-      <div className="border border-border rounded-lg overflow-hidden bg-card">
+      <div className="relative border border-border rounded-xl overflow-hidden bg-card card-raise">
         {/* Label bar */}
-        <div className="flex items-center gap-3 px-4 py-2.5 border-b border-border bg-surface">
+        <div className="flex items-center gap-3 px-5 py-3 border-b border-border-soft">
           <div className="flex items-center gap-2">
             <div className="w-1.5 h-1.5 rounded-full bg-accent live-dot" />
-            <span className="text-accent text-xs font-mono uppercase tracking-[0.18em] font-medium">
-              {t[lang].marketOverview}
+            <span className="text-accent text-xs font-mono uppercase tracking-[0.2em] font-medium">
+              {t.marketOverview}
             </span>
           </div>
-          <div className="flex-1 h-px bg-border" />
+          <div className="flex-1 h-px bg-border-soft" />
           <span className="text-muted text-xs font-mono">AI · ICT Framework</span>
         </div>
 
-        {/* Narrative */}
-        <div className="px-5 py-4 sm:px-6 sm:py-5">
-          <p className="serif italic text-text-secondary leading-relaxed text-sm sm:text-base">
-            &ldquo;{text}&rdquo;
+        {/* Narrative — editorial pull quote */}
+        <div className="relative px-6 py-6 sm:px-8 sm:py-8">
+          <Quote className="absolute left-3 top-4 w-7 h-7 text-accent/25 pointer-events-none" strokeWidth={1.5} />
+          <p className="serif text-text-primary/90 leading-relaxed text-lg sm:text-xl pl-8">
+            {text}
           </p>
         </div>
       </div>

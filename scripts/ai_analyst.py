@@ -72,8 +72,7 @@ The JSON structure to fill (no nulls unless truly absent):
   ],
   "draw_on_liquidity": "<description of the draw — e.g. BSL at 1.1050 (EQH)>",
   "key_poi_label": "<short label for the key POI>",
-  "narrative": "<3-5 paragraph professional ICT analysis narrative in English>",
-  "narrative_ru": "<the same narrative translated into Russian>"
+  "narrative": "<3-5 paragraph professional ICT analysis narrative in English>"
 }
 
 Confidence scoring guide:

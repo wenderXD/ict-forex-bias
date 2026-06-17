@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { LanguageProvider } from "@/lib/LanguageContext";
+import { ThemeProvider } from "@/lib/ThemeContext";
+import { ChatProvider } from "@/lib/ChatContext";
+import { ClerkProvider } from "@clerk/nextjs";
+import { clerkEnabled } from "@/lib/flags";
+
+// Applies the stored theme before first paint to avoid a flash of the wrong theme.
+const themeScript = `(function(){try{var t=localStorage.getItem('theme');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark');}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();`;
 
 export const metadata: Metadata = {
   title: "ICT Forex Bias | Daily AI Market Analysis",
@@ -19,11 +25,20 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <html lang="en">
+  const document = (
+    <html lang="en" data-theme="dark" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body className="min-h-screen bg-background text-text-primary antialiased">
-        <LanguageProvider>{children}</LanguageProvider>
+        <ThemeProvider>
+          <ChatProvider>{children}</ChatProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
+
+  // Only wrap in ClerkProvider when keys are configured, so the site runs
+  // unchanged without auth set up.
+  return clerkEnabled ? <ClerkProvider>{document}</ClerkProvider> : document;
 }
