@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/lib/ThemeContext";
 import { ChatProvider } from "@/lib/ChatContext";
 import { ClerkProvider } from "@clerk/nextjs";
 import { clerkEnabled } from "@/lib/flags";
+import { Analytics } from "@vercel/analytics/next";
 
 // Applies the stored theme before first paint to avoid a flash of the wrong theme.
 const themeScript = `(function(){try{var t=localStorage.getItem('theme');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark');}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();`;
@@ -34,6 +35,7 @@ export default function RootLayout({
         <ThemeProvider>
           <ChatProvider>{children}</ChatProvider>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
