@@ -203,10 +203,10 @@ export default function BiasCard({ data, outcome, date }: { data: InstrumentBias
             {/* Tags */}
             <div className="flex flex-wrap gap-1.5 mb-4">
               <span className={`text-xs px-2 py-0.5 rounded font-mono border bg-surface ${biasTagBorder(data.weekly_bias)}`}>
-                W&nbsp;{biasLabel(data.weekly_bias)}
+                {tr.weekly}&nbsp;{biasLabel(data.weekly_bias)}
               </span>
               <span className={`text-xs px-2 py-0.5 rounded font-mono border bg-surface ${biasTagBorder(data.daily_bias)}`}>
-                D&nbsp;{biasLabel(data.daily_bias)}
+                {tr.daily}&nbsp;{biasLabel(data.daily_bias)}
               </span>
               <span className={`text-xs px-2 py-0.5 rounded font-mono border bg-surface ${
                 data.premium_discount === "Premium"

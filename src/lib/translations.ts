@@ -6,6 +6,8 @@ export const t = {
   updated: "Updated",
   // Home
   dailyBias: "Daily Bias",
+  weekly: "Weekly",
+  daily: "Daily",
   disclaimer: "Analysis based on ICT / Smart Money concepts. Click any card for full analysis.",
   noData: "No bias data yet. The first analysis will run automatically via GitHub Actions.",
   setupChecklist: "Setup checklist:",
