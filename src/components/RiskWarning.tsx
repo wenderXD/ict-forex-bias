@@ -10,7 +10,7 @@ export default function RiskWarning() {
         </p>
         <p className="text-text-secondary text-sm leading-relaxed">
           Do not risk money you cannot afford to lose. This site exists purely for study and research
-          purposes. The bias and analysis below are AI-generated and <span className="text-text-primary font-medium">can be wrong</span>.
+          purposes. The bias and analysis below are automatically generated and <span className="text-text-primary font-medium">can be wrong</span>.
           Always do your own research and never trade based on this alone.
         </p>
       </div>

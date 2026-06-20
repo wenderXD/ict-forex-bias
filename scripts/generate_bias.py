@@ -1,28 +1,21 @@
 """
 generate_bias.py
-Orchestrator: fetches data → AI ICT analysis → writes JSON output.
+Orchestrator: fetches data → rule-based ICT analysis → writes JSON output.
 
-Primary path:  AI AI-opus-4-6 analyses raw price data directly (full ICT agent)
-Fallback path: rule-based ict_analysis.py (when AI_API_KEY is not set)
+The rule-based ict_analysis.py engine produces the bias, matching what we
+backtested (58.7% killzone win rate with the zone-driven bias rule).
 """
 
 import json
-import os
 from datetime import datetime, timezone
 from pathlib import Path
 import numpy as np
 
 from fetch_data import fetch_all
 from ict_analysis import analyse as rule_based_analyse, ICTAnalysis, OrderBlock, FVG, LiquidityLevel
-from AI_analyst import analyse_with_AI
 
 
 OUTPUT_DIR = Path(__file__).parent.parent / "data" / "bias"
-
-# Disabled — the live system uses the rule-based engine only, matching what
-# we backtested (58.7% killzone win rate with the zone-driven bias rule).
-# Re-enable by flipping to True; AI_API_KEY must be present.
-USE_AI = False
 
 
 # ---------------------------------------------------------------------------
@@ -93,8 +86,7 @@ def rule_analysis_to_dict(a: ICTAnalysis) -> dict:
 # ---------------------------------------------------------------------------
 # Backtest finding (2y, 4209 setups, 58.7% killzone win rate, 56-62% per
 # instrument): the data-proven daily bias is the premium/discount zone, not
-# the structure label. Apply this regardless of whether AI or the rule-
-# based engine produced the analysis.
+# the structure label.
 
 def apply_zone_bias_rule(instrument: dict) -> dict:
     zone = instrument.get("premium_discount")
@@ -140,9 +132,8 @@ def main():
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     out_path = OUTPUT_DIR / f"{today}.json"
 
-    mode = "AI AI-opus-4-6 (AI agent)" if USE_AI else "Rule-based fallback (no API key)"
     print(f"=== ICT Bias Generator — {today} ===")
-    print(f"    Mode: {mode}\n")
+    print(f"    Mode: Rule-based ICT engine\n")
 
     # Step 1 — fetch market data
     print("Step 1: Fetching market data...")
@@ -162,29 +153,14 @@ def main():
             errors.append(f"{symbol}: missing timeframe data")
             continue
 
-        instrument_dict = None
-
-        # --- Primary: AI full ICT agent ---
-        if USE_AI:
-            try:
-                print(f"  {symbol}: asking AI...")
-                instrument_dict = analyse_with_AI(symbol, daily_df, weekly_df, today)
-                print(f"  {symbol}: AI analysis OK")
-            except Exception as e:
-                import traceback
-                print(f"  {symbol}: AI FAILED — {e}")
-                traceback.print_exc()
-                print(f"  {symbol}: falling back to rule-based")
-
-        # --- Fallback: rule-based analysis ---
-        if instrument_dict is None:
-            try:
-                analysis = rule_based_analyse(symbol, daily_df, weekly_df)
-                instrument_dict = rule_analysis_to_dict(analysis)
-            except Exception as e:
-                errors.append(f"{symbol}: {e}")
-                print(f"  {symbol}: ERROR – {e}")
-                continue
+        # --- Rule-based ICT analysis ---
+        try:
+            analysis = rule_based_analyse(symbol, daily_df, weekly_df)
+            instrument_dict = rule_analysis_to_dict(analysis)
+        except Exception as e:
+            errors.append(f"{symbol}: {e}")
+            print(f"  {symbol}: ERROR – {e}")
+            continue
 
         # Apply zone-driven bias rule (overrides whatever the source said)
         instrument_dict = apply_zone_bias_rule(instrument_dict)

@@ -9,12 +9,12 @@ import { clerkEnabled } from "@/lib/flags";
 const themeScript = `(function(){try{var t=localStorage.getItem('theme');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark');}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();`;
 
 export const metadata: Metadata = {
-  title: "ICT Forex Bias | Daily AI Market Analysis",
+  title: "ICT Forex Bias | Daily Market Analysis",
   description:
-    "Daily AI-generated forex bias using ICT (Inner Circle Trader) concepts. Smart Money analysis for EURUSD, GBPUSD, Gold, SPX500, and more.",
+    "Daily forex bias using ICT (Inner Circle Trader) concepts. Smart Money analysis for EURUSD, GBPUSD, Gold, SPX500, and more.",
   keywords: "ICT, forex bias, smart money, order blocks, fair value gap, daily bias, trading",
   openGraph: {
-    title: "ICT Forex Bias — Daily AI Market Analysis",
+    title: "ICT Forex Bias — Daily Market Analysis",
     description: "Smart Money / ICT daily bias for major forex pairs, Gold, Silver, Crude Oil and indices.",
     type: "website",
   },

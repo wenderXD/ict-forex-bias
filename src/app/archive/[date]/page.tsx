@@ -123,7 +123,7 @@ export default async function ArchiveDatePage({
         <footer className="mt-16 pt-8 border-t border-border">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-1.5">
             <span className="text-xs font-mono text-muted">
-              ICT Forex Bias · AI-generated analysis using Inner Circle Trader concepts
+              ICT Forex Bias · automated analysis using Inner Circle Trader concepts
             </span>
             <span className="text-xs font-mono text-muted">
               Educational only · Not financial advice

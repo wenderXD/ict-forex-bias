@@ -1,12 +1,12 @@
 export const t = {
   // Header
   siteName: "ICT Forex Bias",
-  tagline: "AI-Powered Daily Analysis",
+  tagline: "Daily Smart Money Analysis",
   archive: "Archive",
   updated: "Updated",
   // Home
   dailyBias: "Daily Bias",
-  aiDisclaimer: "AI analysis based on ICT / Smart Money concepts. Click any card for full analysis.",
+  disclaimer: "Analysis based on ICT / Smart Money concepts. Click any card for full analysis.",
   noData: "No bias data yet. The first analysis will run automatically via GitHub Actions.",
   setupChecklist: "Setup checklist:",
   // Market overview
@@ -44,7 +44,7 @@ export const t = {
   fvg: "FVG",
   liquidity: "Liquidity Levels",
   eqNote: "* = Equal High/Low (EQH/EQL)",
-  narrative: "AI Narrative",
+  narrative: "Narrative",
   // Badges
   premium: "Premium",
   discount: "Discount",
@@ -57,6 +57,6 @@ export const t = {
   noHistorical: "No historical data yet. Check back after the first automated run.",
   today: "Today",
   // Footer
-  footerNote: "ICT Forex Bias — AI-generated analysis using Inner Circle Trader concepts.",
+  footerNote: "ICT Forex Bias — automated analysis using Inner Circle Trader concepts.",
   footerDisclaimer: "For educational purposes only. Not financial advice. Always do your own research.",
 };

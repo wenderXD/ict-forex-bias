@@ -14,7 +14,7 @@ export default function MarketOverview({ text }: { text: string }) {
             </span>
           </div>
           <div className="flex-1 h-px bg-border-soft" />
-          <span className="text-muted text-xs font-mono">AI · ICT Framework</span>
+          <span className="text-muted text-xs font-mono">ICT Framework</span>
         </div>
 
         {/* Narrative — editorial pull quote */}
