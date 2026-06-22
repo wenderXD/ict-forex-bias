@@ -121,7 +121,7 @@ export default function KillzoneTracker() {
     return (
       <div className="mb-8 border border-border rounded-xl bg-card card-raise overflow-hidden">
         <div className="flex items-center justify-between px-5 py-3 border-b border-border-soft">
-          <span className="text-xs font-mono uppercase tracking-[0.2em] text-text-secondary">Kill Zones</span>
+          <span className="text-[13px] font-mono font-bold uppercase tracking-[0.18em] text-text-secondary">Kill Zones</span>
           <div className="w-24 h-3 bg-border rounded animate-pulse" />
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-4">
@@ -146,13 +146,13 @@ export default function KillzoneTracker() {
       <div className="flex items-center justify-between px-5 py-3 border-b border-border-soft">
         <div className="flex items-center gap-2">
           {anyActive && <div className="w-1.5 h-1.5 rounded-full bg-accent live-dot" />}
-          <span className="text-xs font-mono uppercase tracking-[0.18em] text-text-secondary font-medium">
+          <span className="text-[13px] font-mono uppercase tracking-[0.18em] text-text-secondary font-bold">
             Kill Zones
           </span>
         </div>
         <div className="flex items-center gap-2">
-          <span className="text-text-secondary text-xs font-mono">New York</span>
-          <span className="text-text-primary text-xs font-mono font-medium tabular-nums">
+          <span className="text-text-secondary text-[13px] font-mono font-medium">New York</span>
+          <span className="text-text-primary text-[13px] font-mono font-bold tabular-nums">
             {fmtClock(h, m, s)}&nbsp;ET
           </span>
         </div>
@@ -190,7 +190,7 @@ export default function KillzoneTracker() {
               {/* Name + status badge */}
               <div className="flex items-center justify-between mb-1.5">
                 <span
-                  className="text-xs font-mono font-semibold"
+                  className="text-sm font-mono font-bold"
                   style={{
                     color: isActive
                       ? colors.text
@@ -202,7 +202,7 @@ export default function KillzoneTracker() {
                   {kz.label}
                 </span>
                 <span
-                  className="text-[10px] font-mono px-1.5 py-px rounded-sm border leading-tight"
+                  className="text-[11px] font-mono font-bold px-1.5 py-px rounded-sm border leading-tight"
                   style={
                     isActive
                       ? { color: colors.text, borderColor: colors.border, backgroundColor: colors.bg }
@@ -216,7 +216,7 @@ export default function KillzoneTracker() {
               </div>
 
               {/* Time range */}
-              <div className="text-xs font-mono text-text-secondary mb-2.5">
+              <div className="text-[13px] font-mono font-medium text-text-secondary mb-2.5">
                 {fmtRange(kz.startH, kz.startM)} – {fmtRange(kz.endH, kz.endM)}
               </div>
 
@@ -231,7 +231,7 @@ export default function KillzoneTracker() {
               )}
 
               {/* Countdown */}
-              <div className="text-xs font-mono">
+              <div className="text-[13px] font-mono font-semibold">
                 <span
                   style={{
                     color: isActive
@@ -246,7 +246,7 @@ export default function KillzoneTracker() {
               </div>
 
               {/* Scope */}
-              <div className="text-[11px] font-mono text-text-secondary mt-1">{kz.scope}</div>
+              <div className="text-xs font-mono font-medium text-text-secondary mt-1">{kz.scope}</div>
             </div>
           );
         })}

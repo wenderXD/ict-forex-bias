@@ -16,7 +16,7 @@ export default function AuthButtons() {
 
   return (
     <SignInButton mode="modal">
-      <button className="h-7 px-2.5 flex items-center text-xs font-mono border border-border hover:border-accent/60 hover:text-accent rounded transition-all text-text-secondary">
+      <button className="h-7 px-2.5 flex items-center text-[13px] font-mono font-semibold border border-border hover:border-accent/60 hover:text-accent rounded transition-all text-text-secondary">
         Sign in
       </button>
     </SignInButton>

@@ -87,23 +87,23 @@ export default async function ArchiveDatePage({
         <div className="mb-8">
           <Link
             href="/archive/"
-            className="text-muted text-xs font-mono hover:text-text-secondary transition-colors inline-flex items-center gap-1.5 mb-4"
+            className="text-muted text-[13px] font-mono font-medium hover:text-text-secondary transition-colors inline-flex items-center gap-1.5 mb-4"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>Back to archive</span>
           </Link>
-          <p className="text-muted text-xs font-mono uppercase tracking-[0.18em] mb-1.5">
+          <p className="text-muted text-[13px] font-mono font-bold uppercase tracking-[0.18em] mb-1.5">
             Archived Analysis
           </p>
-          <h1 className="text-2xl sm:text-3xl font-mono font-semibold text-text-primary">
+          <h1 className="display text-[2.6rem] sm:text-5xl font-extrabold text-text-primary tracking-tight leading-[1.02]">
             {dateDisplay}
           </h1>
           <div className="flex items-center gap-4 mt-1.5 flex-wrap">
-            <p className="text-text-secondary text-sm font-mono">
+            <p className="text-text-secondary text-[15px] font-mono font-medium">
               ICT / Smart Money framework · {bias.instruments.length} instruments
             </p>
             {hasOutcomes && (
-              <p className={`text-sm font-mono ${
+              <p className={`text-[15px] font-mono font-semibold ${
                 correctCount / totalCount >= 0.67 ? "text-bullish"
                 : correctCount / totalCount >= 0.5  ? "text-neutral"
                 : "text-bearish"
@@ -122,10 +122,10 @@ export default async function ArchiveDatePage({
 
         <footer className="mt-16 pt-8 border-t border-border">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-1.5">
-            <span className="text-xs font-mono text-muted">
+            <span className="text-[13px] font-mono font-medium text-muted">
               ICT Forex Bias · automated analysis using Inner Circle Trader concepts
             </span>
-            <span className="text-xs font-mono text-muted">
+            <span className="text-[13px] font-mono font-medium text-muted">
               Educational only · Not financial advice
             </span>
           </div>

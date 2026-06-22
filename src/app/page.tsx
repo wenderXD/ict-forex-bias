@@ -26,10 +26,10 @@ export default function HomePage() {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center px-4">
         <div className="text-center max-w-sm w-full">
-          <div className="font-mono font-semibold text-xl text-text-primary mb-3">
+          <div className="display text-2xl text-text-primary mb-3">
             ICT<span className="text-accent">.</span>
           </div>
-          <h1 className="display text-3xl font-medium text-text-primary mb-2">
+          <h1 className="display text-4xl font-extrabold text-text-primary mb-2">
             Awaiting first run
           </h1>
           <p className="text-text-secondary text-sm font-mono mb-7">
@@ -75,14 +75,14 @@ export default function HomePage() {
         <div className="mb-10 sm:mb-12">
           <div className="flex items-center gap-2.5 mb-3">
             <span className="h-px w-8 rule-fade" />
-            <p className="text-accent text-xs font-mono uppercase tracking-[0.22em]">
+            <p className="text-accent text-[13px] font-mono font-bold uppercase tracking-[0.2em]">
               Daily Analysis
             </p>
           </div>
-          <h1 className="display text-4xl sm:text-5xl lg:text-[3.4rem] font-medium text-text-primary leading-[1.05]">
+          <h1 className="display text-[2.6rem] sm:text-5xl lg:text-[3.6rem] font-extrabold text-text-primary leading-[1.02]">
             {dateDisplay}
           </h1>
-          <p className="text-text-secondary text-sm font-mono mt-3">
+          <p className="text-text-secondary text-[15px] font-mono font-medium mt-3">
             ICT / Smart Money framework&nbsp;·&nbsp;{bias.instruments.length} instruments
           </p>
         </div>
@@ -96,10 +96,10 @@ export default function HomePage() {
 
         <footer className="mt-16 pt-8 border-t border-border">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-1.5">
-            <span className="text-xs font-mono text-muted">
+            <span className="text-[13px] font-mono font-medium text-muted">
               ICT Forex Bias · automated analysis using Inner Circle Trader concepts
             </span>
-            <span className="text-xs font-mono text-muted">
+            <span className="text-[13px] font-mono font-medium text-muted">
               Educational only · Not financial advice
             </span>
           </div>

@@ -76,9 +76,9 @@ function ConvictionMeter({ value }: { value: number }) {
 function SectionHead({ title, meta }: { title: string; meta?: string }) {
   return (
     <div className="flex items-baseline gap-3 mb-3">
-      <h3 className="serif text-text-primary text-[15px] font-medium tracking-tight">{title}</h3>
+      <h3 className="display text-text-primary text-lg tracking-tight">{title}</h3>
       <div className="flex-1 h-px rule-fade" />
-      {meta && <span className="text-muted text-[11px] font-mono uppercase tracking-wider shrink-0">{meta}</span>}
+      {meta && <span className="text-muted text-xs font-mono font-semibold uppercase tracking-wider shrink-0">{meta}</span>}
     </div>
   );
 }
@@ -92,8 +92,8 @@ function Ledger({ rows }: { rows: [string, string][] }) {
           key={label}
           className="flex justify-between items-baseline py-1.5 border-b border-border-soft/70"
         >
-          <dt className="text-text-secondary text-xs">{label}</dt>
-          <dd className="text-text-primary text-xs font-mono tabular-nums">{value}</dd>
+          <dt className="text-text-secondary text-[13px] font-medium">{label}</dt>
+          <dd className="text-text-primary text-[13px] font-mono font-semibold tabular-nums">{value}</dd>
         </div>
       ))}
     </dl>
@@ -122,8 +122,8 @@ function RangeLadder({ data }: { data: InstrumentBias }) {
         <div className="absolute inset-x-0 top-0 h-1/2 bg-bearish/[0.07]" />
         <div className="absolute inset-x-0 bottom-0 h-1/2 bg-bullish/[0.07]" />
         {/* Zone labels */}
-        <span className="absolute top-1.5 left-1.5 font-mono uppercase tracking-wider text-bearish/70 text-[8px] leading-none">Prem</span>
-        <span className="absolute bottom-1.5 left-1.5 font-mono uppercase tracking-wider text-bullish/70 text-[8px] leading-none">Disc</span>
+        <span className="absolute top-1.5 left-1.5 font-mono font-bold uppercase tracking-wider text-bearish/80 text-[10px] leading-none">Prem</span>
+        <span className="absolute bottom-1.5 left-1.5 font-mono font-bold uppercase tracking-wider text-bullish/80 text-[10px] leading-none">Disc</span>
         {/* Equilibrium */}
         <div className="absolute inset-x-0 top-1/2 border-t border-dashed border-accent/45 -translate-y-px" />
         {/* Current price marker */}
@@ -145,16 +145,16 @@ function RangeLadder({ data }: { data: InstrumentBias }) {
             [t.swingLow, formatPrice(lo), "text-text-secondary"],
           ] as const).map(([label, value, cls]) => (
             <div key={label} className="flex justify-between items-baseline py-1.5 border-b border-border-soft/70">
-              <dt className={`text-xs ${cls}`}>{label}</dt>
-              <dd className="text-text-primary text-xs font-mono tabular-nums">{value}</dd>
+              <dt className={`text-[13px] font-medium ${cls}`}>{label}</dt>
+              <dd className="text-text-primary text-[13px] font-mono font-semibold tabular-nums">{value}</dd>
             </div>
           ))}
           <div className="flex justify-between items-baseline pt-2">
-            <dt className="text-accent text-xs font-medium">{t.current}</dt>
-            <dd className="text-accent text-xs font-mono tabular-nums font-medium">{formatPrice(cur)}</dd>
+            <dt className="text-accent text-[13px] font-semibold">{t.current}</dt>
+            <dd className="text-accent text-[13px] font-mono tabular-nums font-bold">{formatPrice(cur)}</dd>
           </div>
         </dl>
-        <p className={`text-[11px] font-mono mt-2 ${pdColor(pd)}`}>{status}</p>
+        <p className={`text-xs font-mono font-semibold mt-2 ${pdColor(pd)}`}>{status}</p>
       </div>
     </div>
   );
@@ -250,14 +250,14 @@ export default function BiasCard({ data, outcome, date }: { data: InstrumentBias
         <div className="flex items-start justify-between gap-3">
           <div className="min-w-0">
             <div className="dateline text-muted mb-1.5">{catLabel}</div>
-            <div className="text-text-primary font-mono font-semibold text-2xl tracking-tight leading-none">
+            <div className="text-text-primary display text-[1.75rem] tracking-tight leading-none">
               {data.symbol}
             </div>
-            <div className="serif italic text-text-secondary text-[13px] mt-1.5 truncate">{fullName}</div>
+            <div className="serif italic text-text-secondary text-sm mt-1.5 truncate">{fullName}</div>
           </div>
           <div className="text-right shrink-0">
             <div className="dateline text-muted mb-1">{tr.last}</div>
-            <div className="text-text-secondary text-sm font-mono tabular-nums">{data.current_price.toFixed(dp)}</div>
+            <div className="text-text-secondary text-[15px] font-mono font-semibold tabular-nums">{data.current_price.toFixed(dp)}</div>
           </div>
         </div>
 
@@ -267,7 +267,7 @@ export default function BiasCard({ data, outcome, date }: { data: InstrumentBias
         {/* The verdict — the editorial call */}
         <div className="flex items-end justify-between gap-3">
           <div className="min-w-0">
-            <div className={`display text-[2rem] leading-[0.95] font-medium tracking-tight ${biasTextColor(data.daily_bias)}`}>
+            <div className={`display text-[2.35rem] leading-[0.92] font-extrabold tracking-tight ${biasTextColor(data.daily_bias)}`}>
               {biasLabel(data.daily_bias)}
             </div>
             <div className="dateline text-muted mt-1.5">{tr.dailyBias}</div>
@@ -276,10 +276,10 @@ export default function BiasCard({ data, outcome, date }: { data: InstrumentBias
         </div>
 
         {/* Byline — weekly read + zone */}
-        <div className="flex flex-wrap items-center gap-x-2 gap-y-1 mt-4 text-xs font-mono">
+        <div className="flex flex-wrap items-center gap-x-2 gap-y-1 mt-4 text-[13px] font-mono font-medium">
           <span className="text-text-secondary">
             {tr.weekly}{" "}
-            <span className={biasTextColor(data.weekly_bias)}>{biasLabel(data.weekly_bias)}</span>
+            <span className={`font-semibold ${biasTextColor(data.weekly_bias)}`}>{biasLabel(data.weekly_bias)}</span>
           </span>
           <span className="text-border" aria-hidden>·</span>
           <span className={pdColor(data.premium_discount)}>{pdLabel(data.premium_discount)}</span>
@@ -289,7 +289,7 @@ export default function BiasCard({ data, outcome, date }: { data: InstrumentBias
         <div className="mt-4">
           <div className="flex justify-between items-baseline mb-1.5">
             <span className="dateline text-muted">{tr.confidence}</span>
-            <span className={`text-xs font-mono font-medium ${
+            <span className={`text-[13px] font-mono font-bold ${
               data.confidence >= 7 ? "text-bullish" : data.confidence >= 5 ? "text-accent" : "text-neutral"
             }`}>
               {data.confidence}/10 · {confLabel}
@@ -301,7 +301,7 @@ export default function BiasCard({ data, outcome, date }: { data: InstrumentBias
         {/* Draw on liquidity — a margin note */}
         <div className="mt-4">
           <div className="dateline text-muted mb-1">{tr.drawOnLiquidity}</div>
-          <p className="serif italic text-text-secondary text-sm leading-snug">{data.draw_on_liquidity}</p>
+          <p className="serif italic text-text-secondary text-[15px] leading-snug">{data.draw_on_liquidity}</p>
         </div>
 
         {/* Outcome (archive) */}
@@ -315,14 +315,14 @@ export default function BiasCard({ data, outcome, date }: { data: InstrumentBias
               {outcome.correct ? <Check className="w-3 h-3" strokeWidth={2.5} /> : <X className="w-3 h-3" strokeWidth={2.5} />}
               {outcome.correct ? "Correct" : "Missed"}
             </span>
-            <span className="flex items-center gap-1 text-muted text-[11px] font-mono">
+            <span className="flex items-center gap-1 text-muted text-xs font-mono font-medium">
               <ArrowRight className="w-3 h-3" /> {outcome.nextPrice.toFixed(dp)}
             </span>
           </div>
         )}
 
         {/* Footer cue */}
-        <div className="mt-auto pt-4 flex items-center gap-1.5 text-muted text-xs font-mono group-hover:text-accent transition-colors">
+        <div className="mt-auto pt-4 flex items-center gap-1.5 text-muted text-[13px] font-mono font-semibold group-hover:text-accent transition-colors">
           <span>{tr.readNote}</span>
           <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
         </div>
@@ -347,15 +347,15 @@ export default function BiasCard({ data, outcome, date }: { data: InstrumentBias
               <div className="min-w-0">
                 <div className="dateline text-muted mb-1.5">{catLabel}</div>
                 <div className="flex items-baseline gap-3 flex-wrap">
-                  <span className="text-text-primary font-mono font-semibold text-2xl leading-none tracking-tight">
+                  <span className="text-text-primary display text-[1.75rem] leading-none tracking-tight">
                     {data.symbol}
                   </span>
-                  <span className={`flex items-center gap-1.5 font-mono font-semibold text-sm ${biasTextColor(data.daily_bias)}`}>
+                  <span className={`flex items-center gap-1.5 font-mono font-bold text-[15px] ${biasTextColor(data.daily_bias)}`}>
                     <BiasIcon bias={data.daily_bias} className="w-4 h-4" />
                     {biasLabel(data.daily_bias)}
                   </span>
                 </div>
-                <div className="serif italic text-text-secondary text-sm mt-1.5 truncate">{fullName}</div>
+                <div className="serif italic text-text-secondary text-[15px] mt-1.5 truncate">{fullName}</div>
               </div>
               <button
                 ref={closeRef}
@@ -378,7 +378,7 @@ export default function BiasCard({ data, outcome, date }: { data: InstrumentBias
                 <button
                   type="button"
                   onClick={() => openChat(date, data.symbol)}
-                  className="mt-3 w-full flex items-center justify-center gap-2 text-sm font-mono border border-accent/40 text-accent
+                  className="mt-3 w-full flex items-center justify-center gap-2 text-sm font-mono font-semibold border border-accent/40 text-accent
                              rounded-lg py-2.5 hover:bg-accent/10 transition-colors
                              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60"
                 >
@@ -409,28 +409,28 @@ export default function BiasCard({ data, outcome, date }: { data: InstrumentBias
               {/* Market structure */}
               <section className="section-rise" style={{ "--i": 3 } as CSSProperties}>
                 <SectionHead title={tr.marketStructure} />
-                <p className="text-text-secondary text-sm leading-relaxed">{data.structure_label}</p>
-                <p className="text-muted text-xs font-mono italic mt-1.5">{data.last_bos}</p>
+                <p className="text-text-secondary text-[15px] leading-relaxed">{data.structure_label}</p>
+                <p className="text-muted text-[13px] font-mono italic mt-1.5">{data.last_bos}</p>
               </section>
 
               {/* POI */}
               {(data.nearest_ob || data.nearest_fvg) && (
                 <section className="section-rise" style={{ "--i": 4 } as CSSProperties}>
                   <SectionHead title={tr.keyPoi} />
-                  <p className="text-text-secondary text-sm font-mono">{data.key_poi_label}</p>
+                  <p className="text-text-secondary text-[15px] font-mono font-medium">{data.key_poi_label}</p>
                   <div className="mt-2 space-y-1">
                     {data.nearest_ob && (
-                      <div className="flex justify-between text-xs font-mono tabular-nums border-b border-border-soft/70 py-1.5">
-                        <span className="text-muted">{tr.orderBlock}</span>
-                        <span className="text-text-secondary">
+                      <div className="flex justify-between text-[13px] font-mono tabular-nums border-b border-border-soft/70 py-1.5">
+                        <span className="text-muted font-medium">{tr.orderBlock}</span>
+                        <span className="text-text-secondary font-semibold">
                           {data.nearest_ob.low.toFixed(5)} – {data.nearest_ob.high.toFixed(5)}
                         </span>
                       </div>
                     )}
                     {data.nearest_fvg && (
-                      <div className="flex justify-between text-xs font-mono tabular-nums py-1.5">
-                        <span className="text-muted">{tr.fvg}</span>
-                        <span className="text-text-secondary">
+                      <div className="flex justify-between text-[13px] font-mono tabular-nums py-1.5">
+                        <span className="text-muted font-medium">{tr.fvg}</span>
+                        <span className="text-text-secondary font-semibold">
                           {data.nearest_fvg.bottom.toFixed(5)} – {data.nearest_fvg.top.toFixed(5)} · CE {data.nearest_fvg.ce.toFixed(5)}
                         </span>
                       </div>
@@ -447,19 +447,19 @@ export default function BiasCard({ data, outcome, date }: { data: InstrumentBias
                     {data.liquidity_levels.slice(0, 8).map((l, i) => (
                       <div
                         key={i}
-                        className="flex justify-between items-baseline text-xs font-mono tabular-nums py-1.5 border-b border-border-soft/70"
+                        className="flex justify-between items-baseline text-[13px] font-mono tabular-nums py-1.5 border-b border-border-soft/70"
                       >
-                        <span className={`font-medium ${l.kind === "BSL" ? "text-bullish" : "text-bearish"}`}>
+                        <span className={`font-bold ${l.kind === "BSL" ? "text-bullish" : "text-bearish"}`}>
                           {l.kind}{l.equal ? "=" : ""}
                         </span>
-                        <span className="text-text-secondary">
+                        <span className="text-text-secondary font-semibold">
                           {l.price.toFixed(l.price < 10 ? 2 : l.price < 1000 ? 3 : 5)}
                         </span>
                       </div>
                     ))}
                   </div>
                   {data.liquidity_levels.some((l) => l.equal) && (
-                    <p className="text-muted text-xs font-mono mt-2">{tr.eqNote}</p>
+                    <p className="text-muted text-[13px] font-mono font-medium mt-2">{tr.eqNote}</p>
                   )}
                 </section>
               )}
@@ -467,7 +467,7 @@ export default function BiasCard({ data, outcome, date }: { data: InstrumentBias
               {/* Narrative — the centerpiece */}
               <section className="section-rise" style={{ "--i": 6 } as CSSProperties}>
                 <SectionHead title={tr.narrative} />
-                <p className="dropcap serif italic text-text-secondary text-[15px] leading-relaxed">
+                <p className="dropcap text-text-primary text-base leading-relaxed">
                   {data.narrative}
                 </p>
               </section>

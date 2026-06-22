@@ -43,10 +43,10 @@ function ChatWindow({ active, onClose }: { active: Active; onClose: () => void }
         <div className="flex items-center gap-2.5">
           <MessagesSquare className="w-4 h-4 text-accent" strokeWidth={2} />
           <div>
-            <div className="text-accent text-[11px] font-mono uppercase tracking-[0.2em] font-medium leading-none">
+            <div className="text-accent text-xs font-mono uppercase tracking-[0.2em] font-bold leading-none">
               Discussion
             </div>
-            <div className="text-text-primary font-mono font-semibold text-sm mt-1 leading-none">
+            <div className="text-text-primary display text-lg mt-1 leading-none">
               {active.symbol}
             </div>
           </div>

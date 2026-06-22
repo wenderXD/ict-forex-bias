@@ -38,14 +38,14 @@ export default function Header({ date, generatedAt }: HeaderProps) {
 
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="flex items-center gap-0">
-              <span className="font-mono font-semibold text-sm text-text-primary tracking-tight">
+            <div className="flex items-baseline gap-0">
+              <span className="display text-xl text-text-primary tracking-tight">
                 ICT
               </span>
-              <span className="font-mono font-bold text-sm text-accent">.</span>
+              <span className="display text-xl text-accent">.</span>
             </div>
             <div className="hidden sm:block h-4 w-px bg-border" />
-            <span className="hidden sm:block text-text-secondary text-xs font-mono uppercase tracking-[0.18em]">
+            <span className="hidden sm:block text-text-secondary text-[13px] font-mono font-semibold uppercase tracking-[0.18em]">
               Forex Bias
             </span>
           </Link>
@@ -56,12 +56,12 @@ export default function Header({ date, generatedAt }: HeaderProps) {
             <div className="hidden sm:flex items-center gap-2">
               <div className="flex items-center gap-1.5">
                 <div className="w-1.5 h-1.5 rounded-full bg-accent live-dot" />
-                <span className="text-text-secondary text-xs font-mono">{formattedDate}</span>
+                <span className="text-text-secondary text-[13px] font-mono font-medium">{formattedDate}</span>
               </div>
               {formattedTime && (
                 <>
                   <span className="text-border text-xs">·</span>
-                  <span className="text-muted text-xs font-mono">{formattedTime}</span>
+                  <span className="text-muted text-[13px] font-mono font-medium">{formattedTime}</span>
                 </>
               )}
             </div>
@@ -93,7 +93,7 @@ export default function Header({ date, generatedAt }: HeaderProps) {
 
             <Link
               href="/archive/"
-              className="h-7 px-2.5 flex items-center text-xs font-mono border border-border hover:border-accent/60 hover:text-accent rounded transition-all text-text-secondary"
+              className="h-7 px-2.5 flex items-center text-[13px] font-mono font-semibold border border-border hover:border-accent/60 hover:text-accent rounded transition-all text-text-secondary"
             >
               {tr.archive}
             </Link>

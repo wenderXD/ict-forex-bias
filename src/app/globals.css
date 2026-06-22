@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -55,10 +55,17 @@
   box-sizing: border-box;
 }
 
+/* `font-mono` is remapped to the grotesque; keep figures tabular so price
+   ladders and data columns stay aligned without a literal monospace. */
+.font-mono {
+  font-variant-numeric: tabular-nums;
+}
+
 html {
   scroll-behavior: smooth;
-  /* Scale the whole UI up a touch — all rem-based sizing follows. */
-  font-size: 108%;
+  /* Scale the whole UI up — all rem-based sizing follows. Larger base reads
+     as a confident publication, not a cramped dashboard. */
+  font-size: 113%;
   /* Reserve the scrollbar gutter so opening a modal (which locks body scroll)
      doesn't shift the layout. */
   scrollbar-gutter: stable;
@@ -73,9 +80,12 @@ body {
   background-size: 100% 100%, 26px 26px;
   background-attachment: fixed;
   color: rgb(var(--text-1));
-  font-family: 'IBM Plex Sans', system-ui, sans-serif;
-  font-weight: 400;
-  line-height: 1.55;
+  /* Hanken Grotesk — a warm, sturdy humanist grotesque. Set one notch above
+     regular so body copy reads with presence, not as thin filler. */
+  font-family: 'Hanken Grotesk', system-ui, sans-serif;
+  font-weight: 460;
+  line-height: 1.5;
+  font-feature-settings: "ss01";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: background-color 0.4s ease, color 0.4s ease;
@@ -101,17 +111,24 @@ body {
   color: rgb(var(--text-1));
 }
 
-/* Display serif — editorial headings */
-.display {
-  font-family: 'Fraunces', Georgia, serif;
-  font-optical-sizing: auto;
-  letter-spacing: -0.01em;
-}
+/* In @layer components so font-weight / text-size utilities reliably override
+   the defaults below regardless of source order. */
+@layer components {
+  /* Display — Bricolage Grotesque. Heavy, characterful, faintly mechanical;
+     carries the mastheads and the daily verdict with real weight. */
+  .display {
+    font-family: 'Bricolage Grotesque', 'Hanken Grotesk', system-ui, sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
 
-/* Serif prose */
-.serif {
-  font-family: 'Fraunces', Georgia, serif;
-  font-optical-sizing: auto;
+  /* Quiet editorial voice — body grotesque, used italic for asides and prose.
+     (Name kept for continuity; no longer a serif.) */
+  .serif {
+    font-family: 'Hanken Grotesk', system-ui, sans-serif;
+    font-optical-sizing: auto;
+  }
 }
 
 /* Soft, warm depth cues — replaces neon glow */
@@ -141,24 +158,26 @@ body {
   opacity: 0.5;
 }
 
-/* Editorial dateline — small-caps mono metadata (category, labels) */
+/* Editorial dateline — bold tracked label (category, metadata) */
 .dateline {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 0.66rem;
-  letter-spacing: 0.16em;
+  font-family: 'Hanken Grotesk', system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
 }
 
 /* Drop cap for the narrative pull-quote — broadsheet centerpiece */
 .dropcap::first-letter {
-  font-family: 'Fraunces', Georgia, serif;
+  font-family: 'Bricolage Grotesque', 'Hanken Grotesk', sans-serif;
   font-optical-sizing: auto;
-  font-weight: 500;
+  font-weight: 800;
   font-style: normal;
-  font-size: 3.2em;
-  line-height: 0.78;
+  font-size: 3.1em;
+  line-height: 0.72;
+  letter-spacing: -0.03em;
   float: left;
-  margin: 0.02em 0.09em 0 0;
+  margin: 0.04em 0.1em 0 0;
   color: rgb(var(--accent));
 }
 

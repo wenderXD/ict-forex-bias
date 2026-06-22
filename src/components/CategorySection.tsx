@@ -23,12 +23,12 @@ export default function CategorySection({
         aria-expanded={open}
         className="w-full flex items-center gap-3 mb-6 group text-left"
       >
-        <span className="text-accent font-mono text-xs font-medium tabular-nums">{num}</span>
-        <h2 className="display text-text-primary text-xl font-medium tracking-tight group-hover:text-accent transition-colors">
+        <span className="text-accent font-mono text-[13px] font-bold tabular-nums">{num}</span>
+        <h2 className="display text-text-primary text-2xl font-bold tracking-tight group-hover:text-accent transition-colors">
           {title}
         </h2>
         <div className="flex-1 h-px rule-fade" />
-        <span className="text-muted text-xs font-mono uppercase tracking-wider">{count}</span>
+        <span className="text-muted text-[13px] font-mono font-semibold uppercase tracking-wider">{count}</span>
         <ChevronDown
           className="w-4 h-4 text-muted group-hover:text-accent transition-all duration-200"
           style={{ transform: open ? "rotate(0deg)" : "rotate(-90deg)" }}

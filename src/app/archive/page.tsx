@@ -120,23 +120,23 @@ export default function ArchivePage() {
         <div className="mb-8">
           <Link
             href="/"
-            className="text-muted text-xs font-mono hover:text-text-secondary transition-colors inline-flex items-center gap-1.5 mb-4"
+            className="text-muted text-[13px] font-mono font-medium hover:text-text-secondary transition-colors inline-flex items-center gap-1.5 mb-4"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>Back to today</span>
           </Link>
-          <p className="text-muted text-xs font-mono uppercase tracking-[0.18em] mb-1.5">
+          <p className="text-muted text-[13px] font-mono font-bold uppercase tracking-[0.18em] mb-1.5">
             Historical Records
           </p>
-          <h1 className="text-2xl sm:text-3xl font-mono font-semibold text-text-primary">
+          <h1 className="display text-3xl sm:text-4xl font-extrabold text-text-primary tracking-tight">
             Archive
           </h1>
           <div className="flex items-center gap-4 mt-1.5 flex-wrap">
-            <p className="text-text-secondary text-sm font-mono">
+            <p className="text-text-secondary text-[15px] font-mono font-medium">
               {dates.length} session{dates.length !== 1 ? "s" : ""} recorded
             </p>
             {totalPredictions > 0 && (
-              <p className={`text-sm font-mono ${outcomeColor(totalCorrect, totalPredictions)}`}>
+              <p className={`text-[15px] font-mono font-semibold ${outcomeColor(totalCorrect, totalPredictions)}`}>
                 {totalCorrect}/{totalPredictions} correct ({Math.round((totalCorrect / totalPredictions) * 100)}%)
               </p>
             )}
@@ -146,7 +146,7 @@ export default function ArchivePage() {
         {/* Index accuracy stats */}
         {(indexStats.DXY.total > 0 || indexStats.SPX500.total > 0) && (
           <div className="mb-6 border border-border rounded-lg bg-card px-4 py-3 flex items-center gap-6 flex-wrap">
-            <span className="text-muted text-xs font-mono uppercase tracking-wider shrink-0">
+            <span className="text-muted text-[13px] font-mono font-bold uppercase tracking-wider shrink-0">
               Index accuracy
             </span>
             {(["DXY", "SPX500"] as const).map((sym) => {
@@ -155,11 +155,11 @@ export default function ArchivePage() {
               const pct = Math.round((s.correct / s.total) * 100);
               return (
                 <div key={sym} className="flex items-center gap-2">
-                  <span className="text-text-secondary text-xs font-mono">{sym}</span>
-                  <span className={`text-xs font-mono font-medium ${outcomeColor(s.correct, s.total)}`}>
+                  <span className="text-text-secondary text-[13px] font-mono font-semibold">{sym}</span>
+                  <span className={`text-[13px] font-mono font-bold ${outcomeColor(s.correct, s.total)}`}>
                     {s.correct}/{s.total}
                   </span>
-                  <span className={`text-xs font-mono ${outcomeColor(s.correct, s.total)}`}>
+                  <span className={`text-[13px] font-mono font-medium ${outcomeColor(s.correct, s.total)}`}>
                     ({pct}%)
                   </span>
                 </div>
@@ -173,7 +173,7 @@ export default function ArchivePage() {
             <p className="text-text-secondary font-mono text-sm">
               No historical data yet.
             </p>
-            <p className="text-muted font-mono text-xs mt-1">
+            <p className="text-muted font-mono text-[13px] font-medium mt-1">
               Check back after the first automated run.
             </p>
           </div>
@@ -181,10 +181,10 @@ export default function ArchivePage() {
           <div className="border border-border rounded-lg bg-card overflow-hidden">
             {/* Table header */}
             <div className="flex items-center justify-between px-4 py-2.5 border-b border-border bg-surface">
-              <span className="text-muted text-xs font-mono uppercase tracking-wider">Date</span>
+              <span className="text-muted text-[13px] font-mono font-bold uppercase tracking-wider">Date</span>
               <div className="flex items-center gap-6">
-                <span className="text-muted text-xs font-mono uppercase tracking-wider hidden sm:inline">Bias</span>
-                <span className="text-muted text-xs font-mono uppercase tracking-wider">Result</span>
+                <span className="text-muted text-[13px] font-mono font-bold uppercase tracking-wider hidden sm:inline">Bias</span>
+                <span className="text-muted text-[13px] font-mono font-bold uppercase tracking-wider">Result</span>
               </div>
             </div>
 
@@ -213,30 +213,30 @@ export default function ArchivePage() {
                     className="flex items-center justify-between px-4 py-3 hover:bg-surface/60 transition-colors group"
                   >
                     <div className="flex items-center gap-3">
-                      <span className="text-text-primary text-sm font-mono group-hover:text-accent transition-colors">
+                      <span className="text-text-primary text-[15px] font-mono font-semibold group-hover:text-accent transition-colors">
                         {formattedDate}
                       </span>
                       {isToday && (
-                        <span className="text-xs font-mono bg-accent/15 text-accent border border-accent/30 px-1.5 py-px rounded leading-tight">
+                        <span className="text-[11px] font-mono font-bold bg-accent/15 text-accent border border-accent/30 px-1.5 py-px rounded leading-tight">
                           Today
                         </span>
                       )}
                     </div>
                     <div className="flex items-center gap-4">
-                      <div className="flex items-center gap-3 text-xs font-mono hidden sm:flex">
+                      <div className="flex items-center gap-3 text-[13px] font-mono font-semibold hidden sm:flex">
                         <span className="inline-flex items-center gap-1 text-bullish"><TrendingUp className="w-3 h-3" strokeWidth={2.25} />{bull}</span>
                         <span className="inline-flex items-center gap-1 text-bearish"><TrendingDown className="w-3 h-3" strokeWidth={2.25} />{bear}</span>
                         <span className="inline-flex items-center gap-1 text-neutral"><Minus className="w-3 h-3" strokeWidth={2.25} />{neut}</span>
                       </div>
                       <div className="w-16 text-right">
                         {outcome ? (
-                          <span className={`text-xs font-mono ${outcomeColor(outcome.correct, outcome.total)}`}>
+                          <span className={`text-[13px] font-mono font-bold ${outcomeColor(outcome.correct, outcome.total)}`}>
                             {outcome.correct}/{outcome.total}
                           </span>
                         ) : isToday ? (
-                          <span className="text-xs font-mono text-muted">pending</span>
+                          <span className="text-[13px] font-mono font-medium text-muted">pending</span>
                         ) : (
-                          <span className="text-xs font-mono text-muted">—</span>
+                          <span className="text-[13px] font-mono font-medium text-muted">—</span>
                         )}
                       </div>
                       <ArrowRight className="w-3.5 h-3.5 text-muted group-hover:text-accent transition-colors" />

@@ -25,10 +25,13 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans:    ["IBM Plex Sans", "system-ui", "sans-serif"],
-        mono:    ["IBM Plex Mono", "monospace"],
-        serif:   ["Fraunces", "Georgia", "serif"],
-        display: ["Fraunces", "Georgia", "serif"],
+        // Single workhorse grotesque. `mono` now also maps to it — numbers stay
+        // aligned via `tabular-nums` (proportional face + tabular figures, the
+        // modern fintech approach) rather than a literal monospace.
+        sans:    ["Hanken Grotesk", "system-ui", "sans-serif"],
+        mono:    ["Hanken Grotesk", "system-ui", "sans-serif"],
+        serif:   ["Hanken Grotesk", "system-ui", "sans-serif"],
+        display: ["Bricolage Grotesque", "Hanken Grotesk", "system-ui", "sans-serif"],
       },
     },
   },

@@ -54,12 +54,12 @@ function Live({ date, symbol }: { date: string; symbol: string }) {
           msgs.map((m) => (
             <div key={m.id}>
               <div className="flex items-baseline gap-2">
-                <span className={`text-xs font-mono font-semibold ${m.mine ? "text-accent" : "text-text-primary"}`}>
+                <span className={`text-[13px] font-mono font-bold ${m.mine ? "text-accent" : "text-text-primary"}`}>
                   {m.author}
                 </span>
-                <span className="text-muted text-[10px] font-mono">{relTime(m.createdAt)}</span>
+                <span className="text-muted text-[11px] font-mono font-medium">{relTime(m.createdAt)}</span>
               </div>
-              <p className="text-text-secondary text-sm leading-relaxed whitespace-pre-wrap break-words">
+              <p className="text-text-secondary text-[15px] leading-relaxed whitespace-pre-wrap break-words">
                 {m.body}
               </p>
             </div>

@@ -53,7 +53,7 @@ function Live({ date, symbol }: { date: string; symbol: string }) {
         <div className="bg-neutral transition-all duration-500" style={{ width: `${(s.neutral / t) * 100}%` }} />
         <div className="bg-bearish transition-all duration-500" style={{ width: `${(s.bearish / t) * 100}%` }} />
       </div>
-      <div className="flex items-center justify-between text-[10px] font-mono mb-2.5">
+      <div className="flex items-center justify-between text-xs font-mono font-semibold mb-2.5">
         <span className="text-bullish">{pct(s.bullish)}%</span>
         <span className="text-muted">
           {s.total} vote{s.total === 1 ? "" : "s"}
@@ -63,7 +63,7 @@ function Live({ date, symbol }: { date: string; symbol: string }) {
 
       {isLoaded && !isSignedIn ? (
         <SignInButton mode="modal">
-          <button className="w-full text-xs font-mono border border-accent/40 text-accent rounded py-1.5 hover:bg-accent/10 transition-colors">
+          <button className="w-full text-[13px] font-mono font-semibold border border-accent/40 text-accent rounded py-1.5 hover:bg-accent/10 transition-colors">
             Sign in to vote
           </button>
         </SignInButton>
@@ -75,7 +75,7 @@ function Live({ date, symbol }: { date: string; symbol: string }) {
               disabled={busy || !isLoaded}
               onClick={() => vote(key)}
               aria-pressed={mine === key}
-              className={`flex items-center justify-center gap-1 text-[11px] font-mono py-1.5 rounded border transition-colors disabled:opacity-50 ${
+              className={`flex items-center justify-center gap-1 text-[13px] font-mono font-semibold py-1.5 rounded border transition-colors disabled:opacity-50 ${
                 mine === key ? cls : "border-border text-text-secondary hover:border-accent/50"
               }`}
             >
@@ -92,7 +92,7 @@ function Live({ date, symbol }: { date: string; symbol: string }) {
 export default function InstrumentVote({ date, symbol }: { date: string; symbol: string }) {
   if (!clerkEnabled) {
     return (
-      <p className="text-muted text-xs font-mono">
+      <p className="text-muted text-[13px] font-mono font-medium">
         Community voting activates once accounts are configured.
       </p>
     );

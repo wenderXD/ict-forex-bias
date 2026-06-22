@@ -14,14 +14,14 @@ interface StatItemProps {
 function StatItem({ label, value, icon, colorClass, isLast }: StatItemProps) {
   return (
     <div className={`flex items-center gap-3 px-5 py-3.5 flex-1 justify-center sm:justify-start ${!isLast ? "border-r border-border-soft" : ""}`}>
-      <span className={`inline-flex items-center gap-1.5 font-mono font-semibold text-lg leading-none ${colorClass}`}>
+      <span className={`inline-flex items-center gap-1.5 font-mono font-bold text-2xl tabular-nums leading-none ${colorClass}`}>
         {icon}
         {value}
       </span>
-      <span className="text-text-secondary text-xs font-mono uppercase tracking-wider hidden sm:block">
+      <span className="text-text-secondary text-[13px] font-mono font-semibold uppercase tracking-wider hidden sm:block">
         {label}
       </span>
-      <span className="text-text-secondary text-xs font-mono sm:hidden">
+      <span className="text-text-secondary text-[13px] font-mono font-semibold sm:hidden">
         {label}
       </span>
     </div>
