@@ -20,7 +20,7 @@ export default function MarketOverview({ text }: { text: string }) {
         {/* Narrative — editorial pull quote */}
         <div className="relative px-6 py-6 sm:px-8 sm:py-8">
           <Quote className="absolute left-3 top-4 w-7 h-7 text-accent/25 pointer-events-none" strokeWidth={1.5} />
-          <p className="serif text-text-primary/90 leading-relaxed text-lg sm:text-xl pl-8">
+          <p className="serif text-text-primary/90 leading-relaxed text-lg sm:text-xl pl-8 max-w-[68ch]">
             {text}
           </p>
         </div>

@@ -1,7 +1,7 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, type CSSProperties } from "react";
 import { createPortal } from "react-dom";
-import { TrendingUp, TrendingDown, Minus, ArrowRight, ChevronDown, Check, X, MessagesSquare } from "lucide-react";
+import { TrendingUp, TrendingDown, Minus, ArrowRight, Check, X, MessagesSquare } from "lucide-react";
 import { InstrumentBias, BiasDirection } from "@/types/bias";
 import { InstrumentOutcome } from "@/app/archive/[date]/page";
 import { t } from "@/lib/translations";
@@ -30,23 +30,17 @@ function biasTextColor(bias: BiasDirection) {
   return "text-neutral";
 }
 
-function biasBarBg(bias: BiasDirection) {
-  if (bias === "Bullish") return "bg-bullish";
-  if (bias === "Bearish") return "bg-bearish";
-  return "bg-neutral";
+// Hairline column rule under the masthead, tinted to the verdict.
+function biasRule(bias: BiasDirection) {
+  if (bias === "Bullish") return "from-bullish/55";
+  if (bias === "Bearish") return "from-bearish/55";
+  return "from-neutral/55";
 }
 
-function biasBorder(bias: BiasDirection, expanded: boolean) {
-  if (!expanded) return "border-border";
-  if (bias === "Bullish") return "border-bullish/35";
-  if (bias === "Bearish") return "border-bearish/35";
-  return "border-neutral/35";
-}
-
-function biasTagBorder(bias: BiasDirection) {
-  if (bias === "Bullish") return "border-bullish/30 text-bullish";
-  if (bias === "Bearish") return "border-bearish/30 text-bearish";
-  return "border-neutral/30 text-neutral";
+function pdColor(pd: string) {
+  if (pd === "Premium") return "text-bearish";
+  if (pd === "Discount") return "text-bullish";
+  return "text-neutral";
 }
 
 function BiasIcon({ bias, className }: { bias: BiasDirection; className?: string }) {
@@ -61,30 +55,107 @@ function formatPrice(price: number): string {
   return price.toFixed(5);
 }
 
-function ConfidenceBar({ value }: { value: number }) {
+/* Segmented conviction meter — quiet, not a hero metric */
+function ConvictionMeter({ value }: { value: number }) {
   const filled = Math.round(value);
   const segColor =
     value >= 7 ? "bg-bullish" : value >= 5 ? "bg-accent/80" : "bg-neutral";
-
   return (
-    <div className="flex gap-0.5">
+    <div className="flex gap-0.5" aria-hidden>
       {Array.from({ length: 10 }).map((_, i) => (
         <div
           key={i}
-          className={`h-[3px] flex-1 rounded-full transition-all ${
-            i < filled ? segColor : "bg-border"
-          }`}
+          className={`h-[3px] flex-1 rounded-full transition-colors ${i < filled ? segColor : "bg-border"}`}
         />
       ))}
     </div>
   );
 }
 
-function DataRow({ label, value }: { label: string; value: string }) {
+/* Broadsheet column-head: serif title + extending hairline rule + optional meta */
+function SectionHead({ title, meta }: { title: string; meta?: string }) {
   return (
-    <div className="flex justify-between items-center py-1.5 border-b border-border/40 last:border-0">
-      <span className="text-text-secondary text-xs">{label}</span>
-      <span className="text-text-primary text-xs font-mono">{value}</span>
+    <div className="flex items-baseline gap-3 mb-3">
+      <h3 className="serif text-text-primary text-[15px] font-medium tracking-tight">{title}</h3>
+      <div className="flex-1 h-px rule-fade" />
+      {meta && <span className="text-muted text-[11px] font-mono uppercase tracking-wider shrink-0">{meta}</span>}
+    </div>
+  );
+}
+
+/* Ledger row — aligned figures, no boxes */
+function Ledger({ rows }: { rows: [string, string][] }) {
+  return (
+    <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-0">
+      {rows.map(([label, value]) => (
+        <div
+          key={label}
+          className="flex justify-between items-baseline py-1.5 border-b border-border-soft/70"
+        >
+          <dt className="text-text-secondary text-xs">{label}</dt>
+          <dd className="text-text-primary text-xs font-mono tabular-nums">{value}</dd>
+        </div>
+      ))}
+    </dl>
+  );
+}
+
+/* The dealing-range ladder — the signature visual. Shows where current price
+   sits between swing low and swing high, premium (sell) above equilibrium,
+   discount (buy) below it. */
+function RangeLadder({ data }: { data: InstrumentBias }) {
+  const { swing_high: hi, swing_low: lo, equilibrium: eq, current_price: cur, premium_discount: pd } = data;
+  const range = hi - lo;
+  if (!(range > 0)) return null;
+
+  const clamp = (n: number) => Math.max(0, Math.min(1, n));
+  const topPct = (p: number) => `${clamp(1 - (p - lo) / range) * 100}%`;
+
+  const status =
+    pd === "Premium" ? t.premiumSell : pd === "Discount" ? t.discountBuy : t.equilibriumFair;
+
+  return (
+    <div className="flex gap-5">
+      {/* Visual band */}
+      <div className="relative w-16 shrink-0 h-[188px] rounded-md border border-border-soft overflow-hidden">
+        {/* Premium (top) / discount (bottom) zones */}
+        <div className="absolute inset-x-0 top-0 h-1/2 bg-bearish/[0.07]" />
+        <div className="absolute inset-x-0 bottom-0 h-1/2 bg-bullish/[0.07]" />
+        {/* Zone labels */}
+        <span className="absolute top-1.5 left-1.5 font-mono uppercase tracking-wider text-bearish/70 text-[8px] leading-none">Prem</span>
+        <span className="absolute bottom-1.5 left-1.5 font-mono uppercase tracking-wider text-bullish/70 text-[8px] leading-none">Disc</span>
+        {/* Equilibrium */}
+        <div className="absolute inset-x-0 top-1/2 border-t border-dashed border-accent/45 -translate-y-px" />
+        {/* Current price marker */}
+        <div
+          className="absolute inset-x-0 flex items-center -translate-y-1/2"
+          style={{ top: topPct(cur) }}
+        >
+          <div className="h-px flex-1 bg-accent" />
+          <div className="h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_0_2px_rgb(var(--card))]" />
+        </div>
+      </div>
+
+      {/* Ledger + status */}
+      <div className="flex-1 min-w-0 flex flex-col justify-between py-0.5">
+        <dl className="space-y-0">
+          {([
+            [t.swingHigh, formatPrice(hi), "text-text-secondary"],
+            [t.equilibrium, formatPrice(eq), "text-text-secondary"],
+            [t.swingLow, formatPrice(lo), "text-text-secondary"],
+          ] as const).map(([label, value, cls]) => (
+            <div key={label} className="flex justify-between items-baseline py-1.5 border-b border-border-soft/70">
+              <dt className={`text-xs ${cls}`}>{label}</dt>
+              <dd className="text-text-primary text-xs font-mono tabular-nums">{value}</dd>
+            </div>
+          ))}
+          <div className="flex justify-between items-baseline pt-2">
+            <dt className="text-accent text-xs font-medium">{t.current}</dt>
+            <dd className="text-accent text-xs font-mono tabular-nums font-medium">{formatPrice(cur)}</dd>
+          </div>
+        </dl>
+        <p className={`text-[11px] font-mono mt-2 ${pdColor(pd)}`}>{status}</p>
+      </div>
     </div>
   );
 }
@@ -93,26 +164,53 @@ export default function BiasCard({ data, outcome, date }: { data: InstrumentBias
   const [expanded, setExpanded] = useState(false);
   const [mounted, setMounted] = useState(false);
   const { open: openChat } = useChat();
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const closeRef = useRef<HTMLButtonElement>(null);
   const tr = t;
 
   useEffect(() => setMounted(true), []);
 
-  // Close on Escape and lock background scroll while the overlay is open.
+  // Escape to close, lock background scroll, and trap + restore focus.
   useEffect(() => {
     if (!expanded) return;
+    const opener = document.activeElement as HTMLElement | null;
+
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setExpanded(false);
+      if (e.key === "Escape") {
+        setExpanded(false);
+        return;
+      }
+      if (e.key === "Tab" && dialogRef.current) {
+        const focusable = dialogRef.current.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), input, textarea, [tabindex]:not([tabindex="-1"])'
+        );
+        if (focusable.length === 0) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
     };
+
     window.addEventListener("keydown", onKey);
     const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+    // Move focus into the dialog on open.
+    closeRef.current?.focus();
+
     return () => {
       window.removeEventListener("keydown", onKey);
       document.body.style.overflow = prevOverflow;
+      opener?.focus?.();
     };
   }, [expanded]);
 
-  const catKey  = CATEGORY[data.symbol] ?? "forex";
+  const catKey   = CATEGORY[data.symbol] ?? "forex";
   const catLabel = tr[catKey];
   const fullName = FULL_NAME[data.symbol] ?? data.symbol;
   const dp = data.current_price < 10 ? 2 : data.current_price < 1000 ? 3 : 5;
@@ -124,231 +222,217 @@ export default function BiasCard({ data, outcome, date }: { data: InstrumentBias
     pd === "Premium" ? tr.premium : pd === "Discount" ? tr.discount : tr.equilibriumBadge;
 
   const confLabel = data.confidence >= 7 ? tr.high : data.confidence >= 5 ? tr.moderate : tr.low;
-  const narrative = data.narrative;
+
+  const open = () => setExpanded(true);
 
   return (
     <>
-    <div
-      className={`
-        group border rounded-xl overflow-hidden bg-card card-raise cursor-pointer
-        transition-all duration-300
-        hover:-translate-y-0.5 hover:bg-card-hi
-        ${biasBorder(data.daily_bias, expanded)}
-      `}
-      onClick={() => setExpanded(true)}
-    >
-      {/* Layout: left accent bar + content */}
-      <div className="flex min-h-0">
-        {/* Left color bar */}
-        <div className={`w-1 flex-shrink-0 ${biasBarBg(data.daily_bias)} opacity-80 group-hover:opacity-100 transition-opacity`} />
-
-        <div className="flex-1 min-w-0">
-          {/* Card body */}
-          <div className="p-4">
-            {/* Symbol + bias */}
-            <div className="flex items-start justify-between mb-4">
-              <div>
-                <div className="text-muted text-xs font-mono uppercase tracking-wider mb-1">
-                  {catLabel}
-                </div>
-                <div className="text-text-primary font-mono font-semibold text-2xl tracking-tight leading-none">
-                  {data.symbol}
-                </div>
-                <div className="text-text-secondary text-xs mt-1">{fullName}</div>
-              </div>
-
-              <div className="text-right shrink-0 ml-2">
-                <div className={`flex items-center justify-end gap-1.5 font-mono font-semibold text-base leading-none mb-1.5 ${biasTextColor(data.daily_bias)}`}>
-                  <BiasIcon bias={data.daily_bias} className="w-4 h-4" />
-                  {biasLabel(data.daily_bias)}
-                </div>
-                <div className="text-text-secondary text-xs font-mono">
-                  {data.current_price.toFixed(dp)}
-                </div>
-                {outcome && (
-                  <div className="mt-2">
-                    <span className={`inline-flex items-center gap-1 text-xs font-mono px-2 py-0.5 rounded border ${
-                      outcome.correct
-                        ? "text-bullish border-bullish/30 bg-bullish/10"
-                        : "text-bearish border-bearish/30 bg-bearish/10"
-                    }`}>
-                      {outcome.correct
-                        ? <Check className="w-3 h-3" strokeWidth={2.5} />
-                        : <X className="w-3 h-3" strokeWidth={2.5} />}
-                      {outcome.correct ? "Correct" : "Missed"}
-                    </span>
-                    <div className="flex items-center justify-end gap-1 text-muted text-[10px] font-mono mt-1">
-                      <ArrowRight className="w-2.5 h-2.5" /> {outcome.nextPrice.toFixed(dp)}
-                    </div>
-                  </div>
-                )}
-              </div>
+      {/* ── Collapsed card — a broadsheet clipping ───────────────────────── */}
+      <div
+        role="button"
+        tabIndex={0}
+        aria-haspopup="dialog"
+        aria-expanded={expanded}
+        aria-label={`${data.symbol} — daily bias ${biasLabel(data.daily_bias)}. Open full analysis.`}
+        onClick={open}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            open();
+          }
+        }}
+        className="group flex flex-col h-full rounded-xl border border-border bg-card card-raise
+                   p-5 cursor-pointer transition-[transform,background-color,border-color] duration-300
+                   hover:-translate-y-0.5 hover:bg-card-hi hover:border-accent/30
+                   focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+      >
+        {/* Masthead */}
+        <div className="flex items-start justify-between gap-3">
+          <div className="min-w-0">
+            <div className="dateline text-muted mb-1.5">{catLabel}</div>
+            <div className="text-text-primary font-mono font-semibold text-2xl tracking-tight leading-none">
+              {data.symbol}
             </div>
-
-            {/* Confidence */}
-            <div className="mb-4">
-              <div className="flex justify-between items-center mb-1.5">
-                <span className="text-muted text-xs font-mono">{tr.confidence}</span>
-                <span className={`text-xs font-mono font-medium ${
-                  data.confidence >= 7 ? "text-bullish"
-                  : data.confidence >= 5 ? "text-accent"
-                  : "text-neutral"
-                }`}>
-                  {data.confidence}/10 · {confLabel}
-                </span>
-              </div>
-              <ConfidenceBar value={data.confidence} />
-            </div>
-
-            {/* Tags */}
-            <div className="flex flex-wrap gap-1.5 mb-4">
-              <span className={`text-xs px-2 py-0.5 rounded font-mono border bg-surface ${biasTagBorder(data.weekly_bias)}`}>
-                {tr.weekly}&nbsp;{biasLabel(data.weekly_bias)}
-              </span>
-              <span className={`text-xs px-2 py-0.5 rounded font-mono border bg-surface ${biasTagBorder(data.daily_bias)}`}>
-                {tr.daily}&nbsp;{biasLabel(data.daily_bias)}
-              </span>
-              <span className={`text-xs px-2 py-0.5 rounded font-mono border bg-surface ${
-                data.premium_discount === "Premium"
-                  ? "text-bearish border-bearish/30"
-                  : data.premium_discount === "Discount"
-                  ? "text-bullish border-bullish/30"
-                  : "text-neutral border-neutral/30"
-              }`}>
-                {pdLabel(data.premium_discount)}
-              </span>
-            </div>
-
-            {/* Draw on Liquidity */}
-            <div className="bg-surface rounded px-3 py-2 flex items-start gap-2.5">
-              <span className="flex items-center gap-1 text-muted text-xs font-mono shrink-0 pt-px">
-                DOL <ArrowRight className="w-3 h-3" />
-              </span>
-              <span className="text-text-secondary text-xs font-mono leading-relaxed">
-                {data.draw_on_liquidity}
-              </span>
-            </div>
-
-            {/* Toggle */}
-            <div className="flex items-center justify-center mt-3 gap-1.5 text-muted text-xs group-hover:text-accent transition-colors">
-              <span className="font-mono">{tr.showAnalysis}</span>
-              <ChevronDown className="w-3.5 h-3.5" />
-            </div>
+            <div className="serif italic text-text-secondary text-[13px] mt-1.5 truncate">{fullName}</div>
+          </div>
+          <div className="text-right shrink-0">
+            <div className="dateline text-muted mb-1">{tr.last}</div>
+            <div className="text-text-secondary text-sm font-mono tabular-nums">{data.current_price.toFixed(dp)}</div>
           </div>
         </div>
-      </div>
-    </div>
 
-    {/* Full analysis — overlay window (portal) so the card grid stays neutral */}
-    {mounted && expanded && createPortal(
-      <>
+        {/* Verdict-tinted column rule */}
+        <div className={`h-px my-4 bg-gradient-to-r ${biasRule(data.daily_bias)} to-transparent`} />
+
+        {/* The verdict — the editorial call */}
+        <div className="flex items-end justify-between gap-3">
+          <div className="min-w-0">
+            <div className={`display text-[2rem] leading-[0.95] font-medium tracking-tight ${biasTextColor(data.daily_bias)}`}>
+              {biasLabel(data.daily_bias)}
+            </div>
+            <div className="dateline text-muted mt-1.5">{tr.dailyBias}</div>
+          </div>
+          <BiasIcon bias={data.daily_bias} className={`w-7 h-7 shrink-0 mb-1 ${biasTextColor(data.daily_bias)}`} />
+        </div>
+
+        {/* Byline — weekly read + zone */}
+        <div className="flex flex-wrap items-center gap-x-2 gap-y-1 mt-4 text-xs font-mono">
+          <span className="text-text-secondary">
+            {tr.weekly}{" "}
+            <span className={biasTextColor(data.weekly_bias)}>{biasLabel(data.weekly_bias)}</span>
+          </span>
+          <span className="text-border" aria-hidden>·</span>
+          <span className={pdColor(data.premium_discount)}>{pdLabel(data.premium_discount)}</span>
+        </div>
+
+        {/* Conviction */}
+        <div className="mt-4">
+          <div className="flex justify-between items-baseline mb-1.5">
+            <span className="dateline text-muted">{tr.confidence}</span>
+            <span className={`text-xs font-mono font-medium ${
+              data.confidence >= 7 ? "text-bullish" : data.confidence >= 5 ? "text-accent" : "text-neutral"
+            }`}>
+              {data.confidence}/10 · {confLabel}
+            </span>
+          </div>
+          <ConvictionMeter value={data.confidence} />
+        </div>
+
+        {/* Draw on liquidity — a margin note */}
+        <div className="mt-4">
+          <div className="dateline text-muted mb-1">{tr.drawOnLiquidity}</div>
+          <p className="serif italic text-text-secondary text-sm leading-snug">{data.draw_on_liquidity}</p>
+        </div>
+
+        {/* Outcome (archive) */}
+        {outcome && (
+          <div className="mt-4 flex items-center gap-2">
+            <span className={`inline-flex items-center gap-1 text-xs font-mono px-2 py-0.5 rounded border ${
+              outcome.correct
+                ? "text-bullish border-bullish/30 bg-bullish/10"
+                : "text-bearish border-bearish/30 bg-bearish/10"
+            }`}>
+              {outcome.correct ? <Check className="w-3 h-3" strokeWidth={2.5} /> : <X className="w-3 h-3" strokeWidth={2.5} />}
+              {outcome.correct ? "Correct" : "Missed"}
+            </span>
+            <span className="flex items-center gap-1 text-muted text-[11px] font-mono">
+              <ArrowRight className="w-3 h-3" /> {outcome.nextPrice.toFixed(dp)}
+            </span>
+          </div>
+        )}
+
+        {/* Footer cue */}
+        <div className="mt-auto pt-4 flex items-center gap-1.5 text-muted text-xs font-mono group-hover:text-accent transition-colors">
+          <span>{tr.readNote}</span>
+          <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
+        </div>
+      </div>
+
+      {/* ── Full analysis — overlay window (portal) ──────────────────────── */}
+      {mounted && expanded && createPortal(
         <div
-          className="fixed inset-0 z-[65] bg-black/50 backdrop-blur-sm backdrop-in flex items-center justify-center p-4"
+          className="fixed inset-0 z-[65] bg-black/55 backdrop-blur-sm backdrop-in flex items-center justify-center p-4"
           onClick={() => setExpanded(false)}
         >
-        <div
-          role="dialog"
-          aria-label={`${data.symbol} full analysis`}
-          onClick={(e) => e.stopPropagation()}
-          className="w-[min(640px,100%)] max-h-[88vh] rounded-xl border border-border bg-card shadow-2xl flex flex-col overflow-hidden expand-in"
-        >
-          {/* Header */}
-          <div className="flex items-center justify-between px-5 py-4 border-b border-border-soft shrink-0">
-            <div className="flex items-center gap-3 min-w-0">
-              <div className={`w-1 h-9 rounded-full shrink-0 ${biasBarBg(data.daily_bias)}`} />
+          <div
+            ref={dialogRef}
+            role="dialog"
+            aria-modal="true"
+            aria-label={`${data.symbol} — ${fullName} full analysis`}
+            onClick={(e) => e.stopPropagation()}
+            className="w-[min(660px,100%)] max-h-[88vh] rounded-xl border border-border bg-card shadow-2xl flex flex-col overflow-hidden expand-in"
+          >
+            {/* Masthead header */}
+            <div className="flex items-start justify-between gap-4 px-6 pt-5 pb-4 border-b border-border-soft shrink-0">
               <div className="min-w-0">
-                <div className="text-text-primary font-mono font-semibold text-xl leading-none">
-                  {data.symbol}
+                <div className="dateline text-muted mb-1.5">{catLabel}</div>
+                <div className="flex items-baseline gap-3 flex-wrap">
+                  <span className="text-text-primary font-mono font-semibold text-2xl leading-none tracking-tight">
+                    {data.symbol}
+                  </span>
+                  <span className={`flex items-center gap-1.5 font-mono font-semibold text-sm ${biasTextColor(data.daily_bias)}`}>
+                    <BiasIcon bias={data.daily_bias} className="w-4 h-4" />
+                    {biasLabel(data.daily_bias)}
+                  </span>
                 </div>
-                <div className="text-text-secondary text-xs mt-1 truncate">{fullName}</div>
+                <div className="serif italic text-text-secondary text-sm mt-1.5 truncate">{fullName}</div>
               </div>
-              <div className={`flex items-center gap-1.5 font-mono font-semibold text-sm ml-1 ${biasTextColor(data.daily_bias)}`}>
-                <BiasIcon bias={data.daily_bias} className="w-4 h-4" />
-                {biasLabel(data.daily_bias)}
-              </div>
+              <button
+                ref={closeRef}
+                onClick={() => setExpanded(false)}
+                aria-label="Close analysis"
+                className="shrink-0 h-9 w-9 flex items-center justify-center rounded-lg border border-border text-text-secondary
+                           hover:border-accent/60 hover:text-accent transition-colors
+                           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60"
+              >
+                <X className="w-4 h-4" strokeWidth={2} />
+              </button>
             </div>
-            <button
-              onClick={() => setExpanded(false)}
-              aria-label="Close analysis"
-              className="shrink-0 h-8 w-8 flex items-center justify-center rounded border border-border text-text-secondary hover:border-accent/60 hover:text-accent transition-colors"
-            >
-              <X className="w-4 h-4" strokeWidth={2} />
-            </button>
-          </div>
 
-          {/* Scrollable detail */}
-          <div className="overflow-y-auto p-5 space-y-5">
-              {/* Community vote — surfaced first */}
-              <section>
-                <div className="text-xs font-mono text-muted uppercase tracking-wider mb-2 flex items-center gap-2">
-                  <Minus className="w-3 h-3 text-accent/60" strokeWidth={2.5} />
-                  <span>Community Bias · {data.symbol}</span>
-                </div>
-                <div className="bg-surface rounded p-3">
-                  <InstrumentVote date={date} symbol={data.symbol} />
-                </div>
-              </section>
-
-              {/* Discussion — opens in the right-side drawer */}
-              <section>
+            {/* Scrollable detail */}
+            <div className="overflow-y-auto px-6 py-5 space-y-7">
+              {/* Community */}
+              <section className="section-rise" style={{ "--i": 0 } as CSSProperties}>
+                <SectionHead title={tr.communityBias} meta={data.symbol} />
+                <InstrumentVote date={date} symbol={data.symbol} />
                 <button
                   type="button"
                   onClick={() => openChat(date, data.symbol)}
-                  className="w-full flex items-center justify-center gap-2 text-sm font-mono border border-accent/40 text-accent rounded-lg py-2.5 hover:bg-accent/10 transition-colors"
+                  className="mt-3 w-full flex items-center justify-center gap-2 text-sm font-mono border border-accent/40 text-accent
+                             rounded-lg py-2.5 hover:bg-accent/10 transition-colors
+                             focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60"
                 >
                   <MessagesSquare className="w-4 h-4" strokeWidth={2} />
-                  Open conversation · {data.symbol}
+                  {tr.openConversation}
                 </button>
               </section>
 
-              {/* Key Levels */}
-              <section>
-                <div className="text-xs font-mono text-muted uppercase tracking-wider mb-2 flex items-center gap-2">
-                  <Minus className="w-3 h-3 text-accent/60" strokeWidth={2.5} />
-                  <span>{tr.keyLevels}</span>
-                </div>
-                <div className="bg-surface rounded p-3">
-                  <DataRow label={tr.swingHigh}    value={formatPrice(data.swing_high)} />
-                  <DataRow label={tr.equilibrium}  value={formatPrice(data.equilibrium)} />
-                  <DataRow label={tr.swingLow}     value={formatPrice(data.swing_low)} />
-                  <DataRow label={tr.prevDayHigh}  value={formatPrice(data.previous_day_high)} />
-                  <DataRow label={tr.prevDayLow}   value={formatPrice(data.previous_day_low)} />
-                  <DataRow label={tr.prevWeekHigh} value={formatPrice(data.previous_week_high)} />
-                  <DataRow label={tr.prevWeekLow}  value={formatPrice(data.previous_week_low)} />
-                </div>
+              {/* Dealing range — signature visual */}
+              <section className="section-rise" style={{ "--i": 1 } as CSSProperties}>
+                <SectionHead title={tr.dealingRange} meta={pdLabel(data.premium_discount)} />
+                <RangeLadder data={data} />
               </section>
 
-              {/* Market Structure */}
-              <section>
-                <div className="text-xs font-mono text-muted uppercase tracking-wider mb-2 flex items-center gap-2">
-                  <Minus className="w-3 h-3 text-accent/60" strokeWidth={2.5} />
-                  <span>{tr.marketStructure}</span>
-                </div>
-                <div className="bg-surface rounded p-3 space-y-1.5">
-                  <div className="text-text-secondary text-xs">{data.structure_label}</div>
-                  <div className="text-muted text-xs font-mono italic">{data.last_bos}</div>
-                </div>
+              {/* Reference levels */}
+              <section className="section-rise" style={{ "--i": 2 } as CSSProperties}>
+                <SectionHead title={tr.referenceLevels} />
+                <Ledger
+                  rows={[
+                    [tr.prevDayHigh, formatPrice(data.previous_day_high)],
+                    [tr.prevWeekHigh, formatPrice(data.previous_week_high)],
+                    [tr.prevDayLow, formatPrice(data.previous_day_low)],
+                    [tr.prevWeekLow, formatPrice(data.previous_week_low)],
+                  ]}
+                />
+              </section>
+
+              {/* Market structure */}
+              <section className="section-rise" style={{ "--i": 3 } as CSSProperties}>
+                <SectionHead title={tr.marketStructure} />
+                <p className="text-text-secondary text-sm leading-relaxed">{data.structure_label}</p>
+                <p className="text-muted text-xs font-mono italic mt-1.5">{data.last_bos}</p>
               </section>
 
               {/* POI */}
               {(data.nearest_ob || data.nearest_fvg) && (
-                <section>
-                  <div className="text-xs font-mono text-muted uppercase tracking-wider mb-2 flex items-center gap-2">
-                    <Minus className="w-3 h-3 text-accent/60" strokeWidth={2.5} />
-                    <span>{tr.keyPoi}</span>
-                  </div>
-                  <div className="bg-surface rounded p-3 space-y-1.5">
-                    <div className="text-text-secondary text-xs font-mono">
-                      {data.key_poi_label}
-                    </div>
+                <section className="section-rise" style={{ "--i": 4 } as CSSProperties}>
+                  <SectionHead title={tr.keyPoi} />
+                  <p className="text-text-secondary text-sm font-mono">{data.key_poi_label}</p>
+                  <div className="mt-2 space-y-1">
                     {data.nearest_ob && (
-                      <div className="text-muted text-xs font-mono">
-                        OB: {data.nearest_ob.low.toFixed(5)} – {data.nearest_ob.high.toFixed(5)}
+                      <div className="flex justify-between text-xs font-mono tabular-nums border-b border-border-soft/70 py-1.5">
+                        <span className="text-muted">{tr.orderBlock}</span>
+                        <span className="text-text-secondary">
+                          {data.nearest_ob.low.toFixed(5)} – {data.nearest_ob.high.toFixed(5)}
+                        </span>
                       </div>
                     )}
                     {data.nearest_fvg && (
-                      <div className="text-muted text-xs font-mono">
-                        FVG: {data.nearest_fvg.bottom.toFixed(5)} – {data.nearest_fvg.top.toFixed(5)} &nbsp;·&nbsp; CE: {data.nearest_fvg.ce.toFixed(5)}
+                      <div className="flex justify-between text-xs font-mono tabular-nums py-1.5">
+                        <span className="text-muted">{tr.fvg}</span>
+                        <span className="text-text-secondary">
+                          {data.nearest_fvg.bottom.toFixed(5)} – {data.nearest_fvg.top.toFixed(5)} · CE {data.nearest_fvg.ce.toFixed(5)}
+                        </span>
                       </div>
                     )}
                   </div>
@@ -357,52 +441,41 @@ export default function BiasCard({ data, outcome, date }: { data: InstrumentBias
 
               {/* Liquidity */}
               {data.liquidity_levels.length > 0 && (
-                <section>
-                  <div className="text-xs font-mono text-muted uppercase tracking-wider mb-2 flex items-center gap-2">
-                    <Minus className="w-3 h-3 text-accent/60" strokeWidth={2.5} />
-                    <span>{tr.liquidity}</span>
-                  </div>
-                  <div className="grid grid-cols-2 gap-1">
+                <section className="section-rise" style={{ "--i": 5 } as CSSProperties}>
+                  <SectionHead title={tr.liquidity} />
+                  <div className="grid grid-cols-2 gap-x-8 gap-y-0">
                     {data.liquidity_levels.slice(0, 8).map((l, i) => (
                       <div
                         key={i}
-                        className={`text-xs px-2.5 py-1.5 rounded font-mono flex justify-between items-center border ${
-                          l.kind === "BSL"
-                            ? "bg-bullish/8 text-bullish border-bullish/20"
-                            : "bg-bearish/8 text-bearish border-bearish/20"
-                        }`}
+                        className="flex justify-between items-baseline text-xs font-mono tabular-nums py-1.5 border-b border-border-soft/70"
                       >
-                        <span className="font-medium">{l.kind}{l.equal ? "=" : ""}</span>
-                        <span>
+                        <span className={`font-medium ${l.kind === "BSL" ? "text-bullish" : "text-bearish"}`}>
+                          {l.kind}{l.equal ? "=" : ""}
+                        </span>
+                        <span className="text-text-secondary">
                           {l.price.toFixed(l.price < 10 ? 2 : l.price < 1000 ? 3 : 5)}
                         </span>
                       </div>
                     ))}
                   </div>
                   {data.liquidity_levels.some((l) => l.equal) && (
-                    <div className="text-muted text-xs font-mono mt-1.5">{tr.eqNote}</div>
+                    <p className="text-muted text-xs font-mono mt-2">{tr.eqNote}</p>
                   )}
                 </section>
               )}
 
-              {/* Narrative */}
-              <section>
-                <div className="text-xs font-mono text-muted uppercase tracking-wider mb-2 flex items-center gap-2">
-                  <Minus className="w-3 h-3 text-accent/60" strokeWidth={2.5} />
-                  <span>{tr.narrative}</span>
-                </div>
-                <div className="bg-surface rounded p-4">
-                  <p className="serif italic text-text-secondary text-sm leading-relaxed">
-                    {narrative}
-                  </p>
-                </div>
+              {/* Narrative — the centerpiece */}
+              <section className="section-rise" style={{ "--i": 6 } as CSSProperties}>
+                <SectionHead title={tr.narrative} />
+                <p className="dropcap serif italic text-text-secondary text-[15px] leading-relaxed">
+                  {data.narrative}
+                </p>
               </section>
+            </div>
           </div>
-        </div>
-        </div>
-      </>,
-      document.body
-    )}
+        </div>,
+        document.body
+      )}
     </>
   );
 }

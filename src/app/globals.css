@@ -125,19 +125,41 @@ body {
   box-shadow: inset 0 0 0 1px rgb(var(--neutral) / 0.28), 0 12px 34px -18px rgb(var(--neutral) / 0.35);
 }
 
-/* Raised surface — gives cards quiet dimension */
+/* Raised surface — gives cards quiet dimension. Tight, grounded shadow
+   (short offset + small blur) reads as resting on the page, not floating. */
 .card-raise {
   background-image: linear-gradient(180deg, var(--film), transparent 42%);
-  box-shadow: 0 1px 0 var(--film) inset, 0 18px 40px -28px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 1px 0 var(--film) inset, 0 6px 16px -12px rgba(0, 0, 0, 0.6);
 }
 :root[data-theme="light"] .card-raise {
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7) inset, 0 14px 30px -24px rgba(76, 56, 30, 0.45);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7) inset, 0 5px 14px -12px rgba(76, 56, 30, 0.38);
 }
 
 /* Hairline gold rule for section headers */
 .rule-fade {
   background: linear-gradient(90deg, rgb(var(--accent-dim)), transparent);
   opacity: 0.5;
+}
+
+/* Editorial dateline — small-caps mono metadata (category, labels) */
+.dateline {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/* Drop cap for the narrative pull-quote — broadsheet centerpiece */
+.dropcap::first-letter {
+  font-family: 'Fraunces', Georgia, serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 3.2em;
+  line-height: 0.78;
+  float: left;
+  margin: 0.02em 0.09em 0 0;
+  color: rgb(var(--accent));
 }
 
 /* Animations */
@@ -182,4 +204,31 @@ body {
 }
 .backdrop-in {
   animation: fadeIn 0.25s ease forwards;
+}
+
+/* Overlay sections rise in with a gentle stagger (set --i per section) */
+.section-rise {
+  opacity: 0;
+  animation: fadeUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: calc(var(--i, 0) * 55ms);
+}
+
+/* Reduced motion — neutralize every entrance/transition to an instant state.
+   Reveals here only enhance already-visible content, so removing them is safe. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .section-rise,
+  .fade-up {
+    opacity: 1 !important;
+  }
 }

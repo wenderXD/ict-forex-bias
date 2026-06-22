@@ -151,7 +151,7 @@ export default function KillzoneTracker() {
           </span>
         </div>
         <div className="flex items-center gap-2">
-          <span className="text-muted text-xs font-mono">New York</span>
+          <span className="text-text-secondary text-xs font-mono">New York</span>
           <span className="text-text-primary text-xs font-mono font-medium tabular-nums">
             {fmtClock(h, m, s)}&nbsp;ET
           </span>
@@ -196,7 +196,7 @@ export default function KillzoneTracker() {
                       ? colors.text
                       : isUpcoming
                       ? colors.dim
-                      : "rgb(var(--muted))",
+                      : "rgb(var(--text-2))",
                   }}
                 >
                   {kz.label}
@@ -208,7 +208,7 @@ export default function KillzoneTracker() {
                       ? { color: colors.text, borderColor: colors.border, backgroundColor: colors.bg }
                       : isUpcoming
                       ? { color: colors.dim, borderColor: "rgb(var(--border) / 0.85)", backgroundColor: "transparent" }
-                      : { color: "rgb(var(--muted))", borderColor: "rgb(var(--border))", backgroundColor: "transparent" }
+                      : { color: "rgb(var(--text-2))", borderColor: "rgb(var(--border))", backgroundColor: "transparent" }
                   }
                 >
                   {isActive ? "LIVE" : isUpcoming ? "SOON" : "CLOSED"}
@@ -216,7 +216,7 @@ export default function KillzoneTracker() {
               </div>
 
               {/* Time range */}
-              <div className="text-xs font-mono text-muted mb-2.5">
+              <div className="text-xs font-mono text-text-secondary mb-2.5">
                 {fmtRange(kz.startH, kz.startM)} – {fmtRange(kz.endH, kz.endM)}
               </div>
 
@@ -238,7 +238,7 @@ export default function KillzoneTracker() {
                       ? colors.text
                       : isUpcoming
                       ? "rgb(var(--text-2))"
-                      : "rgb(var(--muted))",
+                      : "rgb(var(--text-2))",
                   }}
                 >
                   {timer}
@@ -246,7 +246,7 @@ export default function KillzoneTracker() {
               </div>
 
               {/* Scope */}
-              <div className="text-[10px] font-mono text-muted mt-1">{kz.scope}</div>
+              <div className="text-[11px] font-mono text-text-secondary mt-1">{kz.scope}</div>
             </div>
           );
         })}
